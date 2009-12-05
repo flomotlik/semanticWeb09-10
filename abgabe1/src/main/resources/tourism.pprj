@@ -1,4 +1,4 @@
-; Sat Dec 05 12:55:29 CET 2009
+; Sat Dec 05 17:05:18 CET 2009
 ; 
 ;+ (version "3.4.1")
 ;+ (build "Build 537")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[tourism_ProjectKB_Class10063]
-		[tourism_ProjectKB_Class10064]
-		[tourism_ProjectKB_Class10065]
-		[tourism_ProjectKB_Class10066]
-		[tourism_ProjectKB_Class10067]))
+		[tourism_ProjectKB_Class53]
+		[tourism_ProjectKB_Class54]
+		[tourism_ProjectKB_Class55]
+		[tourism_ProjectKB_Class56]
+		[tourism_ProjectKB_Class57]))
 
 ([CLSES_TAB] of  Widget
 
@@ -751,6 +751,9 @@
 
 	(name "owl_file_name")
 	(string_value "tourism.owl"))
+
+([KB_439037_Class0] of  Map
+)
 
 ([KB_444675_Instance_0] of  String
 
@@ -3004,9 +3007,6 @@
 	(property_list [KB_713803_Instance_981]))
 
 ([KB_713803_Instance_981] of  Property_List
-)
-
-([KB_750916_Class0] of  Map
 )
 
 ([KB_764103_Instance_545] of  Widget
@@ -5354,6 +5354,7 @@
 		[KB_713803_Instance_693]
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[KB_938545_Instance_166]
+		[tourism_ProjectKB_Class10099]
 		[STANDARD_SLOT_FORM_WIDGET]
 		[KB_313796_Instance_943]
 		[KB_938545_Instance_661]
@@ -5643,30 +5644,171 @@
 ([tourism_ProjectKB_Class10] of  Property_List
 )
 
-([tourism_ProjectKB_Class10063] of  String
+([tourism_ProjectKB_Class10099] of  Widget
 
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
+	(is_hidden FALSE)
+	(name "http://www.tourism.com/tourismontology#Hotel")
+	(property_list [tourism_ProjectKB_Class10102])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
 
-([tourism_ProjectKB_Class10064] of  String
+([tourism_ProjectKB_Class10102] of  Property_List
 
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
+	(properties
+		[tourism_ProjectKB_Class10103]
+		[tourism_ProjectKB_Class10106]
+		[tourism_ProjectKB_Class10109]
+		[tourism_ProjectKB_Class10112]
+		[tourism_ProjectKB_Class10114]
+		[tourism_ProjectKB_Class10116]
+		[tourism_ProjectKB_Class10118]
+		[tourism_ProjectKB_Class10120]
+		[tourism_ProjectKB_Class10122]
+		[tourism_ProjectKB_Class10124]
+		[tourism_ProjectKB_Class10126]))
 
-([tourism_ProjectKB_Class10065] of  String
+([tourism_ProjectKB_Class10103] of  Widget
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
+	(height 0)
+	(is_hidden FALSE)
+	(label "Name")
+	(name ":NAME")
+	(property_list [tourism_ProjectKB_Class10104])
+	(width 0)
+	(x 0)
+	(y 0))
 
-([tourism_ProjectKB_Class10066] of  String
+([tourism_ProjectKB_Class10104] of  Property_List
 
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
+	(properties [tourism_ProjectKB_Class10105]))
 
-([tourism_ProjectKB_Class10067] of  String
+([tourism_ProjectKB_Class10105] of  Boolean
 
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
+	(boolean_value TRUE)
+	(name "DisabledByUser"))
+
+([tourism_ProjectKB_Class10106] of  Property_List
+
+	(name "layout properties")
+	(properties
+		[tourism_ProjectKB_Class10107]
+		[tourism_ProjectKB_Class10108]))
+
+([tourism_ProjectKB_Class10107] of  String
+
+	(name "horizontal_stretcher")
+	(string_value "<<all>>"))
+
+([tourism_ProjectKB_Class10108] of  String
+
+	(name "vertical_stretcher")
+	(string_value "<<none>>"))
+
+([tourism_ProjectKB_Class10109] of  Widget
+
+	(height 180)
+	(is_hidden FALSE)
+	(name "http://protege.stanford.edu/plugins/owl/protege#inferredType")
+	(property_list [tourism_ProjectKB_Class10110])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.HeaderWidget")
+	(width 550)
+	(x 0)
+	(y 0))
+
+([tourism_ProjectKB_Class10110] of  Property_List
+
+	(properties [tourism_ProjectKB_Class10111]))
+
+([tourism_ProjectKB_Class10111] of  Boolean
+
+	(boolean_value FALSE)
+	(name "DisabledByUser"))
+
+([tourism_ProjectKB_Class10112] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2002/07/owl#versionInfo")
+	(property_list [tourism_ProjectKB_Class10113]))
+
+([tourism_ProjectKB_Class10113] of  Property_List
+)
+
+([tourism_ProjectKB_Class10114] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#isDefinedBy")
+	(property_list [tourism_ProjectKB_Class10115]))
+
+([tourism_ProjectKB_Class10115] of  Property_List
+)
+
+([tourism_ProjectKB_Class10116] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#comment")
+	(property_list [tourism_ProjectKB_Class10117]))
+
+([tourism_ProjectKB_Class10117] of  Property_List
+)
+
+([tourism_ProjectKB_Class10118] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#seeAlso")
+	(property_list [tourism_ProjectKB_Class10119]))
+
+([tourism_ProjectKB_Class10119] of  Property_List
+)
+
+([tourism_ProjectKB_Class10120] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#label")
+	(property_list [tourism_ProjectKB_Class10121]))
+
+([tourism_ProjectKB_Class10121] of  Property_List
+)
+
+([tourism_ProjectKB_Class10122] of  Widget
+
+	(height 120)
+	(is_hidden FALSE)
+	(name "http://www.tourism.com/tourismontology#name")
+	(property_list [tourism_ProjectKB_Class10123])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiLiteralWidget")
+	(width 200)
+	(x 0)
+	(y 300))
+
+([tourism_ProjectKB_Class10123] of  Property_List
+)
+
+([tourism_ProjectKB_Class10124] of  Widget
+
+	(height 120)
+	(is_hidden FALSE)
+	(name "http://www.tourism.com/tourismontology#hatAnzahlSterne")
+	(property_list [tourism_ProjectKB_Class10125])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiLiteralWidget")
+	(width 200)
+	(x 0)
+	(y 180))
+
+([tourism_ProjectKB_Class10125] of  Property_List
+)
+
+([tourism_ProjectKB_Class10126] of  Widget
+
+	(height 240)
+	(is_hidden FALSE)
+	(name "http://www.tourism.com/tourismontology#hatZimmer")
+	(property_list [tourism_ProjectKB_Class10127])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
+	(width 200)
+	(x 200)
+	(y 180))
+
+([tourism_ProjectKB_Class10127] of  Property_List
+)
 
 ([tourism_ProjectKB_Class11] of  Widget
 
@@ -5874,6 +6016,31 @@
 
 ([tourism_ProjectKB_Class52] of  Property_List
 )
+
+([tourism_ProjectKB_Class53] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([tourism_ProjectKB_Class54] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([tourism_ProjectKB_Class55] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([tourism_ProjectKB_Class56] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([tourism_ProjectKB_Class57] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
 
 ([tourism_ProjectKB_Class58] of  String
 
