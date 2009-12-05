@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.tourism.com/tourismontology#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.tourism.com/tourismontology">
+  <owl:Ontology rdf:about=""/>
+  <rdfs:Class rdf:ID="Zimmer"/>
+  <rdfs:Class rdf:ID="Buchung"/>
+  <rdfs:Class rdf:ID="Gast"/>
+  <rdfs:Class rdf:ID="Hotel"/>
+  <owl:ObjectProperty rdf:ID="wurdeGebuchtVon">
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hatGebucht"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Gast"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hatZimmer">
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="#Zimmer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="istReserviertDurch">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="istReservierungFuer"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Buchung"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#istReservierungFuer">
+    <owl:inverseOf rdf:resource="#istReserviertDurch"/>
+    <rdfs:range rdf:resource="#Zimmer"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hatGebucht">
+    <rdfs:domain rdf:resource="#Gast"/>
+    <owl:inverseOf rdf:resource="#wurdeGebuchtVon"/>
+    <rdfs:range rdf:resource="#Buchung"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="istNeben">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >gibt an, dass ein Zimmer neben einem anderen Zimmer liegt</rdfs:comment>
+    <rdfs:range rdf:resource="#Zimmer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <owl:inverseOf rdf:resource="#istNeben"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdfs:Class rdf:about="#Hotel"/>
+          <rdfs:Class rdf:about="#Gast"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="istGebuchtBis">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="istGebuchtVon">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="geburtsdatum">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="istRaucher">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="preis">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatAnzahlSterne">
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anzahl der Sterne</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatAnzahlBetten">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anzahl der Betten im Zimmer</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="istVerwandtMit">
+    <rdfs:domain rdf:resource="#Gast"/>
+    <rdfs:range rdf:resource="#Gast"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <owl:inverseOf rdf:resource="#istVerwandtMit"/>
+  </owl:TransitiveProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->
