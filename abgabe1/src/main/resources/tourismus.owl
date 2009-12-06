@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/tourism.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/tourism.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="RenaissanceSchloss">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GotischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="KlassizistischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HistorischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BarockSchloss"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Schloss"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Tennis">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Volleyball"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Fitness"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sport"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Sauna">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Wellnessangebot"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Pool"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sport"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="KunstMuseum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Museum"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HeeresgeschichtlichesMuseum"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TechnischesMuseum"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NaturhistorischesMuseum"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Museum">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Vergnügungspark"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Schloss"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Tourismusattraktion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Tourismusattraktion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Angebot"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wellnessangebot"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Volleyball">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Fitness"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Tennis"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sport"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="WhirlPool">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pool"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HallenPool"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FreiPool"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#KlassizistischesSchloss">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Schloss"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GotischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HistorischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BarockSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TechnischesMuseum">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HeeresgeschichtlichesMuseum"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NaturhistorischesMuseum"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#KunstMuseum"/>
+    <rdfs:subClassOf rdf:resource="#Museum"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Gast">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Buchung"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Zimmer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Angebot"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#FreiPool">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HallenPool"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WhirlPool"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pool"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Schloss">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vergnügungspark"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Museum"/>
+    <rdfs:subClassOf rdf:resource="#Tourismusattraktion"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NaturhistorischesMuseum">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HeeresgeschichtlichesMuseum"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TechnischesMuseum"/>
+    <owl:disjointWith rdf:resource="#KunstMuseum"/>
+    <rdfs:subClassOf rdf:resource="#Museum"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Vergnügungspark">
+    <rdfs:subClassOf rdf:resource="#Tourismusattraktion"/>
+    <owl:disjointWith rdf:resource="#Museum"/>
+    <owl:disjointWith rdf:resource="#Schloss"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Hotel">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Buchung"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Zimmer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Angebot"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#HeeresgeschichtlichesMuseum">
+    <owl:disjointWith rdf:resource="#TechnischesMuseum"/>
+    <owl:disjointWith rdf:resource="#NaturhistorischesMuseum"/>
+    <owl:disjointWith rdf:resource="#KunstMuseum"/>
+    <rdfs:subClassOf rdf:resource="#Museum"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Angebot">
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Zimmer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Buchung"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Gast"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Pool">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sauna"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Wellnessangebot"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BarockSchloss">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GotischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HistorischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
+    <rdfs:subClassOf rdf:resource="#Schloss"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HallenPool">
+    <rdfs:subClassOf rdf:resource="#Pool"/>
+    <owl:disjointWith rdf:resource="#FreiPool"/>
+    <owl:disjointWith rdf:resource="#WhirlPool"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Wellnessangebot">
+    <owl:disjointWith rdf:resource="#Tourismusattraktion"/>
+    <rdfs:subClassOf rdf:resource="#Angebot"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Buchung">
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Zimmer"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Angebot"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Zimmer">
+    <owl:disjointWith rdf:resource="#Buchung"/>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Angebot"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GotischesSchloss">
+    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HistorischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#BarockSchloss"/>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
+    <rdfs:subClassOf rdf:resource="#Schloss"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sport">
+    <rdfs:subClassOf rdf:resource="#Wellnessangebot"/>
+    <owl:disjointWith rdf:resource="#Pool"/>
+    <owl:disjointWith rdf:resource="#Sauna"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Fitness">
+    <rdfs:subClassOf rdf:resource="#Sport"/>
+    <owl:disjointWith rdf:resource="#Volleyball"/>
+    <owl:disjointWith rdf:resource="#Tennis"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HistorischesSchloss">
+    <owl:disjointWith rdf:resource="#GotischesSchloss"/>
+    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
+    <owl:disjointWith rdf:resource="#BarockSchloss"/>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
+    <rdfs:subClassOf rdf:resource="#Schloss"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="bucht">
+    <rdfs:range rdf:resource="#Buchung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="gebuchtVon"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ausgenutztVon">
+    <rdfs:range rdf:resource="#Gast"/>
+    <rdfs:domain rdf:resource="#Angebot"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="beinhaltetZimmer">
+    <rdfs:range rdf:resource="#Zimmer"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="ausgebuchtMit"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="gehörtZuHotel">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hatZimmer"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Hotel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hatZimmer">
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <owl:inverseOf rdf:resource="#gehörtZuHotel"/>
+    <rdfs:range rdf:resource="#Zimmer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="liegtNeben">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:range rdf:resource="#Zimmer"/>
+    <owl:inverseOf rdf:resource="#liegtNeben"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="istAngebotenVon">
+    <rdfs:domain rdf:resource="#Angebot"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="bietet"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Hotel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#bietet">
+    <owl:inverseOf rdf:resource="#istAngebotenVon"/>
+    <rdfs:range rdf:resource="#Angebot"/>
+    <rdfs:domain rdf:resource="#Hotel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="istInNäheVon">
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <rdfs:range rdf:resource="#Hotel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <owl:inverseOf rdf:resource="#istInNäheVon"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="nutzt">
+    <rdfs:range rdf:resource="#Angebot"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#ausgebuchtMit">
+    <rdfs:range rdf:resource="#Buchung"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <owl:inverseOf rdf:resource="#beinhaltetZimmer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#gebuchtVon">
+    <rdfs:range rdf:resource="#Gast"/>
+    <owl:inverseOf rdf:resource="#bucht"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="dauertBis">
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatNummer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="istRaucherZimmer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatSterne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="kostet">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatName">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Hotel"/>
+          <owl:Class rdf:about="#Gast"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatBetten">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="dauertVon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="istFamilienVerwandt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#istFamilienVerwandt"/>
+    <rdfs:subPropertyOf>
+      <owl:SymmetricProperty rdf:ID="istVerwandt"/>
+    </rdfs:subPropertyOf>
+  </owl:TransitiveProperty>
+  <owl:SymmetricProperty rdf:about="#istVerwandt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Gast"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+    <owl:inverseOf rdf:resource="#istVerwandt"/>
+  </owl:SymmetricProperty>
+  <owl:SymmetricProperty rdf:ID="istAllgemeinVerwandt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#istAllgemeinVerwandt"/>
+    <rdfs:subPropertyOf rdf:resource="#istVerwandt"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:ID="istGeborenAm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->
