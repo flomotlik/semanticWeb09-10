@@ -35,7 +35,7 @@ public class Main {
                     sparqler.eigth();
                     break;
                 case 9:
-                    exit = false;
+                    exit = true;
                     break;
             }
         } while (!exit);
@@ -43,13 +43,13 @@ public class Main {
 
     public int printMenu() {
         System.out.println("HotelExpert\n" + "-----------\n" + "1 Welche Hotels haben mindestens <Anzahl> Sterne?\n"
-            + "2 Welche Attraktionen oder Hotels sind in der Nähe von <Hotelname>?\n"
+            + "2 Welche Attraktionen oder Hotels sind in der Naehe von <Hotelname>?\n"
             + "3 Hat Person <Gastname> schon in Hotel <Hotelname> gewohnt (ja/nein)?\n"
             + "4 Welche Personen haben ein Raucherzimmer gebucht?\n"
-            + "5 Welche Wellnessangebote werden von Gästen genutzt, die ein Raucherzimmer gebucht haben?\n"
+            + "5 Welche Wellnessangebote werden von Gaesten genutzt, die ein Raucherzimmer gebucht haben?\n"
             + "6 Ist das Zimmer <Zimmernummer1> neben dem Zimmer <Zimmernummer2> (ja/nein)?\n"
             + "7 Ist <Gastname> verwandt mit <Gastname> (ja/nein)?\n"
-            + "8 Welche Gäste, die verwandt sind, haben neben einander ein Zimmer gebucht?\n" + "9 Beenden\n"
+            + "8 Welche Gaeste, die verwandt sind, haben neben einander ein Zimmer gebucht?\n" + "9 Beenden\n"
             + "Ihre Auswahl:");
         return new Scanner(System.in).nextInt();
     }

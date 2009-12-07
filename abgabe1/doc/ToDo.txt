@@ -1,4 +1,4 @@
-* Abfragen auf wahr/falsch liefern ergebnis tupel/lehres ergebnis
+* Abfragen auf wahr/falsch liefern ergebnis tupel/leeres ergebnis
 
 * Instanzdaten anpassen für :
 
