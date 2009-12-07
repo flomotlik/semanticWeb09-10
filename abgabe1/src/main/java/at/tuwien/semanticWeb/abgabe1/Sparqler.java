@@ -1,12 +1,12 @@
 package at.tuwien.semanticWeb.abgabe1;
 
+import java.io.File;
 import java.util.Scanner;
 
-import com.hp.hpl.jena.rdf.model.InfModel;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.reasoner.Reasoner;
-import com.hp.hpl.jena.reasoner.rulesys.OWLMiniReasonerFactory;
 import com.hp.hpl.jena.util.FileManager;
 
 public class Sparqler {
@@ -14,6 +14,7 @@ public class Sparqler {
     public void first() {
         String number = this.askParameter("Anzahl");
         String query = "SELECT ?Hotel WHERE {  ?Hotel trsm:hatSterne ?sterne FILTER(?sterne >= " + number + ")}";
+        query(query);
     }
 
     public void second() {
@@ -68,8 +69,17 @@ public class Sparqler {
     }
 
     private void query(String queryString) {
-        Model model = FileManager.get().loadModel("src/main/resources/tourism.owl");
-        InfModel infModel = ModelFactory.createRDFSModel(model);
-        Reasoner reasoner = OWLMiniReasonerFactory.theInstance().create(null);
+        File f = new File("/home/florian/workspaces/uni/semanticWeb/abgabe1/src/main/resources/tourismus.owl");
+        System.out.println("Exists: " + f.getAbsolutePath() + " " + f.exists());
+        Model model = FileManager.get().loadModel(
+            "/home/florian/workspaces/uni/semanticWeb/abgabe1/src/main/resources/tourismus.owl");
+        String newQueryString = "PREFIX trsm:<http://www.owl-ontologies.com/tourism.owl#> " + queryString;
+        QueryExecution qe = QueryExecutionFactory.create(newQueryString, model);
+        ResultSet results = qe.execSelect();
+        System.out.println("Result:");
+        while (results.hasNext()) {
+            System.out.println("   " + results.next());
+        }
+        qe.close();
     }
 }
