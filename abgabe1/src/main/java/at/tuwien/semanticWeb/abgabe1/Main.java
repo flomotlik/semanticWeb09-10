@@ -7,23 +7,32 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         boolean exit = false;
+        Sparqler sparqler = new Sparqler();
         do {
             switch (main.printMenu()) {
                 case 1:
+                    sparqler.first();
                     break;
                 case 2:
+                    sparqler.second();
                     break;
                 case 3:
+                    sparqler.third();
                     break;
                 case 4:
+                    sparqler.fourth();
                     break;
                 case 5:
+                    sparqler.fifth();
                     break;
                 case 6:
+                    sparqler.sixth();
                     break;
                 case 7:
+                    sparqler.seventh();
                     break;
                 case 8:
+                    sparqler.eigth();
                     break;
                 case 9:
                     exit = false;
