@@ -1,0 +1,14 @@
+* Abfragen auf wahr/falsch liefern ergebnis tupel/lehres ergebnis
+
+* Instanzdaten anpassen für :
+
+  5 Welche Wellnessangebote werden von GÃ¤sten genutzt, die ein Raucherzimmer gebucht haben?
+  liefert kein Ergebnis
+
+* wenn mehrere Abfragen ausgeführt wurden, gibts beim Beenden ein:
+
+ERROR: JDWP Unable to get JNI 1.2 environment, jvm->GetEnv() return code = -2
+JDWP exit error AGENT_ERROR_NO_JNI_ENV(183):  [../../../src/share/back/util.c:820]
+
+aber wir sollten evt das Model sowieso wiederverwenden
+
