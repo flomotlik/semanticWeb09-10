@@ -1,4 +1,4 @@
-; Mon Dec 07 13:38:33 CET 2009
+; Mon Dec 07 20:28:03 CET 2009
 ; 
 ;+ (version "3.4.1")
 ;+ (build "Build 537")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[tourismus_ProjectKB_Class289]
-		[tourismus_ProjectKB_Class290]
-		[tourismus_ProjectKB_Class291]
-		[tourismus_ProjectKB_Class292]
-		[tourismus_ProjectKB_Class293]))
+		[tourismus_ProjectKB_Class707]
+		[tourismus_ProjectKB_Class708]
+		[tourismus_ProjectKB_Class709]
+		[tourismus_ProjectKB_Class710]
+		[tourismus_ProjectKB_Class711]))
 
 ([CLSES_TAB] of  Widget
 
@@ -755,7 +755,7 @@
 ([KB_444675_Instance_0] of  String
 
 	(name "SwitchableClassDefinitionType")
-	(string_value "edu.stanford.smi.protegex.owl.ui.cls.LogicClassDefinitionWidget"))
+	(string_value "edu.stanford.smi.protegex.owl.ui.cls.PropertiesClassDefinitionWidget"))
 
 ([KB_465546_Instance_567] of  Widget
 
@@ -5729,36 +5729,11 @@
 ([tourismus_ProjectKB_Class28] of  Property_List
 )
 
-([tourismus_ProjectKB_Class289] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
 ([tourismus_ProjectKB_Class29] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [tourismus_ProjectKB_Class30])
 	(widget_class_name "edu.stanford.smi.protegex.xml.tab.XMLTab"))
-
-([tourismus_ProjectKB_Class290] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([tourismus_ProjectKB_Class291] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([tourismus_ProjectKB_Class292] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([tourismus_ProjectKB_Class293] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
 
 ([tourismus_ProjectKB_Class3] of  Widget
 
@@ -5885,6 +5860,31 @@
 	(is_hidden TRUE)
 	(property_list [tourismus_ProjectKB_Class8])
 	(widget_class_name "edu.stanford.smi.protegex.server_changes.prompt.UsersTab"))
+
+([tourismus_ProjectKB_Class707] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([tourismus_ProjectKB_Class708] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([tourismus_ProjectKB_Class709] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([tourismus_ProjectKB_Class710] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([tourismus_ProjectKB_Class711] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
 
 ([tourismus_ProjectKB_Class8] of  Property_List
 )
