@@ -13,16 +13,16 @@
   <owl:Ontology rdf:about=""/>
   <owl:Class rdf:ID="RenaissanceSchloss">
     <owl:disjointWith>
-      <owl:Class rdf:ID="BarockSchloss"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="HistorischesSchloss"/>
+      <owl:Class rdf:ID="GotischesSchloss"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:ID="KlassizistischesSchloss"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="GotischesSchloss"/>
+      <owl:Class rdf:ID="HistorischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BarockSchloss"/>
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Schloss"/>
@@ -33,10 +33,10 @@
       <owl:Class rdf:ID="Wellnessangebot"/>
     </rdfs:subClassOf>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Sport"/>
+      <owl:Class rdf:ID="Pool"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Pool"/>
+      <owl:Class rdf:ID="Sport"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="KunstMuseum">
@@ -44,21 +44,21 @@
       <owl:Class rdf:ID="Museum"/>
     </rdfs:subClassOf>
     <owl:disjointWith>
-      <owl:Class rdf:ID="NaturhistorischesMuseum"/>
+      <owl:Class rdf:ID="HeeresgeschichtlichesMuseum"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:ID="TechnischesMuseum"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="HeeresgeschichtlichesMuseum"/>
+      <owl:Class rdf:ID="NaturhistorischesMuseum"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#Museum">
     <owl:disjointWith>
-      <owl:Class rdf:about="#Schloss"/>
+      <owl:Class rdf:ID="Vergnügungspark"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Vergnügungspark"/>
+      <owl:Class rdf:about="#Schloss"/>
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Tourismusattraktion"/>
@@ -77,276 +77,279 @@
       <owl:Class rdf:about="#Pool"/>
     </rdfs:subClassOf>
     <owl:disjointWith>
-      <owl:Class rdf:ID="FreiPool"/>
+      <owl:Class rdf:ID="HallenPool"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="HallenPool"/>
+      <owl:Class rdf:ID="FreiPool"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#KlassizistischesSchloss">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Schloss"/>
     </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
     <owl:disjointWith>
-      <owl:Class rdf:about="#BarockSchloss"/>
+      <owl:Class rdf:about="#GotischesSchloss"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:about="#HistorischesSchloss"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#GotischesSchloss"/>
+      <owl:Class rdf:about="#BarockSchloss"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
   </owl:Class>
   <owl:Class rdf:about="#TechnischesMuseum">
-    <owl:disjointWith rdf:resource="#KunstMuseum"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#NaturhistorischesMuseum"/>
-    </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:about="#HeeresgeschichtlichesMuseum"/>
     </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NaturhistorischesMuseum"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#KunstMuseum"/>
     <rdfs:subClassOf rdf:resource="#Museum"/>
   </owl:Class>
   <owl:Class rdf:ID="Gast">
     <owl:disjointWith>
-      <owl:Class rdf:about="#Angebot"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Hotel"/>
+      <owl:Class rdf:ID="Buchung"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:ID="Zimmer"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Buchung"/>
+      <owl:Class rdf:ID="Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Angebot"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#FreiPool">
-    <owl:disjointWith rdf:resource="#WhirlPool"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#HallenPool"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WhirlPool"/>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Pool"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Schloss">
-    <owl:disjointWith rdf:resource="#Museum"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Vergnügungspark"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Museum"/>
     <rdfs:subClassOf rdf:resource="#Tourismusattraktion"/>
   </owl:Class>
   <owl:Class rdf:about="#NaturhistorischesMuseum">
-    <owl:disjointWith rdf:resource="#KunstMuseum"/>
-    <owl:disjointWith rdf:resource="#TechnischesMuseum"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#HeeresgeschichtlichesMuseum"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TechnischesMuseum"/>
+    <owl:disjointWith rdf:resource="#KunstMuseum"/>
     <rdfs:subClassOf rdf:resource="#Museum"/>
   </owl:Class>
   <owl:Class rdf:about="#Hotel">
     <owl:disjointWith>
-      <owl:Class rdf:about="#Angebot"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Zimmer"/>
+      <owl:Class rdf:about="#Buchung"/>
     </owl:disjointWith>
     <owl:disjointWith rdf:resource="#Gast"/>
     <owl:disjointWith>
-      <owl:Class rdf:about="#Buchung"/>
+      <owl:Class rdf:about="#Zimmer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Angebot"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#Vergnügungspark">
     <rdfs:subClassOf rdf:resource="#Tourismusattraktion"/>
-    <owl:disjointWith rdf:resource="#Schloss"/>
     <owl:disjointWith rdf:resource="#Museum"/>
+    <owl:disjointWith rdf:resource="#Schloss"/>
   </owl:Class>
   <owl:Class rdf:about="#HeeresgeschichtlichesMuseum">
-    <owl:disjointWith rdf:resource="#KunstMuseum"/>
-    <owl:disjointWith rdf:resource="#NaturhistorischesMuseum"/>
     <owl:disjointWith rdf:resource="#TechnischesMuseum"/>
+    <owl:disjointWith rdf:resource="#NaturhistorischesMuseum"/>
+    <owl:disjointWith rdf:resource="#KunstMuseum"/>
     <rdfs:subClassOf rdf:resource="#Museum"/>
   </owl:Class>
   <owl:Class rdf:about="#Angebot">
-    <owl:disjointWith rdf:resource="#Gast"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Buchung"/>
-    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hotel"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Zimmer"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Buchung"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Gast"/>
   </owl:Class>
   <owl:Class rdf:about="#Pool">
-    <owl:disjointWith rdf:resource="#Sauna"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Sport"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sauna"/>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Wellnessangebot"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#BarockSchloss">
-    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#HistorischesSchloss"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#GotischesSchloss"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HistorischesSchloss"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
     <rdfs:subClassOf rdf:resource="#Schloss"/>
   </owl:Class>
   <owl:Class rdf:about="#HallenPool">
     <rdfs:subClassOf rdf:resource="#Pool"/>
-    <owl:disjointWith rdf:resource="#WhirlPool"/>
     <owl:disjointWith rdf:resource="#FreiPool"/>
+    <owl:disjointWith rdf:resource="#WhirlPool"/>
   </owl:Class>
   <owl:Class rdf:about="#Wellnessangebot">
     <owl:disjointWith rdf:resource="#Tourismusattraktion"/>
     <rdfs:subClassOf rdf:resource="#Angebot"/>
   </owl:Class>
   <owl:Class rdf:about="#Zimmer">
-    <owl:disjointWith rdf:resource="#Angebot"/>
-    <owl:disjointWith rdf:resource="#Hotel"/>
-    <owl:disjointWith rdf:resource="#Gast"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Buchung"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Angebot"/>
   </owl:Class>
   <owl:Class rdf:about="#GotischesSchloss">
-    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
-    <owl:disjointWith rdf:resource="#BarockSchloss"/>
+    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#HistorischesSchloss"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
+    <owl:disjointWith rdf:resource="#BarockSchloss"/>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
     <rdfs:subClassOf rdf:resource="#Schloss"/>
   </owl:Class>
   <owl:Class rdf:about="#Buchung">
-    <owl:disjointWith rdf:resource="#Angebot"/>
-    <owl:disjointWith rdf:resource="#Hotel"/>
-    <owl:disjointWith rdf:resource="#Zimmer"/>
     <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Zimmer"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Angebot"/>
   </owl:Class>
   <owl:Class rdf:about="#Sport">
     <rdfs:subClassOf rdf:resource="#Wellnessangebot"/>
-    <owl:disjointWith rdf:resource="#Sauna"/>
     <owl:disjointWith rdf:resource="#Pool"/>
+    <owl:disjointWith rdf:resource="#Sauna"/>
   </owl:Class>
   <owl:Class rdf:about="#HistorischesSchloss">
-    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
-    <owl:disjointWith rdf:resource="#BarockSchloss"/>
-    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
     <owl:disjointWith rdf:resource="#GotischesSchloss"/>
+    <owl:disjointWith rdf:resource="#KlassizistischesSchloss"/>
+    <owl:disjointWith rdf:resource="#BarockSchloss"/>
+    <owl:disjointWith rdf:resource="#RenaissanceSchloss"/>
     <rdfs:subClassOf rdf:resource="#Schloss"/>
   </owl:Class>
+  <owl:ObjectProperty rdf:ID="liegtNeben">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:range rdf:resource="#Zimmer"/>
+    <owl:inverseOf rdf:resource="#liegtNeben"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="istInNaeheVon">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Hotel"/>
+          <owl:Class rdf:about="#Tourismusattraktion"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <owl:inverseOf rdf:resource="#istInNaeheVon"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ausgebuchtMit">
+    <rdfs:range rdf:resource="#Buchung"/>
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="beinhaltetZimmer"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="bucht">
+    <rdfs:range rdf:resource="#Buchung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="gebuchtVon"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="ausgenutztVon">
     <rdfs:range rdf:resource="#Gast"/>
     <rdfs:domain rdf:resource="#Angebot"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="beinhaltetZimmer">
+  <owl:ObjectProperty rdf:about="#beinhaltetZimmer">
     <rdfs:range rdf:resource="#Zimmer"/>
     <rdfs:domain rdf:resource="#Buchung"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="ausgebuchtMit"/>
-    </owl:inverseOf>
+    <owl:inverseOf rdf:resource="#ausgebuchtMit"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="gehoertZuHotel">
-    <rdfs:domain rdf:resource="#Zimmer"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="hatZimmer"/>
-    </owl:inverseOf>
-    <rdfs:range rdf:resource="#Hotel"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#hatZimmer">
+  <owl:ObjectProperty rdf:ID="hatZimmer">
     <rdfs:domain rdf:resource="#Hotel"/>
-    <owl:inverseOf rdf:resource="#gehoertZuHotel"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="gehoertZuHotel"/>
+    </owl:inverseOf>
     <rdfs:range rdf:resource="#Zimmer"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="istFamilienVerwandt">
-    <rdfs:domain rdf:resource="#Gast"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <owl:inverseOf rdf:resource="#istFamilienVerwandt"/>
-    <rdfs:range rdf:resource="#Gast"/>
+  <owl:ObjectProperty rdf:about="#gehoertZuHotel">
+    <rdfs:domain rdf:resource="#Zimmer"/>
+    <rdfs:range rdf:resource="#Hotel"/>
+    <owl:inverseOf rdf:resource="#hatZimmer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="bietet">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="istAngebotenVon"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Wellnessangebot"/>
+    <rdfs:domain rdf:resource="#Hotel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#istAngebotenVon">
+    <rdfs:domain rdf:resource="#Angebot"/>
+    <owl:inverseOf rdf:resource="#bietet"/>
+    <rdfs:range rdf:resource="#Hotel"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="nutzt">
-    <rdfs:range rdf:resource="#Angebot"/>
+    <rdfs:range rdf:resource="#Wellnessangebot"/>
     <rdfs:domain rdf:resource="#Gast"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="istAngebotenVon">
-    <rdfs:domain rdf:resource="#Angebot"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="bietet"/>
-    </owl:inverseOf>
-    <rdfs:range rdf:resource="#Hotel"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#bietet">
-    <owl:inverseOf rdf:resource="#istAngebotenVon"/>
-    <rdfs:range rdf:resource="#Angebot"/>
-    <rdfs:domain rdf:resource="#Hotel"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#ausgebuchtMit">
-    <rdfs:range rdf:resource="#Buchung"/>
-    <rdfs:domain rdf:resource="#Zimmer"/>
-    <owl:inverseOf rdf:resource="#beinhaltetZimmer"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="istAllgemeinVerwandt">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-    <owl:inverseOf rdf:resource="#istAllgemeinVerwandt"/>
+  <owl:ObjectProperty rdf:about="#gebuchtVon">
     <rdfs:range rdf:resource="#Gast"/>
-    <rdfs:domain rdf:resource="#Gast"/>
+    <owl:inverseOf rdf:resource="#bucht"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:ID="hatBezeichnung">
-    <rdfs:domain rdf:resource="#Angebot"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="istGeborenAm">
+  <owl:ObjectProperty rdf:ID="besucht">
+    <rdfs:domain rdf:resource="#Gast"/>
+    <rdfs:range rdf:resource="#Tourismusattraktion"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="dauertBis">
+    <rdfs:domain rdf:resource="#Buchung"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdfs:domain rdf:resource="#Gast"/>
   </owl:DatatypeProperty>
-  <owl:SymmetricProperty rdf:ID="liegtNeben">
-    <rdfs:domain rdf:resource="#Zimmer"/>
-    <rdfs:range rdf:resource="#Zimmer"/>
-    <owl:inverseOf rdf:resource="#liegtNeben"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:SymmetricProperty>
-  <owl:SymmetricProperty rdf:ID="istInNaeheVon">
-    <rdfs:domain rdf:resource="#Hotel"/>
-    <rdfs:range rdf:resource="#Hotel"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="#istInNaeheVon"/>
-  </owl:SymmetricProperty>
-  <owl:FunctionalProperty rdf:ID="dauertBis">
-    <rdfs:domain rdf:resource="#Buchung"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="hatNummer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  <owl:DatatypeProperty rdf:ID="hatNummer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="#Zimmer"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="istRaucherZimmer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="istRaucherZimmer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="#Zimmer"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="hatSterne">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatSterne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="#Hotel"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="kostet">
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="kostet">
     <rdfs:domain rdf:resource="#Zimmer"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="hatName">
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatName">
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -356,32 +359,40 @@
       </owl:Class>
     </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="hatBetten">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatBetten">
     <rdfs:domain rdf:resource="#Zimmer"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="dauertVon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hatBezeichnung">
+    <rdfs:domain rdf:resource="#Angebot"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="dauertVon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     <rdfs:domain rdf:resource="#Buchung"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="gebuchtVon">
-    <rdfs:range rdf:resource="#Gast"/>
-    <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:ID="bucht"/>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="#Buchung"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="#bucht">
-    <rdfs:range rdf:resource="#Buchung"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="#gebuchtVon"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="istFamilienVerwandt">
     <rdfs:domain rdf:resource="#Gast"/>
-  </owl:InverseFunctionalProperty>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#istFamilienVerwandt"/>
+    <rdfs:range rdf:resource="#Gast"/>
+  </owl:TransitiveProperty>
+  <owl:SymmetricProperty rdf:ID="istAllgemeinVerwandt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#istAllgemeinVerwandt"/>
+    <rdfs:range rdf:resource="#Gast"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:ID="istGeborenAm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+  </owl:FunctionalProperty>
   <trsm:RenaissanceSchloss rdf:ID="RenaissanceSchloss_Z">
     <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Renaissance Schloss Z</trsm:hatBezeichnung>
@@ -498,623 +509,679 @@
         <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >2</trsm:hatBetten>
         <trsm:ausgebuchtMit rdf:resource="#Buchung_2"/>
-        <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >40.0</trsm:kostet>
-        <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-        >true</trsm:istRaucherZimmer>
-        <trsm:liegtNeben>
-          <trsm:Zimmer rdf:ID="Zimmer_Lindner_101">
-            <trsm:gehoertZuHotel>
-              <trsm:Hotel rdf:ID="Hotel_Lindner">
+        <trsm:gehoertZuHotel>
+          <trsm:Hotel rdf:ID="Hotel_Lindner">
+            <trsm:istInNaeheVon>
+              <trsm:NaturhistorischesMuseum rdf:ID="NaturhistorischesMuseum_Wien">
                 <trsm:istInNaeheVon>
-                  <trsm:Hotel rdf:ID="Hotel_Maria">
+                  <trsm:Hotel rdf:ID="Hotel_Savoyen">
                     <trsm:hatZimmer>
-                      <trsm:Zimmer rdf:ID="Zimmer_Maria_202">
-                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Maria"/>
-                        <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                        >2</trsm:hatBetten>
-                        <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                        >30.0</trsm:kostet>
+                      <trsm:Zimmer rdf:ID="Zimmer_Savoyen_112">
                         <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
                         >false</trsm:istRaucherZimmer>
+                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Savoyen"/>
+                        <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >50.0</trsm:kostet>
+                        <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >2</trsm:hatBetten>
+                        <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >112</trsm:hatNummer>
                         <trsm:liegtNeben>
-                          <trsm:Zimmer rdf:ID="Zimmer_Maria_201">
+                          <trsm:Zimmer rdf:ID="Zimmer_Savoyen_111">
                             <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >201</trsm:hatNummer>
-                            <trsm:istRaucherZimmer rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#boolean"
-                            >false</trsm:istRaucherZimmer>
+                            >111</trsm:hatNummer>
                             <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >1</trsm:hatBetten>
-                            <trsm:liegtNeben rdf:resource="#Zimmer_Maria_202"/>
-                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Maria"/>
-                            <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                            >25.0</trsm:kostet>
-                          </trsm:Zimmer>
-                        </trsm:liegtNeben>
-                        <trsm:liegtNeben>
-                          <trsm:Zimmer rdf:ID="Zimmer_Maria_203">
-                            <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >1</trsm:hatBetten>
-                            <trsm:liegtNeben rdf:resource="#Zimmer_Maria_202"/>
-                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Maria"/>
-                            <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                            >25.0</trsm:kostet>
-                            <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >203</trsm:hatNummer>
-                            <trsm:ausgebuchtMit>
-                              <trsm:Buchung rdf:ID="Buchung_3">
-                                <trsm:dauertBis rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#date"
-                                >2009-10-25</trsm:dauertBis>
-                                <trsm:gebuchtVon>
-                                  <trsm:Gast rdf:ID="Dorette">
-                                    <trsm:nutzt>
-                                      <trsm:RenaissanceSchloss rdf:ID="RenaissanceSchloss_X">
-                                        <trsm:istAngebotenVon rdf:resource="#Hotel_Maria"/>
-                                        <trsm:hatBezeichnung rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#string"
-                                        >Renaissance Schloss X</trsm:hatBezeichnung>
-                                      </trsm:RenaissanceSchloss>
-                                    </trsm:nutzt>
-                                    <trsm:hatName rdf:datatype=
-                                    "http://www.w3.org/2001/XMLSchema#string"
-                                    >Dorette</trsm:hatName>
-                                    <trsm:istGeborenAm rdf:datatype=
-                                    "http://www.w3.org/2001/XMLSchema#date"
-                                    >1932-12-07</trsm:istGeborenAm>
-                                    <trsm:bucht rdf:resource="#Buchung_3"/>
-                                  </trsm:Gast>
-                                </trsm:gebuchtVon>
-                                <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Maria_203"/>
-                                <trsm:dauertVon rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#date"
-                                >2009-10-21</trsm:dauertVon>
-                              </trsm:Buchung>
-                            </trsm:ausgebuchtMit>
+                            >2</trsm:hatBetten>
                             <trsm:istRaucherZimmer rdf:datatype=
                             "http://www.w3.org/2001/XMLSchema#boolean"
                             >true</trsm:istRaucherZimmer>
-                          </trsm:Zimmer>
-                        </trsm:liegtNeben>
-                        <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                        >202</trsm:hatNummer>
-                      </trsm:Zimmer>
-                    </trsm:hatZimmer>
-                    <trsm:hatZimmer rdf:resource="#Zimmer_Maria_203"/>
-                    <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >Maria</trsm:hatName>
-                    <trsm:bietet rdf:resource="#RenaissanceSchloss_X"/>
-                    <trsm:hatSterne rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                    >1</trsm:hatSterne>
-                    <trsm:bietet>
-                      <trsm:HeeresgeschichtlichesMuseum rdf:ID="HeeresgeschichtlichesMuseum_Wien">
-                        <trsm:istAngebotenVon rdf:resource="#Hotel_Maria"/>
-                        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >HGM Wien</trsm:hatBezeichnung>
-                      </trsm:HeeresgeschichtlichesMuseum>
-                    </trsm:bietet>
-                    <trsm:istInNaeheVon rdf:resource="#Hotel_Lindner"/>
-                    <trsm:hatZimmer rdf:resource="#Zimmer_Maria_201"/>
-                    <trsm:istInNaeheVon>
-                      <trsm:Hotel rdf:ID="Hotel_Sacher">
-                        <trsm:bietet>
-                          <trsm:Sauna rdf:ID="Sauna_Dampfbad">
-                            <trsm:hatBezeichnung rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#string"
-                            >Dampfbad</trsm:hatBezeichnung>
-                            <trsm:istAngebotenVon rdf:resource="#Hotel_Sacher"/>
-                          </trsm:Sauna>
-                        </trsm:bietet>
-                        <trsm:hatZimmer>
-                          <trsm:Zimmer rdf:ID="Zimmer_Sacher_313">
-                            <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >313</trsm:hatNummer>
-                            <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >2</trsm:hatBetten>
-                            <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                            >75.0</trsm:kostet>
-                            <trsm:istRaucherZimmer rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#boolean"
-                            >false</trsm:istRaucherZimmer>
-                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
-                            <trsm:liegtNeben>
-                              <trsm:Zimmer rdf:ID="Zimmer_Sacher_312">
-                                <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                                >75.0</trsm:kostet>
-                                <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
-                                <trsm:hatBetten rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#int"
-                                >2</trsm:hatBetten>
-                                <trsm:istRaucherZimmer rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#boolean"
-                                >true</trsm:istRaucherZimmer>
-                                <trsm:hatNummer rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#int"
-                                >312</trsm:hatNummer>
-                                <trsm:liegtNeben rdf:resource="#Zimmer_Sacher_313"/>
-                              </trsm:Zimmer>
-                            </trsm:liegtNeben>
-                            <trsm:liegtNeben>
-                              <trsm:Zimmer rdf:ID="Zimmer_Sacher_314">
-                                <trsm:hatNummer rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#int"
-                                >314</trsm:hatNummer>
-                                <trsm:istRaucherZimmer rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#boolean"
-                                >false</trsm:istRaucherZimmer>
-                                <trsm:hatBetten rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#int"
-                                >3</trsm:hatBetten>
-                                <trsm:liegtNeben rdf:resource="#Zimmer_Sacher_313"/>
-                                <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                                >75.0</trsm:kostet>
-                                <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
-                              </trsm:Zimmer>
-                            </trsm:liegtNeben>
-                          </trsm:Zimmer>
-                        </trsm:hatZimmer>
-                        <trsm:bietet>
-                          <trsm:Vergnügungspark rdf:ID="Prater">
-                            <trsm:hatBezeichnung rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#string"
-                            >Prater</trsm:hatBezeichnung>
-                            <trsm:istAngebotenVon rdf:resource="#Hotel_Sacher"/>
-                          </trsm:Vergnügungspark>
-                        </trsm:bietet>
-                        <trsm:bietet>
-                          <trsm:Sport rdf:ID="Sport_Squash">
-                            <trsm:istAngebotenVon rdf:resource="#Hotel_Sacher"/>
-                            <trsm:hatBezeichnung rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#string"
-                            >Squash</trsm:hatBezeichnung>
-                          </trsm:Sport>
-                        </trsm:bietet>
-                        <trsm:bietet>
-                          <trsm:WhirlPool rdf:ID="WhirlPool_klein">
-                            <trsm:istAngebotenVon rdf:resource="#Hotel_Sacher"/>
-                            <trsm:hatBezeichnung rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#string"
-                            >Kleines Whirlpool</trsm:hatBezeichnung>
-                          </trsm:WhirlPool>
-                        </trsm:bietet>
-                        <trsm:hatZimmer>
-                          <trsm:Zimmer rdf:ID="Zimmer_Sacher_213">
-                            <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >213</trsm:hatNummer>
-                            <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >3</trsm:hatBetten>
-                            <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                            >95.0</trsm:kostet>
-                            <trsm:istRaucherZimmer rdf:datatype=
-                            "http://www.w3.org/2001/XMLSchema#boolean"
-                            >false</trsm:istRaucherZimmer>
-                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
-                          </trsm:Zimmer>
-                        </trsm:hatZimmer>
-                        <trsm:hatZimmer rdf:resource="#Zimmer_Sacher_314"/>
-                        <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >Sacher</trsm:hatName>
-                        <trsm:istInNaeheVon rdf:resource="#Hotel_Maria"/>
-                        <trsm:hatSterne rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                        >3</trsm:hatSterne>
-                        <trsm:istInNaeheVon>
-                          <trsm:Hotel rdf:ID="Hotel_Savoyen">
-                            <trsm:hatZimmer>
-                              <trsm:Zimmer rdf:ID="Zimmer_Savoyen_112">
-                                <trsm:istRaucherZimmer rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#boolean"
-                                >false</trsm:istRaucherZimmer>
-                                <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                                >50.0</trsm:kostet>
-                                <trsm:hatBetten rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#int"
-                                >2</trsm:hatBetten>
-                                <trsm:hatNummer rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#int"
-                                >112</trsm:hatNummer>
-                                <trsm:liegtNeben>
-                                  <trsm:Zimmer rdf:ID="Zimmer_Savoyen_111">
-                                    <trsm:hatNummer rdf:datatype=
-                                    "http://www.w3.org/2001/XMLSchema#int"
-                                    >111</trsm:hatNummer>
-                                    <trsm:hatBetten rdf:datatype=
-                                    "http://www.w3.org/2001/XMLSchema#int"
-                                    >2</trsm:hatBetten>
-                                    <trsm:istRaucherZimmer rdf:datatype=
-                                    "http://www.w3.org/2001/XMLSchema#boolean"
-                                    >true</trsm:istRaucherZimmer>
-                                    <trsm:ausgebuchtMit>
-                                      <trsm:Buchung rdf:ID="Buchung_6">
-                                        <trsm:dauertVon rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#date"
-                                        >2009-11-07</trsm:dauertVon>
-                                        <trsm:dauertBis rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#date"
-                                        >2009-11-20</trsm:dauertBis>
-                                        <trsm:gebuchtVon>
-                                          <trsm:Gast rdf:ID="Tick">
-                                            <trsm:nutzt rdf:resource="#Sport_Squash"/>
-                                            <trsm:nutzt>
-                                              <trsm:Sauna rdf:ID="Sauna_trocken">
-                                                <trsm:istAngebotenVon>
-                                                  <trsm:Hotel rdf:ID="Hotel_Belvedere">
-                                                    <trsm:hatName
+                            <trsm:ausgebuchtMit>
+                              <trsm:Buchung rdf:ID="Buchung_6">
+                                <trsm:dauertVon rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#date"
+                                >2009-11-07</trsm:dauertVon>
+                                <trsm:dauertBis rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#date"
+                                >2009-11-20</trsm:dauertBis>
+                                <trsm:gebuchtVon>
+                                  <trsm:Gast rdf:ID="Tick">
+                                    <trsm:nutzt>
+                                      <trsm:Sauna rdf:ID="Sauna_trocken">
+                                        <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
+                                        <trsm:istAngebotenVon>
+                                          <trsm:Hotel rdf:ID="Hotel_Belvedere">
+                                            <trsm:istInNaeheVon rdf:resource="#Hotel_Lindner"/>
+                                            <trsm:hatName rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Belvedere</trsm:hatName>
+                                            <trsm:istInNaeheVon>
+                                              <trsm:HeeresgeschichtlichesMuseum rdf:ID="HeeresgeschichtlichesMuseum_Alt">
+                                                <trsm:hatBezeichnung
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Alte HGM</trsm:hatBezeichnung>
+                                              </trsm:HeeresgeschichtlichesMuseum>
+                                            </trsm:istInNaeheVon>
+                                            <trsm:bietet>
+                                              <trsm:Sport rdf:ID="Sport_Fitness">
+                                                <trsm:hatBezeichnung
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Fitness</trsm:hatBezeichnung>
+                                                <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
+                                                <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
+                                              </trsm:Sport>
+                                            </trsm:bietet>
+                                            <trsm:hatZimmer>
+                                              <trsm:Zimmer rdf:ID="Zimmer_Belvedere_104">
+                                                <trsm:hatNummer
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >104</trsm:hatNummer>
+                                                <trsm:istRaucherZimmer
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >false</trsm:istRaucherZimmer>
+                                                <trsm:liegtNeben>
+                                                  <trsm:Zimmer rdf:ID="Zimmer_Belvedere_105">
+                                                    <trsm:kostet
                                                      rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Belvedere</trsm:hatName>
-                                                    <trsm:bietet>
-                                                      <trsm:Sport rdf:ID="Sport_Fitness">
-                                                        <trsm:hatBezeichnung
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >30.0</trsm:kostet>
+                                                    <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
+                                                    <trsm:hatBetten
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >2</trsm:hatBetten>
+                                                    <trsm:hatNummer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >105</trsm:hatNummer>
+                                                    <trsm:istRaucherZimmer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#boolean"
+                                                    >false</trsm:istRaucherZimmer>
+                                                    <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_104"/>
+                                                  </trsm:Zimmer>
+                                                </trsm:liegtNeben>
+                                                <trsm:liegtNeben>
+                                                  <trsm:Zimmer rdf:ID="Zimmer_Belvedere_103">
+                                                    <trsm:ausgebuchtMit>
+                                                      <trsm:Buchung rdf:ID="Buchung_4">
+                                                        <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Belvedere_103"/>
+                                                        <trsm:gebuchtVon>
+                                                          <trsm:Gast rdf:ID="JaneDoe">
+                                                            <trsm:nutzt rdf:resource="#Sauna_trocken"/>
+                                                            <trsm:nutzt rdf:resource="#Sport_Fitness"/>
+                                                            <trsm:bucht rdf:resource="#Buchung_4"/>
+                                                            <trsm:istFamilienVerwandt>
+                                                              <trsm:Gast rdf:ID="JohnDoe">
+    <trsm:istFamilienVerwandt rdf:resource="#JaneDoe"/>
+    <trsm:besucht>
+      <trsm:TechnischesMuseum rdf:ID="TechnischesMuseum_Alt">
+        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Alte TM</trsm:hatBezeichnung>
+      </trsm:TechnischesMuseum>
+    </trsm:besucht>
+    <trsm:besucht>
+      <trsm:NaturhistorischesMuseum rdf:ID="NaturhistorischesMuseum_Alt">
+        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Alte NHM</trsm:hatBezeichnung>
+      </trsm:NaturhistorischesMuseum>
+    </trsm:besucht>
+    <trsm:bucht>
+      <trsm:Buchung rdf:ID="Buchung_5">
+        <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Belvedere_104"/>
+        <trsm:dauertVon rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2009-12-01</trsm:dauertVon>
+        <trsm:gebuchtVon rdf:resource="#JohnDoe"/>
+        <trsm:dauertBis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2009-12-07</trsm:dauertBis>
+      </trsm:Buchung>
+    </trsm:bucht>
+    <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >1984-01-12</trsm:istGeborenAm>
+    <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >John Doe</trsm:hatName>                                  </trsm:Gast>
+                                                            </trsm:istFamilienVerwandt>
+                                                            <trsm:istGeborenAm
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#date"
+                                                            >1986-12-17</trsm:istGeborenAm>
+                                                            <trsm:hatName
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >Jane Doe</trsm:hatName>
+                                                          </trsm:Gast>
+                                                        </trsm:gebuchtVon>
+                                                        <trsm:dauertVon
                                                          rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Fitness</trsm:hatBezeichnung>
-                                                        <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
-                                                        <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
-                                                      </trsm:Sport>
-                                                    </trsm:bietet>
-                                                    <trsm:hatZimmer>
-                                                      <trsm:Zimmer rdf:ID="Zimmer_Belvedere_104">
-                                                        <trsm:hatNummer
+                                                        "http://www.w3.org/2001/XMLSchema#date"
+                                                        >2009-12-01</trsm:dauertVon>
+                                                        <trsm:dauertBis
                                                          rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#int"
-                                                        >104</trsm:hatNummer>
-                                                        <trsm:istRaucherZimmer
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#boolean"
-                                                        >false</trsm:istRaucherZimmer>
-                                                        <trsm:liegtNeben>
-                                                          <trsm:Zimmer rdf:ID="Zimmer_Belvedere_103">
-                                                            <trsm:ausgebuchtMit>
-                                                              <trsm:Buchung rdf:ID="Buchung_4">
-    <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Belvedere_103"/>
-    <trsm:gebuchtVon>
-      <trsm:Gast rdf:ID="JaneDoe">
-        <trsm:nutzt rdf:resource="#Sport_Fitness"/>
-        <trsm:nutzt rdf:resource="#Sauna_trocken"/>
-        <trsm:bucht rdf:resource="#Buchung_4"/>
-        <trsm:istFamilienVerwandt>
-          <trsm:Gast rdf:ID="JohnDoe">
-            <trsm:istFamilienVerwandt rdf:resource="#JaneDoe"/>
-            <trsm:bucht>
-              <trsm:Buchung rdf:ID="Buchung_5">
-                <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Belvedere_104"/>
-                <trsm:dauertVon rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                >2009-12-01</trsm:dauertVon>
-                <trsm:gebuchtVon rdf:resource="#JohnDoe"/>
-                <trsm:dauertBis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                >2009-12-07</trsm:dauertBis>
-              </trsm:Buchung>
-            </trsm:bucht>
-            <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-            >1984-01-12</trsm:istGeborenAm>
-            <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >John Doe</trsm:hatName>
-            <trsm:nutzt>
-              <trsm:TechnischesMuseum rdf:ID="TechnischesMuseum_Alt">
-                <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
-                <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Alte TM</trsm:hatBezeichnung>
-              </trsm:TechnischesMuseum>
-            </trsm:nutzt>
-            <trsm:nutzt>
-              <trsm:NaturhistorischesMuseum rdf:ID="NaturhistorischesMuseum_Alt">
-                <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Alte NHM</trsm:hatBezeichnung>
-                <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
-              </trsm:NaturhistorischesMuseum>
-            </trsm:nutzt>
-          </trsm:Gast>
-        </trsm:istFamilienVerwandt>
-        <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-        >1986-12-17</trsm:istGeborenAm>
-        <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Jane Doe</trsm:hatName>
-      </trsm:Gast>
-    </trsm:gebuchtVon>
-    <trsm:dauertVon rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2009-12-01</trsm:dauertVon>
-    <trsm:dauertBis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2009-12-07</trsm:dauertBis>                              </trsm:Buchung>
-                                                            </trsm:ausgebuchtMit>
-                                                            <trsm:hatNummer
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#int"
-                                                            >103</trsm:hatNummer>
-                                                            <trsm:liegtNeben>
-                                                              <trsm:Zimmer rdf:ID="Zimmer_Belvedere_102">
-    <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >2</trsm:hatBetten>
-    <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >102</trsm:hatNummer>
-    <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-    >30.0</trsm:kostet>
-    <trsm:liegtNeben>
-      <trsm:Zimmer rdf:ID="Zimmer_Belvedere_101">
-        <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
-        <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_102"/>
-        <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-        >30.0</trsm:kostet>
-        <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-        >false</trsm:istRaucherZimmer>
-        <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >2</trsm:hatBetten>
-        <trsm:ausgebuchtMit>
-          <trsm:Buchung rdf:ID="Buchung_1">
-            <trsm:gebuchtVon>
-              <trsm:Gast rdf:ID="Dagobert">
-                <trsm:nutzt>
-                  <trsm:KunstMuseum rdf:ID="Albertina">
-                    <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >Albertina</trsm:hatBezeichnung>
-                    <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
-                    <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
-                  </trsm:KunstMuseum>
-                </trsm:nutzt>
-                <trsm:nutzt>
-                  <trsm:FreiPool rdf:ID="FreiPool_mittel">
-                    <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >MIttleres Freipool</trsm:hatBezeichnung>
-                    <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
-                  </trsm:FreiPool>
-                </trsm:nutzt>
-                <trsm:istAllgemeinVerwandt rdf:resource="#Tick"/>
-                <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Dagobert</trsm:hatName>
-                <trsm:bucht rdf:resource="#Buchung_1"/>
-                <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                >1947-12-07</trsm:istGeborenAm>
-                <trsm:istFamilienVerwandt>
-                  <trsm:Gast rdf:ID="Donald">
-                    <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >Donald</trsm:hatName>
-                    <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                    >1965-03-13</trsm:istGeborenAm>
-                    <trsm:bucht rdf:resource="#Buchung_2"/>
-                    <trsm:istFamilienVerwandt rdf:resource="#Dagobert"/>
-                    <trsm:nutzt>
-                      <trsm:HallenPool rdf:ID="HallenPool_klein">
-                        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >Kleines Hallenpool</trsm:hatBezeichnung>
-                        <trsm:istAngebotenVon rdf:resource="#Hotel_Lindner"/>
-                      </trsm:HallenPool>
-                    </trsm:nutzt>
-                    <trsm:nutzt>
-                      <trsm:BarockSchloss rdf:ID="Barockschlossx">
-                        <trsm:istAngebotenVon rdf:resource="#Hotel_Lindner"/>
-                        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >Barockschloss x</trsm:hatBezeichnung>
-                      </trsm:BarockSchloss>
-                    </trsm:nutzt>
-                  </trsm:Gast>
-                </trsm:istFamilienVerwandt>
-              </trsm:Gast>
-            </trsm:gebuchtVon>
-            <trsm:dauertVon rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-            >2009-09-01</trsm:dauertVon>
-            <trsm:dauertBis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-            >2009-09-07</trsm:dauertBis>
-            <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Belvedere_101"/>
-          </trsm:Buchung>
-        </trsm:ausgebuchtMit>
-        <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >101</trsm:hatNummer>
-      </trsm:Zimmer>
-    </trsm:liegtNeben>
-    <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_103"/>
-    <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >false</trsm:istRaucherZimmer>
-    <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>     </trsm:Zimmer>
-                                                            </trsm:liegtNeben>
-                                                            <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_104"/>
-                                                            <trsm:hatBetten
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#int"
-                                                            >2</trsm:hatBetten>
-                                                            <trsm:kostet
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#float"
-                                                            >30.0</trsm:kostet>
-                                                            <trsm:istRaucherZimmer
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#boolean"
-                                                            >false</trsm:istRaucherZimmer>
-                                                          </trsm:Zimmer>
-                                                        </trsm:liegtNeben>
-                                                        <trsm:liegtNeben>
-                                                          <trsm:Zimmer rdf:ID="Zimmer_Belvedere_105">
-                                                            <trsm:kostet
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#float"
-                                                            >30.0</trsm:kostet>
-                                                            <trsm:hatBetten
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#int"
-                                                            >2</trsm:hatBetten>
-                                                            <trsm:hatNummer
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#int"
-                                                            >105</trsm:hatNummer>
-                                                            <trsm:istRaucherZimmer
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#boolean"
-                                                            >false</trsm:istRaucherZimmer>
-                                                            <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_104"/>
-                                                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
-                                                          </trsm:Zimmer>
-                                                        </trsm:liegtNeben>
+                                                        "http://www.w3.org/2001/XMLSchema#date"
+                                                        >2009-12-07</trsm:dauertBis>
+                                                      </trsm:Buchung>
+                                                    </trsm:ausgebuchtMit>
+                                                    <trsm:hatNummer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >103</trsm:hatNummer>
+                                                    <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_104"/>
+                                                    <trsm:liegtNeben>
+                                                      <trsm:Zimmer rdf:ID="Zimmer_Belvedere_102">
+                                                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
                                                         <trsm:hatBetten
                                                          rdf:datatype=
                                                         "http://www.w3.org/2001/XMLSchema#int"
                                                         >2</trsm:hatBetten>
-                                                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
-                                                        <trsm:ausgebuchtMit rdf:resource="#Buchung_5"/>
+                                                        <trsm:hatNummer
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >102</trsm:hatNummer>
                                                         <trsm:kostet
                                                          rdf:datatype=
                                                         "http://www.w3.org/2001/XMLSchema#float"
                                                         >30.0</trsm:kostet>
+                                                        <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_103"/>
+                                                        <trsm:liegtNeben>
+                                                          <trsm:Zimmer rdf:ID="Zimmer_Belvedere_101">
+                                                            <trsm:liegtNeben rdf:resource="#Zimmer_Belvedere_102"/>
+                                                            <trsm:kostet
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#float"
+                                                            >30.0</trsm:kostet>
+                                                            <trsm:istRaucherZimmer
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#boolean"
+                                                            >false</trsm:istRaucherZimmer>
+                                                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
+                                                            <trsm:hatBetten
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#int"
+                                                            >2</trsm:hatBetten>
+                                                            <trsm:ausgebuchtMit>
+                                                              <trsm:Buchung rdf:ID="Buchung_1">
+    <trsm:gebuchtVon>
+      <trsm:Gast rdf:ID="Dagobert">
+        <trsm:nutzt>
+          <trsm:FreiPool rdf:ID="FreiPool_mittel">
+            <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MIttleres Freipool</trsm:hatBezeichnung>
+            <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
+          </trsm:FreiPool>
+        </trsm:nutzt>
+        <trsm:istAllgemeinVerwandt rdf:resource="#Tick"/>
+        <trsm:besucht>
+          <trsm:KunstMuseum rdf:ID="Albertina">
+            <trsm:istInNaeheVon rdf:resource="#Hotel_Belvedere"/>
+            <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Albertina</trsm:hatBezeichnung>
+          </trsm:KunstMuseum>
+        </trsm:besucht>
+        <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Dagobert</trsm:hatName>
+        <trsm:bucht rdf:resource="#Buchung_1"/>
+        <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >1947-12-07</trsm:istGeborenAm>
+        <trsm:istFamilienVerwandt>
+          <trsm:Gast rdf:ID="Donald">
+            <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Donald</trsm:hatName>
+            <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+            >1965-03-13</trsm:istGeborenAm>
+            <trsm:bucht rdf:resource="#Buchung_2"/>
+            <trsm:istFamilienVerwandt rdf:resource="#Dagobert"/>
+            <trsm:nutzt>
+              <trsm:HallenPool rdf:ID="HallenPool_klein">
+                <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Kleines Hallenpool</trsm:hatBezeichnung>
+                <trsm:istAngebotenVon rdf:resource="#Hotel_Lindner"/>
+              </trsm:HallenPool>
+            </trsm:nutzt>
+            <trsm:besucht>
+              <trsm:BarockSchloss rdf:ID="Barockschlossx">
+                <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Barockschloss x</trsm:hatBezeichnung>
+              </trsm:BarockSchloss>
+            </trsm:besucht>
+          </trsm:Gast>
+        </trsm:istFamilienVerwandt>
+      </trsm:Gast>
+    </trsm:gebuchtVon>
+    <trsm:dauertVon rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2009-09-01</trsm:dauertVon>
+    <trsm:dauertBis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2009-09-07</trsm:dauertBis>
+    <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Belvedere_101"/>
+                                                              </trsm:Buchung>
+                                                            </trsm:ausgebuchtMit>
+                                                            <trsm:hatNummer
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#int"
+                                                            >101</trsm:hatNummer>
+                                                          </trsm:Zimmer>
+                                                        </trsm:liegtNeben>
+                                                        <trsm:istRaucherZimmer
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#boolean"
+                                                        >false</trsm:istRaucherZimmer>
                                                       </trsm:Zimmer>
-                                                    </trsm:hatZimmer>
-                                                    <trsm:hatZimmer rdf:resource="#Zimmer_Belvedere_102"/>
-                                                    <trsm:istInNaeheVon rdf:resource="#Hotel_Lindner"/>
-                                                    <trsm:bietet rdf:resource="#Sauna_trocken"/>
-                                                    <trsm:hatZimmer rdf:resource="#Zimmer_Belvedere_105"/>
-                                                    <trsm:bietet rdf:resource="#Albertina"/>
-                                                    <trsm:hatSterne
+                                                    </trsm:liegtNeben>
+                                                    <trsm:hatBetten
                                                      rdf:datatype=
                                                     "http://www.w3.org/2001/XMLSchema#int"
-                                                    >4</trsm:hatSterne>
-                                                    <trsm:bietet rdf:resource="#NaturhistorischesMuseum_Alt"/>
-                                                    <trsm:bietet rdf:resource="#FreiPool_mittel"/>
-                                                    <trsm:bietet>
-                                                      <trsm:HeeresgeschichtlichesMuseum rdf:ID="HeeresgeschichtlichesMuseum_Alt">
-                                                        <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
-                                                        <trsm:hatBezeichnung
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Alte HGM</trsm:hatBezeichnung>
-                                                      </trsm:HeeresgeschichtlichesMuseum>
-                                                    </trsm:bietet>
-                                                    <trsm:bietet rdf:resource="#TechnischesMuseum_Alt"/>
-                                                    <trsm:hatZimmer rdf:resource="#Zimmer_Belvedere_101"/>
-                                                  </trsm:Hotel>
-                                                </trsm:istAngebotenVon>
-                                                <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
+                                                    >2</trsm:hatBetten>
+                                                    <trsm:kostet
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >30.0</trsm:kostet>
+                                                    <trsm:istRaucherZimmer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#boolean"
+                                                    >false</trsm:istRaucherZimmer>
+                                                  </trsm:Zimmer>
+                                                </trsm:liegtNeben>
+                                                <trsm:hatBetten
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >2</trsm:hatBetten>
+                                                <trsm:ausgebuchtMit rdf:resource="#Buchung_5"/>
+                                                <trsm:kostet rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >30.0</trsm:kostet>
+                                                <trsm:gehoertZuHotel rdf:resource="#Hotel_Belvedere"/>
+                                              </trsm:Zimmer>
+                                            </trsm:hatZimmer>
+                                            <trsm:hatZimmer rdf:resource="#Zimmer_Belvedere_102"/>
+                                            <trsm:istInNaeheVon rdf:resource="#Albertina"/>
+                                            <trsm:bietet rdf:resource="#Sauna_trocken"/>
+                                            <trsm:hatZimmer rdf:resource="#Zimmer_Belvedere_105"/>
+                                            <trsm:hatSterne rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >4</trsm:hatSterne>
+                                            <trsm:istInNaeheVon rdf:resource="#NaturhistorischesMuseum_Alt"/>
+                                            <trsm:istInNaeheVon rdf:resource="#TechnischesMuseum_Alt"/>
+                                            <trsm:bietet rdf:resource="#FreiPool_mittel"/>
+                                            <trsm:hatZimmer rdf:resource="#Zimmer_Belvedere_101"/>
+                                          </trsm:Hotel>
+                                        </trsm:istAngebotenVon>
+                                        <trsm:hatBezeichnung rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Trockene Sauna</trsm:hatBezeichnung>
+                                      </trsm:Sauna>
+                                    </trsm:nutzt>
+                                    <trsm:nutzt>
+                                      <trsm:Sport rdf:ID="Sport_Squash">
+                                        <trsm:istAngebotenVon>
+                                          <trsm:Hotel rdf:ID="Hotel_Sacher">
+                                            <trsm:istInNaeheVon>
+                                              <trsm:Vergnügungspark rdf:ID="Prater">
+                                                <trsm:istInNaeheVon rdf:resource="#Hotel_Sacher"/>
                                                 <trsm:hatBezeichnung
                                                  rdf:datatype=
                                                 "http://www.w3.org/2001/XMLSchema#string"
-                                                >Trockene Sauna</trsm:hatBezeichnung>
+                                                >Prater</trsm:hatBezeichnung>
+                                              </trsm:Vergnügungspark>
+                                            </trsm:istInNaeheVon>
+                                            <trsm:bietet>
+                                              <trsm:Sauna rdf:ID="Sauna_Dampfbad">
+                                                <trsm:hatBezeichnung
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Dampfbad</trsm:hatBezeichnung>
+                                                <trsm:istAngebotenVon rdf:resource="#Hotel_Sacher"/>
                                               </trsm:Sauna>
-                                            </trsm:nutzt>
-                                            <trsm:istAllgemeinVerwandt rdf:resource="#Dagobert"/>
-                                            <trsm:istGeborenAm
-                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                            >1980-04-05</trsm:istGeborenAm>
-                                            <trsm:bucht rdf:resource="#Buchung_6"/>
+                                            </trsm:bietet>
+                                            <trsm:hatZimmer>
+                                              <trsm:Zimmer rdf:ID="Zimmer_Sacher_313">
+                                                <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
+                                                <trsm:hatNummer
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >313</trsm:hatNummer>
+                                                <trsm:hatBetten
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >2</trsm:hatBetten>
+                                                <trsm:kostet rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >75.0</trsm:kostet>
+                                                <trsm:istRaucherZimmer
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >false</trsm:istRaucherZimmer>
+                                                <trsm:liegtNeben>
+                                                  <trsm:Zimmer rdf:ID="Zimmer_Sacher_314">
+                                                    <trsm:hatNummer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >314</trsm:hatNummer>
+                                                    <trsm:istRaucherZimmer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#boolean"
+                                                    >false</trsm:istRaucherZimmer>
+                                                    <trsm:hatBetten
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >3</trsm:hatBetten>
+                                                    <trsm:liegtNeben rdf:resource="#Zimmer_Sacher_313"/>
+                                                    <trsm:kostet
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >75.0</trsm:kostet>
+                                                    <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
+                                                  </trsm:Zimmer>
+                                                </trsm:liegtNeben>
+                                                <trsm:liegtNeben>
+                                                  <trsm:Zimmer rdf:ID="Zimmer_Sacher_312">
+                                                    <trsm:kostet
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >75.0</trsm:kostet>
+                                                    <trsm:hatBetten
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >2</trsm:hatBetten>
+                                                    <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
+                                                    <trsm:istRaucherZimmer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#boolean"
+                                                    >true</trsm:istRaucherZimmer>
+                                                    <trsm:hatNummer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >312</trsm:hatNummer>
+                                                    <trsm:liegtNeben rdf:resource="#Zimmer_Sacher_313"/>
+                                                  </trsm:Zimmer>
+                                                </trsm:liegtNeben>
+                                              </trsm:Zimmer>
+                                            </trsm:hatZimmer>
+                                            <trsm:istInNaeheVon rdf:resource="#Hotel_Savoyen"/>
+                                            <trsm:bietet rdf:resource="#Sport_Squash"/>
+                                            <trsm:bietet>
+                                              <trsm:WhirlPool rdf:ID="WhirlPool_klein">
+                                                <trsm:istAngebotenVon rdf:resource="#Hotel_Sacher"/>
+                                                <trsm:hatBezeichnung
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Kleines Whirlpool</trsm:hatBezeichnung>
+                                              </trsm:WhirlPool>
+                                            </trsm:bietet>
+                                            <trsm:hatZimmer>
+                                              <trsm:Zimmer rdf:ID="Zimmer_Sacher_213">
+                                                <trsm:hatNummer
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >213</trsm:hatNummer>
+                                                <trsm:gehoertZuHotel rdf:resource="#Hotel_Sacher"/>
+                                                <trsm:hatBetten
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >3</trsm:hatBetten>
+                                                <trsm:kostet rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >95.0</trsm:kostet>
+                                                <trsm:istRaucherZimmer
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >false</trsm:istRaucherZimmer>
+                                              </trsm:Zimmer>
+                                            </trsm:hatZimmer>
+                                            <trsm:hatZimmer rdf:resource="#Zimmer_Sacher_314"/>
                                             <trsm:hatName rdf:datatype=
                                             "http://www.w3.org/2001/XMLSchema#string"
-                                            >Tick</trsm:hatName>
-                                          </trsm:Gast>
-                                        </trsm:gebuchtVon>
-                                        <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Savoyen_111"/>
-                                      </trsm:Buchung>
-                                    </trsm:ausgebuchtMit>
-                                    <trsm:liegtNeben>
-                                      <trsm:Zimmer rdf:ID="Zimmer_Savoyen_110">
-                                        <trsm:liegtNeben rdf:resource="#Zimmer_Savoyen_111"/>
-                                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Savoyen"/>
-                                        <trsm:kostet rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#float"
-                                        >50.0</trsm:kostet>
-                                        <trsm:istRaucherZimmer
-                                         rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-                                        >false</trsm:istRaucherZimmer>
-                                        <trsm:hatBetten rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
-                                        >2</trsm:hatBetten>
-                                        <trsm:hatNummer rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#int"
-                                        >110</trsm:hatNummer>
-                                      </trsm:Zimmer>
-                                    </trsm:liegtNeben>
-                                    <trsm:liegtNeben rdf:resource="#Zimmer_Savoyen_112"/>
-                                    <trsm:gehoertZuHotel rdf:resource="#Hotel_Savoyen"/>
-                                    <trsm:kostet rdf:datatype=
-                                    "http://www.w3.org/2001/XMLSchema#float"
-                                    >50.0</trsm:kostet>
-                                  </trsm:Zimmer>
-                                </trsm:liegtNeben>
+                                            >Sacher</trsm:hatName>
+                                            <trsm:hatSterne rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >3</trsm:hatSterne>
+                                            <trsm:istInNaeheVon>
+                                              <trsm:Hotel rdf:ID="Hotel_Maria">
+                                                <trsm:hatZimmer>
+                                                  <trsm:Zimmer rdf:ID="Zimmer_Maria_202">
+                                                    <trsm:gehoertZuHotel rdf:resource="#Hotel_Maria"/>
+                                                    <trsm:hatBetten
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >2</trsm:hatBetten>
+                                                    <trsm:kostet
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >30.0</trsm:kostet>
+                                                    <trsm:istRaucherZimmer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#boolean"
+                                                    >false</trsm:istRaucherZimmer>
+                                                    <trsm:liegtNeben>
+                                                      <trsm:Zimmer rdf:ID="Zimmer_Maria_203">
+                                                        <trsm:hatBetten
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >1</trsm:hatBetten>
+                                                        <trsm:liegtNeben rdf:resource="#Zimmer_Maria_202"/>
+                                                        <trsm:kostet
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#float"
+                                                        >25.0</trsm:kostet>
+                                                        <trsm:hatNummer
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >203</trsm:hatNummer>
+                                                        <trsm:ausgebuchtMit>
+                                                          <trsm:Buchung rdf:ID="Buchung_3">
+                                                            <trsm:dauertBis
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#date"
+                                                            >2009-10-25</trsm:dauertBis>
+                                                            <trsm:gebuchtVon>
+                                                              <trsm:Gast rdf:ID="Dorette">
+    <trsm:besucht>
+      <trsm:RenaissanceSchloss rdf:ID="RenaissanceSchloss_X">
+        <trsm:istInNaeheVon rdf:resource="#Hotel_Maria"/>
+        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Renaissance Schloss X</trsm:hatBezeichnung>
+      </trsm:RenaissanceSchloss>
+    </trsm:besucht>
+    <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dorette</trsm:hatName>
+    <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >1932-12-07</trsm:istGeborenAm>
+    <trsm:bucht rdf:resource="#Buchung_3"/>                   </trsm:Gast>
+                                                            </trsm:gebuchtVon>
+                                                            <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Maria_203"/>
+                                                            <trsm:dauertVon
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#date"
+                                                            >2009-10-21</trsm:dauertVon>
+                                                          </trsm:Buchung>
+                                                        </trsm:ausgebuchtMit>
+                                                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Maria"/>
+                                                        <trsm:istRaucherZimmer
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#boolean"
+                                                        >true</trsm:istRaucherZimmer>
+                                                      </trsm:Zimmer>
+                                                    </trsm:liegtNeben>
+                                                    <trsm:liegtNeben>
+                                                      <trsm:Zimmer rdf:ID="Zimmer_Maria_201">
+                                                        <trsm:hatNummer
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >201</trsm:hatNummer>
+                                                        <trsm:gehoertZuHotel rdf:resource="#Hotel_Maria"/>
+                                                        <trsm:istRaucherZimmer
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#boolean"
+                                                        >false</trsm:istRaucherZimmer>
+                                                        <trsm:hatBetten
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#int"
+                                                        >1</trsm:hatBetten>
+                                                        <trsm:liegtNeben rdf:resource="#Zimmer_Maria_202"/>
+                                                        <trsm:kostet
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#float"
+                                                        >25.0</trsm:kostet>
+                                                      </trsm:Zimmer>
+                                                    </trsm:liegtNeben>
+                                                    <trsm:hatNummer
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >202</trsm:hatNummer>
+                                                  </trsm:Zimmer>
+                                                </trsm:hatZimmer>
+                                                <trsm:hatZimmer rdf:resource="#Zimmer_Maria_203"/>
+                                                <trsm:hatName
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Maria</trsm:hatName>
+                                                <trsm:istInNaeheVon rdf:resource="#Hotel_Sacher"/>
+                                                <trsm:hatSterne
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >1</trsm:hatSterne>
+                                                <trsm:istInNaeheVon rdf:resource="#RenaissanceSchloss_X"/>
+                                                <trsm:hatZimmer rdf:resource="#Zimmer_Maria_201"/>
+                                                <trsm:istInNaeheVon rdf:resource="#Hotel_Lindner"/>
+                                                <trsm:istInNaeheVon>
+                                                  <trsm:HeeresgeschichtlichesMuseum rdf:ID="HeeresgeschichtlichesMuseum_Wien">
+                                                    <trsm:hatBezeichnung
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >HGM Wien</trsm:hatBezeichnung>
+                                                  </trsm:HeeresgeschichtlichesMuseum>
+                                                </trsm:istInNaeheVon>
+                                              </trsm:Hotel>
+                                            </trsm:istInNaeheVon>
+                                            <trsm:hatZimmer rdf:resource="#Zimmer_Sacher_312"/>
+                                          </trsm:Hotel>
+                                        </trsm:istAngebotenVon>
+                                        <trsm:hatBezeichnung rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Squash</trsm:hatBezeichnung>
+                                      </trsm:Sport>
+                                    </trsm:nutzt>
+                                    <trsm:istAllgemeinVerwandt rdf:resource="#Dagobert"/>
+                                    <trsm:istGeborenAm rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#date"
+                                    >1980-04-05</trsm:istGeborenAm>
+                                    <trsm:bucht rdf:resource="#Buchung_6"/>
+                                    <trsm:hatName rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Tick</trsm:hatName>
+                                  </trsm:Gast>
+                                </trsm:gebuchtVon>
+                                <trsm:beinhaltetZimmer rdf:resource="#Zimmer_Savoyen_111"/>
+                              </trsm:Buchung>
+                            </trsm:ausgebuchtMit>
+                            <trsm:liegtNeben rdf:resource="#Zimmer_Savoyen_112"/>
+                            <trsm:liegtNeben>
+                              <trsm:Zimmer rdf:ID="Zimmer_Savoyen_110">
+                                <trsm:liegtNeben rdf:resource="#Zimmer_Savoyen_111"/>
+                                <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                                >50.0</trsm:kostet>
                                 <trsm:gehoertZuHotel rdf:resource="#Hotel_Savoyen"/>
+                                <trsm:istRaucherZimmer rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                >false</trsm:istRaucherZimmer>
+                                <trsm:hatBetten rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#int"
+                                >2</trsm:hatBetten>
+                                <trsm:hatNummer rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#int"
+                                >110</trsm:hatNummer>
                               </trsm:Zimmer>
-                            </trsm:hatZimmer>
-                            <trsm:bietet rdf:resource="#Sauna_trocken"/>
-                            <trsm:bietet>
-                              <trsm:NaturhistorischesMuseum rdf:ID="NaturhistorischesMuseum_Wien">
-                                <trsm:istAngebotenVon rdf:resource="#Hotel_Lindner"/>
-                                <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
-                                <trsm:hatBezeichnung rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#string"
-                                >NHM Wien</trsm:hatBezeichnung>
-                              </trsm:NaturhistorischesMuseum>
-                            </trsm:bietet>
-                            <trsm:bietet rdf:resource="#Sport_Fitness"/>
-                            <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >Savoyen</trsm:hatName>
-                            <trsm:bietet>
-                              <trsm:WhirlPool rdf:ID="WhirlPool_mittel">
-                                <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
-                                <trsm:hatBezeichnung rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#string"
-                                >Mittleres Whirlpool</trsm:hatBezeichnung>
-                              </trsm:WhirlPool>
-                            </trsm:bietet>
-                            <trsm:bietet>
-                              <trsm:Sport rdf:ID="Sport_Tennis">
-                                <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
-                                <trsm:hatBezeichnung rdf:datatype=
-                                "http://www.w3.org/2001/XMLSchema#string"
-                                >Tennis</trsm:hatBezeichnung>
-                              </trsm:Sport>
-                            </trsm:bietet>
-                            <trsm:hatSterne rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                            >5</trsm:hatSterne>
-                            <trsm:istInNaeheVon rdf:resource="#Hotel_Sacher"/>
-                            <trsm:hatZimmer rdf:resource="#Zimmer_Savoyen_111"/>
-                            <trsm:bietet rdf:resource="#Albertina"/>
-                            <trsm:hatZimmer rdf:resource="#Zimmer_Savoyen_110"/>
-                          </trsm:Hotel>
-                        </trsm:istInNaeheVon>
-                        <trsm:hatZimmer rdf:resource="#Zimmer_Sacher_312"/>
-                      </trsm:Hotel>
-                    </trsm:istInNaeheVon>
+                            </trsm:liegtNeben>
+                            <trsm:gehoertZuHotel rdf:resource="#Hotel_Savoyen"/>
+                            <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >50.0</trsm:kostet>
+                          </trsm:Zimmer>
+                        </trsm:liegtNeben>
+                      </trsm:Zimmer>
+                    </trsm:hatZimmer>
+                    <trsm:bietet rdf:resource="#Sauna_trocken"/>
+                    <trsm:bietet rdf:resource="#Sport_Fitness"/>
+                    <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Savoyen</trsm:hatName>
+                    <trsm:bietet>
+                      <trsm:WhirlPool rdf:ID="WhirlPool_mittel">
+                        <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
+                        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Mittleres Whirlpool</trsm:hatBezeichnung>
+                      </trsm:WhirlPool>
+                    </trsm:bietet>
+                    <trsm:istInNaeheVon rdf:resource="#Hotel_Sacher"/>
+                    <trsm:bietet>
+                      <trsm:Sport rdf:ID="Sport_Tennis">
+                        <trsm:istAngebotenVon rdf:resource="#Hotel_Savoyen"/>
+                        <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Tennis</trsm:hatBezeichnung>
+                      </trsm:Sport>
+                    </trsm:bietet>
+                    <trsm:hatSterne rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >5</trsm:hatSterne>
+                    <trsm:hatZimmer rdf:resource="#Zimmer_Savoyen_111"/>
+                    <trsm:hatZimmer rdf:resource="#Zimmer_Savoyen_110"/>
+                    <trsm:istInNaeheVon rdf:resource="#Albertina"/>
+                    <trsm:istInNaeheVon rdf:resource="#NaturhistorischesMuseum_Wien"/>
                   </trsm:Hotel>
                 </trsm:istInNaeheVon>
-                <trsm:hatSterne rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                >2</trsm:hatSterne>
-                <trsm:bietet rdf:resource="#HallenPool_klein"/>
-                <trsm:istInNaeheVon rdf:resource="#Hotel_Belvedere"/>
-                <trsm:bietet>
-                  <trsm:GotischesSchloss rdf:ID="GotischesSchloss_Stephansdom">
-                    <trsm:istAngebotenVon rdf:resource="#Hotel_Lindner"/>
-                  </trsm:GotischesSchloss>
-                </trsm:bietet>
-                <trsm:bietet rdf:resource="#Barockschlossx"/>
-                <trsm:bietet rdf:resource="#NaturhistorischesMuseum_Wien"/>
-                <trsm:hatZimmer rdf:resource="#Zimmer_Lindner_102"/>
-                <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Lindner</trsm:hatName>
-                <trsm:hatZimmer>
-                  <trsm:Zimmer rdf:ID="Zimmer_Lindner_103">
-                    <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-                    >true</trsm:istRaucherZimmer>
-                    <trsm:liegtNeben rdf:resource="#Zimmer_Lindner_102"/>
-                    <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                    >1</trsm:hatBetten>
-                    <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-                    >35.0</trsm:kostet>
-                    <trsm:gehoertZuHotel rdf:resource="#Hotel_Lindner"/>
-                    <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-                    >103</trsm:hatNummer>
-                  </trsm:Zimmer>
-                </trsm:hatZimmer>
-                <trsm:hatZimmer rdf:resource="#Zimmer_Lindner_101"/>
-              </trsm:Hotel>
-            </trsm:gehoertZuHotel>
-            <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
-            >35.0</trsm:kostet>
-            <trsm:liegtNeben rdf:resource="#Zimmer_Lindner_102"/>
-            <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >101</trsm:hatNummer>
-            <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-            >true</trsm:istRaucherZimmer>
-            <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-            >1</trsm:hatBetten>
-          </trsm:Zimmer>
-        </trsm:liegtNeben>
+                <trsm:istInNaeheVon rdf:resource="#Hotel_Lindner"/>
+                <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >NHM Wien</trsm:hatBezeichnung>
+              </trsm:NaturhistorischesMuseum>
+            </trsm:istInNaeheVon>
+            <trsm:istInNaeheVon>
+              <trsm:GotischesSchloss rdf:ID="GotischesSchloss_Stephansdom"/>
+            </trsm:istInNaeheVon>
+            <trsm:hatSterne rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</trsm:hatSterne>
+            <trsm:bietet rdf:resource="#HallenPool_klein"/>
+            <trsm:istInNaeheVon rdf:resource="#Hotel_Belvedere"/>
+            <trsm:istInNaeheVon rdf:resource="#Hotel_Maria"/>
+            <trsm:hatZimmer rdf:resource="#Zimmer_Lindner_102"/>
+            <trsm:hatName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Lindner</trsm:hatName>
+            <trsm:hatZimmer>
+              <trsm:Zimmer rdf:ID="Zimmer_Lindner_103">
+                <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</trsm:istRaucherZimmer>
+                <trsm:liegtNeben rdf:resource="#Zimmer_Lindner_102"/>
+                <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >1</trsm:hatBetten>
+                <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >35.0</trsm:kostet>
+                <trsm:gehoertZuHotel rdf:resource="#Hotel_Lindner"/>
+                <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >103</trsm:hatNummer>
+              </trsm:Zimmer>
+            </trsm:hatZimmer>
+            <trsm:hatZimmer>
+              <trsm:Zimmer rdf:ID="Zimmer_Lindner_101">
+                <trsm:gehoertZuHotel rdf:resource="#Hotel_Lindner"/>
+                <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >35.0</trsm:kostet>
+                <trsm:liegtNeben rdf:resource="#Zimmer_Lindner_102"/>
+                <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >101</trsm:hatNummer>
+                <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</trsm:istRaucherZimmer>
+                <trsm:hatBetten rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >1</trsm:hatBetten>
+              </trsm:Zimmer>
+            </trsm:hatZimmer>
+            <trsm:istInNaeheVon rdf:resource="#Barockschlossx"/>
+          </trsm:Hotel>
+        </trsm:gehoertZuHotel>
+        <trsm:kostet rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >40.0</trsm:kostet>
+        <trsm:istRaucherZimmer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</trsm:istRaucherZimmer>
         <trsm:liegtNeben rdf:resource="#Zimmer_Lindner_103"/>
+        <trsm:liegtNeben rdf:resource="#Zimmer_Lindner_101"/>
         <trsm:hatNummer rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >102</trsm:hatNummer>
-        <trsm:gehoertZuHotel rdf:resource="#Hotel_Lindner"/>
       </trsm:Zimmer>
     </trsm:beinhaltetZimmer>
     <trsm:dauertBis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"

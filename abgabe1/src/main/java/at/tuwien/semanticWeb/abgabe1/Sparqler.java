@@ -14,13 +14,13 @@ public class Sparqler {
     public void first() {
         String number = this.askParameter("Anzahl");
         String query = "SELECT ?Hotel WHERE {  ?Hotel trsm:hatSterne ?sterne FILTER(?sterne >= " + number + ")}";
-        query(query);
+        printQuery(query);
     }
 
     public void second() {
         String hotel = this.askParameter("Hotel");
         String query = "SELECT ?inNaehe WHERE {  ?hotel trsm:hatName \"" + hotel + "\" . ?hotel trsm:istInNaeheVon ?inNaehe}";
-        query(query);
+        printQuery(query);
     }
 
     public void third() {
@@ -30,17 +30,17 @@ public class Sparqler {
             + "\"" + name + "\"" 
             + ". ?guest trsm:bucht ?buchung. ?buchung trsm:beinhaltetZimmer ?zimmer. ?zimmer trsm:gehoertZuHotel ?hotel.?hotel trsm:hatName "
             + "\"" + hotel + "\"}";
-        query(query);
+        printYesNoQuery(query);
     }
 
     public void fourth() {
         String query = "SELECT ?guest WHERE { ?guest trsm:bucht ?buchung. ?buchung trsm:beinhaltetZimmer ?zimmer. ?zimmer trsm:istRaucherZimmer true }";
-        query(query);
+        printQuery(query);
     }
 
     public void fifth() {
-        String query = "SELECT ?angebot WHERE { ?guest trsm:bucht ?buchung. ?buchung trsm:beinhaltetZimmer ?zimmer. ?zimmer trsm:istRaucherZimmer true.?guest trsm:nutzt ?angebot. ?angebot rdfs:subClassOf trsm:Wellnessangebot}";
-        query(query);
+        String query = "SELECT ?angebot WHERE { ?guest trsm:bucht ?buchung. ?buchung trsm:beinhaltetZimmer ?zimmer. ?zimmer trsm:istRaucherZimmer true.?guest trsm:nutzt ?angebot}";
+        printQuery(query);
     }
 
     public void sixth() {
@@ -48,7 +48,7 @@ public class Sparqler {
         String number2 = this.askParameter("Zimmernummer 2");
         String query = "SELECT ?zimmer2 WHERE { ?zimmer trsm:liegtNeben ?zimmer2. ?zimmer trsm:hatNummer ?nr1.?zimmer2 trsm:hatNummer ?nr2 FILTER(?nr1 = "
             + number1 + " && ?nr2 = " + number2 + ")}";
-        query(query);
+        printYesNoQuery(query);
     }
 
     public void seventh() {
@@ -57,7 +57,7 @@ public class Sparqler {
         String query = "SELECT ?guest1 ?guest2 WHERE {?guest1 trsm:hatName \"" + guest1 + "\" . ?guest2 trsm:hatName "
             + "\"" + guest2 + "\""
             + ".{{?guest1 trsm:istAllgemeinVerwandt ?guest2} UNION {?guest1 trsm:istFamilienVerwandt ?guest2}}}";
-        query(query);
+        printYesNoQuery(query);
     }
 
     public void eigth() {
@@ -66,32 +66,50 @@ public class Sparqler {
             + "?guest1 trsm:bucht ?buchung1. ?buchung1 trsm:beinhaltetZimmer ?zimmer1. "
             + "?guest2 trsm:bucht ?buchung2. ?buchung2 trsm:beinhaltetZimmer ?zimmer2. "
             + "?zimmer1 trsm:liegtNeben ?zimmer2}";
-        query(query);
+        printQuery(query);
     }
 
     private String askParameter(String paramName) {
         System.out.print("Input for: " + paramName);
         return new Scanner(System.in).nextLine();
     }
+    
+    private void printQuery(String queryString){
+        ResultSet results = this.query(queryString);
+        if (results != null) {
+            System.out.println("Result:");
+            while (results.hasNext()) {
+                System.out.println("   " + results.next());
+            }
+            System.out.print("Drï¿½cken sie <Eingabe> um zum Menï¿½ zurï¿½ckzukehren");
+            new Scanner(System.in).nextLine();
+        }
+    }
+    
+    private void printYesNoQuery(String queryString){
+        ResultSet results = this.query(queryString);
+        if(results.hasNext()){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+        System.out.print("Drï¿½cken sie <Eingabe> um zum Menï¿½ zurï¿½ckzukehren");
+        new Scanner(System.in).nextLine();
+    }
 
-    private void query(String queryString) {
-    	// TODO: müssen wir wirklich jedes Mal das Model neu laden, oder dürfen wir das wiederverwenden? - wahrscheinlich schon
+    private ResultSet query(String queryString) {
+    	// TODO: mï¿½ssen wir wirklich jedes Mal das Model neu laden, oder dï¿½rfen wir das wiederverwenden? - wahrscheinlich schon
     	try {
 			URL owlURL = this.getClass().getResource("/tourismus.owl");
 			Model model = FileManager.get().loadModel(owlURL.toString());
 			String newQueryString = "PREFIX trsm:<http://www.owl-ontologies.com/tourism.owl#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" + queryString;
 			QueryExecution qe = QueryExecutionFactory.create(newQueryString, model);
-			ResultSet results = qe.execSelect();
-			System.out.println("Result:");
-			while (results.hasNext()) {
-			    System.out.println("   " + results.next());
-			}
 			qe.close();
-			System.out.flush();
+                        System.out.flush();
+                        return qe.execSelect();
 		} catch (Throwable e) {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
+			return null;
 		}
-        System.out.print("Drücken sie <Eingabe> um zum Menü zurückzukehren");
-        new Scanner(System.in).nextLine();
     }
 }
