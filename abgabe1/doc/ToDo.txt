@@ -1,14 +1,13 @@
-* Abfragen auf wahr/falsch liefern ergebnis tupel/leeres ergebnis
+* Abfragen auf wahr/falsch liefern ergebnis tupel/leeres ergebnis - DONE
 
-* Instanzdaten anpassen für :
+* Instanzdaten anpassen für : - DINE
 
   5 Welche Wellnessangebote werden von GÃ¤sten genutzt, die ein Raucherzimmer gebucht haben?
   liefert kein Ergebnis
 
-* wenn mehrere Abfragen ausgeführt wurden, gibts beim Beenden ein:
+* wenn mehrere Abfragen ausgeführt wurden, gibts beim Beenden ein: - KOMMT bei mir nicht (Flo)
 
 ERROR: JDWP Unable to get JNI 1.2 environment, jvm->GetEnv() return code = -2
 JDWP exit error AGENT_ERROR_NO_JNI_ENV(183):  [../../../src/share/back/util.c:820]
 
-aber wir sollten evt das Model sowieso wiederverwenden
-
+aber wir sollten evt das Model sowieso wiederverwenden - Würd ich nicht machen, da reloading so leichter wäre.
