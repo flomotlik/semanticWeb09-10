@@ -100,8 +100,7 @@ public class Sparqler {
     private ResultSet query(String queryString) {
     	// TODO: m�ssen wir wirklich jedes Mal das Model neu laden, oder d�rfen wir das wiederverwenden? - wahrscheinlich schon
     	try {
-			URL owlURL = this.getClass().getResource("/tourismus.owl");
-			Model model = FileManager.get().loadModel(owlURL.toString());
+			Model model = FileManager.get().loadModel("tourismus.owl");
 			String newQueryString = "PREFIX trsm:<http://www.owl-ontologies.com/tourism.owl#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" + queryString;
 			QueryExecution qe = QueryExecutionFactory.create(newQueryString, model);
 			qe.close();
