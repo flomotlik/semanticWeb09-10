@@ -580,6 +580,7 @@
                                 >2009-11-20</trsm:dauertBis>
                                 <trsm:gebuchtVon>
                                   <trsm:Gast rdf:ID="Tick">
+                                  <trsm:istAllgemeinVerwandt rdf:resource="#Dorette"/>
                                     <trsm:nutzt>
                                       <trsm:Sport rdf:ID="Sport_Squash">
                                         <trsm:istAngebotenVon>
@@ -876,6 +877,7 @@
                                                             <trsm:nutzt rdf:resource="#Sport_Fitness"/>
                                                             <trsm:nutzt rdf:resource="#Sauna_trocken"/>
                                                             <trsm:bucht rdf:resource="#Buchung_4"/>
+                                                            
                                                             <trsm:istFamilienVerwandt>
                                                               <trsm:Gast rdf:ID="JohnDoe">
     <trsm:istFamilienVerwandt rdf:resource="#JaneDoe"/>
