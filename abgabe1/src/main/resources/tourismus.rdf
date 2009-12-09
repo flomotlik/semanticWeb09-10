@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:trsm="http://www.owl-ontologies.com/tourism.owl#"
@@ -10,8 +9,6 @@
     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xml:base="http://www.owl-ontologies.com/tourism.owl">
-
-  
   <trsm:RenaissanceSchloss rdf:ID="RenaissanceSchloss_Z">
     <trsm:hatBezeichnung rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Renaissance Schloss Z</trsm:hatBezeichnung>
@@ -165,6 +162,7 @@
                                 >2009-11-20</trsm:dauertBis>
                                 <trsm:gebuchtVon>
                                   <trsm:Gast rdf:ID="Tick">
+                                  <trsm:istAllgemeinVerwandt rdf:resource="#Dorette"/>
                                     <trsm:nutzt>
                                       <trsm:Sport rdf:ID="Sport_Squash">
                                         <trsm:istAngebotenVon>
@@ -461,6 +459,7 @@
                                                             <trsm:nutzt rdf:resource="#Sport_Fitness"/>
                                                             <trsm:nutzt rdf:resource="#Sauna_trocken"/>
                                                             <trsm:bucht rdf:resource="#Buchung_4"/>
+                                                            
                                                             <trsm:istFamilienVerwandt>
                                                               <trsm:Gast rdf:ID="JohnDoe">
     <trsm:istFamilienVerwandt rdf:resource="#JaneDoe"/>
@@ -557,7 +556,6 @@
             <trsm:istAngebotenVon rdf:resource="#Hotel_Belvedere"/>
           </trsm:FreiPool>
         </trsm:nutzt>
-        <trsm:istAllgemeinVerwandt rdf:resource="#Tick"/>
         <trsm:besucht>
           <trsm:KunstMuseum rdf:ID="Albertina">
             <trsm:istInNaeheVon rdf:resource="#Hotel_Belvedere"/>
@@ -577,6 +575,7 @@
             <trsm:istGeborenAm rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
             >1965-03-13</trsm:istGeborenAm>
             <trsm:bucht rdf:resource="#Buchung_2"/>
+            <trsm:istFamilienVerwandt rdf:resource="#Tick"/>
             <trsm:istFamilienVerwandt rdf:resource="#Dagobert"/>
             <trsm:nutzt>
               <trsm:HallenPool rdf:ID="HallenPool_klein">
@@ -682,7 +681,7 @@
                                         >Trockene Sauna</trsm:hatBezeichnung>
                                       </trsm:Sauna>
                                     </trsm:nutzt>
-                                    <trsm:istAllgemeinVerwandt rdf:resource="#Dagobert"/>
+                                    <trsm:istFamilienVerwandt rdf:resource="#Donald"/>
                                     <trsm:istGeborenAm rdf:datatype=
                                     "http://www.w3.org/2001/XMLSchema#date"
                                     >1980-04-05</trsm:istGeborenAm>
