@@ -1,4 +1,4 @@
-; Wed Dec 09 14:11:11 CET 2009
+; Wed Dec 09 15:24:13 CET 2009
 ; 
 ;+ (version "3.4.1")
 ;+ (build "Build 537")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[tourismus_ProjectKB_Class1189]
-		[tourismus_ProjectKB_Class1190]
-		[tourismus_ProjectKB_Class1191]
-		[tourismus_ProjectKB_Class1192]
-		[tourismus_ProjectKB_Class1193]))
+		[tourismus_ProjectKB_Class10220]
+		[tourismus_ProjectKB_Class10221]
+		[tourismus_ProjectKB_Class10222]
+		[tourismus_ProjectKB_Class10223]
+		[tourismus_ProjectKB_Class10224]))
 
 ([CLSES_TAB] of  Widget
 
@@ -764,7 +764,7 @@
 	(property_list [XY_Instance_890])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
 
-([KB_483378_Class0] of  Map
+([KB_583812_Class0] of  Map
 )
 
 ([KB_632156_Instance_0] of  String
@@ -5583,18 +5583,44 @@
 		[Instance_2534]
 		[Instance_86]
 		[Instance_2600]
-		[FORMS_TAB]
 		[Instance_3234]
-		[Instance_43]
-		[CLSES_TAB]
-		[KB_865583_Instance_6]
-		[INSTANCES_TAB]
-		[Instance_45]
-		[KB_865583_Instance_12]
 		[KB_865583_Instance_8]
+		[tourismus_ProjectKB_Class25]
+		[tourismus_ProjectKB_Class39]
+		[Instance_43]
+		[tourismus_ProjectKB_Class45]
+		[KB_865583_Instance_6]
+		[tourismus_ProjectKB_Class41]
+		[FORMS_TAB]
+		[tourismus_ProjectKB_Class11]
+		[tourismus_ProjectKB_Class9]
+		[tourismus_ProjectKB_Class1]
+		[Instance_45]
+		[tourismus_ProjectKB_Class43]
+		[tourismus_ProjectKB_Class17]
+		[tourismus_ProjectKB_Class47]
+		[KB_865583_Instance_12]
+		[tourismus_ProjectKB_Class19]
+		[tourismus_ProjectKB_Class13]
+		[tourismus_ProjectKB_Class51]
+		[tourismus_ProjectKB_Class3]
+		[tourismus_ProjectKB_Class37]
 		[KB_865583_Instance_4]
+		[tourismus_ProjectKB_Class35]
+		[KB_865583_Instance_10]
+		[tourismus_ProjectKB_Class23]
+		[tourismus_ProjectKB_Class21]
+		[tourismus_ProjectKB_Class29]
+		[tourismus_ProjectKB_Class27]
+		[tourismus_ProjectKB_Class49]
+		[tourismus_ProjectKB_Class33]
+		[CLSES_TAB]
+		[tourismus_ProjectKB_Class5]
+		[INSTANCES_TAB]
+		[tourismus_ProjectKB_Class31]
 		[SLOTS_TAB]
-		[KB_865583_Instance_10]))
+		[tourismus_ProjectKB_Class7]
+		[tourismus_ProjectKB_Class15]))
 
 ([SLOTS_TAB] of  Widget
 
@@ -5646,36 +5672,36 @@
 ([tourismus_ProjectKB_Class10] of  Property_List
 )
 
-([tourismus_ProjectKB_Class11] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [tourismus_ProjectKB_Class12])
-	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.InstanceTreeTab"))
-
-([tourismus_ProjectKB_Class1189] of  String
+([tourismus_ProjectKB_Class10220] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Class")
 	(string_value "%3ANAME"))
 
-([tourismus_ProjectKB_Class1190] of  String
+([tourismus_ProjectKB_Class10221] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([tourismus_ProjectKB_Class1191] of  String
+([tourismus_ProjectKB_Class10222] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([tourismus_ProjectKB_Class1192] of  String
+([tourismus_ProjectKB_Class10223] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([tourismus_ProjectKB_Class1193] of  String
+([tourismus_ProjectKB_Class10224] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Thing")
 	(string_value "%3ANAME"))
+
+([tourismus_ProjectKB_Class11] of  Widget
+
+	(is_hidden FALSE)
+	(property_list [tourismus_ProjectKB_Class12])
+	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.InstanceTreeTab"))
 
 ([tourismus_ProjectKB_Class12] of  Property_List
 )

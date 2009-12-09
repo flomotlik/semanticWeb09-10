@@ -2,8 +2,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>at.tuwien.semanticWeb</groupId>
-  <artifactId>abgabe1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>esw</artifactId>
+  <version>final</version>
   <build>
     <plugins>
       <plugin>
