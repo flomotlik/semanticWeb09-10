@@ -110,22 +110,32 @@ public class Sparqler {
         return new Scanner(System.in).nextLine();
     }
     
+    private void waitForUser() {
+	    System.out.print("Druecken sie <Eingabe> um zum Menue zurueckzukehren");
+	    new Scanner(System.in).nextLine();
+    }
+    
     private void printSelectQuery(String queryString){
-        ResultSet results = this.query(queryString);
-        if (results != null) {
-            System.out.println("Result:");
-            while (results.hasNext()) {
-            	QuerySolution qs = results.next();
-            	RDFNode rdfNode = qs.get("x");
-            	if (rdfNode.isLiteral())
-            		System.out.println("\t" + rdfNode.as(Literal.class).toString());
-            	else
-            		System.out.println("\t" + rdfNode.toString());
-                
-            }
-            System.out.print("Druecken sie <Eingabe> um zum Menue zurueckzukehren");
-            new Scanner(System.in).nextLine();
-        }
+        try {
+			ResultSet results = query(queryString);
+			if (results != null) {
+			    System.out.println("Result:");
+			    while (results.hasNext()) {
+			    	QuerySolution qs = results.next();
+			    	RDFNode rdfNode = qs.get("x");
+			    	if (rdfNode.isLiteral()) {
+			    		Literal l = (Literal)rdfNode.as(Literal.class);
+			    		System.out.println("\t" + l.getString());
+			    	}  else {
+			    		System.out.println("\t" + rdfNode.toString());
+			    	}
+			        
+			    }
+			}
+		} catch (Exception e) {
+			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
+		}
+		waitForUser();
     }
     
     private void printAskQuery(String queryString){
@@ -137,20 +147,17 @@ public class Sparqler {
 		} catch (Exception e) {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
 		}
-        System.out.print("Druecken sie <Eingabe> um zum Menue zurueckzukehren");
-        new Scanner(System.in).nextLine();
+		waitForUser();
     }
 	
-    private ResultSet query(String queryString) {
+    private ResultSet query(String queryString) throws Exception {
     	try {
 			String newQueryString = "PREFIX trsm:<http://www.owl-ontologies.com/tourism.owl#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" + queryString;
 			QueryExecution qe = QueryExecutionFactory.create(newQueryString, model);
 			qe.close();
-            System.out.flush();
             return qe.execSelect();
 		} catch (Throwable e) {
-			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
-			return null;
+			throw new Exception(e);
 		}
     }
     
@@ -159,10 +166,9 @@ public class Sparqler {
 			String newQueryString = "PREFIX trsm:<http://www.owl-ontologies.com/tourism.owl#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" + queryString;
 			QueryExecution qe = QueryExecutionFactory.create(newQueryString, model);
 			qe.close();
-            System.out.flush();
             return qe.execAsk();
 		} catch (Throwable e) {
-			throw new Exception(e.getMessage());
+			throw new Exception(e);
 		}
     }
 }
