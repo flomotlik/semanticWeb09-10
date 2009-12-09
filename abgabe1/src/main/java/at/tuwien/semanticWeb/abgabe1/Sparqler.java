@@ -8,7 +8,9 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.reasoner.ReasonerRegistry;
 import com.hp.hpl.jena.util.FileManager;
 
 public class Sparqler {
@@ -16,7 +18,8 @@ public class Sparqler {
 	private Model model;
 	
 	public Sparqler() {
-		model = FileManager.get().loadModel("tourismus.owl");
+		Model loadedModel = FileManager.get().loadModel("tourismus.owl");
+		model = ModelFactory.createInfModel(ReasonerRegistry.getOWLMiniReasoner(), loadedModel);
 	}
 
     public void first() {
