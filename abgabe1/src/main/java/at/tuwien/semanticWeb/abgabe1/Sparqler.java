@@ -118,7 +118,7 @@ public class Sparqler {
             	QuerySolution qs = results.next();
             	RDFNode rdfNode = qs.get("x");
             	if (rdfNode.isLiteral())
-            		System.out.println("\t" + rdfNode.as(Literal.class).getString());
+            		System.out.println("\t" + rdfNode.as(Literal.class).toString());
             	else
             		System.out.println("\t" + rdfNode.toString());
                 
