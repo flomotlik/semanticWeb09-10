@@ -87,9 +87,9 @@ public class Sparqler {
         String guest2 = this.askParameter("Guest 2");
         String query = "ASK {?guest1 trsm:hatName \"" + guest1 + "\" . " +
         				"?guest2 trsm:hatName " + "\"" + guest2 + "\"" +
-        				".{{?guest1 trsm:istAllgemeinVerwandt ?guest2} " +
+        				".{?guest1 trsm:istAllgemeinVerwandt ?guest2} " +
         				"UNION " +
-        				"{?guest1 trsm:istFamilienVerwandt ?guest2}}}";
+        				"{?guest1 trsm:istFamilienVerwandt ?guest2}}";
         printAskQuery(query);
     }
 
