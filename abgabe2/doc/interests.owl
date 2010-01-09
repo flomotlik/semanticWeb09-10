@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+<!-- Scheme named : Event -->
+<skos:ConceptScheme 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event">
+	<rdfs:label>Event</rdfs:label>
+	<creator xmlns="http://purl.org/dc/elements/1.1/">Konrad Wieland, Philip Langer</creator>
+	<modified xmlns="http://purl.org/dc/terms/">Wed Dec 09 12:00:18 CET 2009</modified> 
+</skos:ConceptScheme>
+
+
+<!-- Sport -->
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Sport">
+	<skos:prefLabel>Sport</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:definition>körperliche Betätigung</skos:definition> 
+</skos:Concept> 
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Ballsport">
+	<skos:prefLabel>Ballsport</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wassersport">
+	<skos:prefLabel>Wassersport</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Funsport">
+	<skos:prefLabel>Funsport</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Extremsport">
+	<skos:prefLabel>Extremsport</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wintersport">
+	<skos:prefLabel>Wintersport</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+</skos:Concept>
+
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Tennis">
+	<skos:prefLabel>Tennis</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Ballsport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Handball">
+	<skos:prefLabel>Handball</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Ballsport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wasserball">
+	<skos:prefLabel>Wasserball</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Ballsport"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wassersport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Synchronschwimmen">
+	<skos:prefLabel>Synchronschwimmen</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wassersport"/>
+</skos:Concept>
+
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Ultimate">
+	<skos:prefLabel>Ultimate</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Funsport"/>
+	<skos:definition>Wurfscheiben-Spiel</skos:definition>
+	<skos:altLabel>Frisbee</skos:altLabel>
+	<skos:altLabel>Ultimate Frisbee</skos:altLabel> </skos:Concept>
+<!-- Klettern -->
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Klettern">
+	<skos:prefLabel>Klettern</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Extremsport"/>
+	<skos:definition></skos:definition>
+	<skos:altLabel>Climbing</skos:altLabel>
+</skos:Concept>
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Bouldern">
+	<skos:prefLabel>Bouldern</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Klettern"/>
+</skos:Concept>
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Eisklettern">
+	<skos:prefLabel>Eisklettern</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Klettern"/>
+</skos:Concept>
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Top_Rope">
+	<skos:prefLabel>Top Rope</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Klettern"/>
+</skos:Concept>
+
+<!-- Kultur -->
+<skos:Concept
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Kultur">
+	<skos:prefLabel>Kultur</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+</skos:Concept> 
+
+<!--Darstellende Künste -->
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst">
+	<skos:prefLabel>Darstellende Kunst</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Kultur"/>
+</skos:Concept> 
+
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Medienkunst">
+	<skos:prefLabel>Medienkunst</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Tonkunst">
+	<skos:prefLabel>Tonkunst</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Medienkunst"/>
+	<skos:altLabel>Musik</skos:altLabel>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Filmkunst">
+	<skos:prefLabel>Filmkunst</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Medienkunst"/>
+	<skos:altLabel>Film</skos:altLabel>
+</skos:Concept> 
+
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Theater">
+	<skos:prefLabel>Theater</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Schauspiel">
+	<skos:prefLabel>Schauspiel</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Theater"/>
+	<skos:altLabel>Schauspielen</skos:altLabel>
+	<skos:altLabel>Schauspielen</skos:altLabel>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Oper">
+	<skos:prefLabel>Oper</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Theater"/>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Kleinkunst">
+	<skos:prefLabel>Kleinkunst</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Theater"/>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Kabarett">
+	<skos:prefLabel>Kabarett</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Kleinkunst"/>
+</skos:Concept> 
+
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Tanz">
+	<skos:prefLabel>Tanz</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+	<skos:altLabel>Tanzen</skos:altLabel>
+</skos:Concept> 
+
+<!--Bildende Künste -->
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Bildende_Kunst">
+	<skos:prefLabel>Bildende Kunst</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Kultur"/>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Malerei">
+	<skos:prefLabel>Malerei</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Bildende_Kunst"/>
+	<skos:altLabel>Malen</skos:altLabel>
+	<skos:altLabel>Gemälde</skos:altLabel>
+	<skos:altLabel>Gemaelde</skos:altLabel>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Fotografie">
+	<skos:prefLabel>Fotografie</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Bildende_Kunst"/>
+	<skos:altLabel>Photografie</skos:altLabel>
+</skos:Concept> 
+
+<skos:Concept 
+rdf:about="http://www.big.tuwien.ac.at/semantic/event#Bildhauerei">
+	<skos:prefLabel>Bildhauerei</skos:prefLabel>
+	<skos:inScheme
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader
+rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Bildende_Kunst"/>
+</skos:Concept> 
+
+</rdf:RDF>
