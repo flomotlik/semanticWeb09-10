@@ -170,10 +170,10 @@ public class CSVImporter {
 				Individual ind = clazz.createIndividual();
 				// TODO check if ort exists
 				Individual ort = ortClass.createIndividual();
-				ort.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[2]);
+				ort.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[2].trim());
 				
-				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[0])
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), line[1])
+				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[0].trim())
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), line[1].trim())
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ort);
 				
 				events.put(line[0], ind);
@@ -189,8 +189,8 @@ public class CSVImporter {
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			while ((line = reader.readNext()) != null) {
-				Individual gast = (Individual)getGastByName(line[0]);
-				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEventByName(line[1]));
+				Individual gast = (Individual)getGastByName(line[0].trim());
+				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEventByName(line[1].trim()));
 				
 			}
 		}
