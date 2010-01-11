@@ -19,6 +19,7 @@ public class CSVImporter {
 	private Map<String, RDFNode> hotelKetten = new HashMap<String, RDFNode>();
 	private Map<String, RDFNode> hotels = new HashMap<String, RDFNode>();
 	private Map<String, RDFNode> gaeste = new HashMap<String, RDFNode>();
+	private Map<String, RDFNode> events = new HashMap<String, RDFNode>();
 	
 	public CSVImporter() {
 		
@@ -46,6 +47,7 @@ public class CSVImporter {
 		hotelKetten.clear();
 		hotels.clear();
 		gaeste.clear();
+		events.clear();
 		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
@@ -53,8 +55,8 @@ public class CSVImporter {
 			loadGast(loader.getResourceAsStream("csv/gast.csv"));
 			loadHotel(loader.getResourceAsStream("csv/hotel.csv"));
 			loadBuchung(loader.getResourceAsStream("csv/buchung.csv"));
-		
-//			loadEvents(loader.getResourceAsStream("csv/events.csv"));
+			loadEvents(loader.getResourceAsStream("csv/events.csv"));
+			loadEventTeilnahme(loader.getResourceAsStream("csv/eventteilnahme.csv"));
 		} catch (Exception e) {
 			System.err.println("Beim Einlesen der csv Daten ist ein Problem aufgetreten: " + e.getMessage());
 			e.printStackTrace();
@@ -162,12 +164,33 @@ public class CSVImporter {
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classEvent);
+			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 			while ((line = reader.readNext()) != null) {
 				// pro Zeile eine neue Instanz
 				Individual ind = clazz.createIndividual();
-				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propVorname), line[0])
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNachname), line[1])
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propEmail), line[2]);
+				// TODO check if ort exists
+				Individual ort = ortClass.createIndividual();
+				ort.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[2]);
+				
+				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[0])
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), line[1])
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ort);
+				
+				events.put(line[0], ind);
+			}
+		}
+		reader.close();
+	}
+	
+	private void loadEventTeilnahme(InputStream in) throws Exception {
+		CSVReader reader  = new CSVReader(new InputStreamReader(in));
+		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		String[] line = reader.readNext();
+		if ((line != null) && (line.length == 3)) {
+			while ((line = reader.readNext()) != null) {
+				Individual gast = (Individual)getGastByName(line[0]);
+				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEventByName(line[1]));
+				
 			}
 		}
 		reader.close();
@@ -210,6 +233,22 @@ public class CSVImporter {
 	 */
 	private RDFNode getHotelByName(String name) throws Exception {
 		RDFNode node = hotels.get(name);
+		if (node != null) {
+			return node;
+		} else {
+			throw new Exception("Hotel nicht gefunden: " + name);
+		}
+		
+	}
+	
+	/**
+	 * derzeit lookup per Hashmap
+	 * - evtentuell on demand mit SPARQL laden?
+	 * @param name
+	 * @return
+	 */
+	private RDFNode getEventByName(String name) throws Exception {
+		RDFNode node = events.get(name);
 		if (node != null) {
 			return node;
 		} else {
