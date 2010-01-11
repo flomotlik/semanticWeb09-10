@@ -12,7 +12,7 @@ public class HotelManagerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		manager = new HotelManager();
+		manager = HotelManager.getHotelManager();
 	}
 
 	@After

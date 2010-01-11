@@ -10,6 +10,9 @@ import au.com.bytecode.opencsv.CSVReader;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
 public class CSVImporter {
@@ -71,9 +74,15 @@ public class CSVImporter {
 		if ((line != null) && (line.length == 1)) {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classHotelkette);
-			while ((line = reader.readNext()) != null) {
+			while ((line = reader.readNext()) != null) {				
 				// pro Zeile eine neue Instanz
 				String name = line[0].trim();
+				
+				if (existsHotelKette(name)) {
+					System.out.println("Hotelkette " + name + " schon vorhanden.");
+					continue;
+				}
+				
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name);
 				
@@ -96,6 +105,12 @@ public class CSVImporter {
 				String vorname = line[0].trim();
 				String nachname = line[1].trim();
 				String email = line[2].trim();
+				
+				if (existsGast(vorname, nachname, email)) {
+					System.out.println("Gast " + vorname + " " + nachname + " " + email + " schon vorhanden.");
+					continue;
+				}
+				
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propVorname), vorname)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNachname), nachname)
@@ -121,6 +136,12 @@ public class CSVImporter {
 				String name = line[0].trim();
 				String stadt = line[1].trim();
 				String kette = line[2].trim();
+				
+				if (existsHotel(name, stadt)) {
+					System.out.println("Hotel " + name + " in " + stadt + " schon vorhanden.");
+					continue;
+				}
+				
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propStadt), stadt)
@@ -258,11 +279,31 @@ public class CSVImporter {
 		
 	}
 	
+	/**
+	 * Checks if HotelKette exists already in the ontology.
+	 * @param name name of the HotelKette
+	 * @return true if exists false otherwise
+	 */
 	private boolean existsHotelKette(String name) {
-		String query = "ASK {}";
+		String query = "ASK {?kette :name " + name + "}";
+		
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
-	//private boolean exists
+	private boolean existsGast(String first, String last, String email) {
+		// TODO
+		return false;
+	}
+	
+	private boolean existsHotel(String name, String city) {
+		// TODO
+		return false;
+	}
 
 }

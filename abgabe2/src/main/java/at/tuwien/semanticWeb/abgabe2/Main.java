@@ -14,7 +14,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
         boolean exit = false;
-        HotelManager manager = new HotelManager();
+        HotelManager manager = HotelManager.getHotelManager();
         String input;
         do {
             input = printMenu();

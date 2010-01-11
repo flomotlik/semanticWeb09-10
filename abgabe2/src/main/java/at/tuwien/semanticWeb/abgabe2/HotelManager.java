@@ -14,6 +14,8 @@ import com.hp.hpl.jena.util.FileManager;
 
 public class HotelManager {
 
+	private static HotelManager hm;
+	
 	private OntModel ontModel;
 	
 	public OntModel getOntModel() {
@@ -31,6 +33,13 @@ public class HotelManager {
 		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgelöst werden
 		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
 		ontModel.add(model);
+	}
+	
+	public static HotelManager getHotelManager() {
+		if (hm == null) {
+			hm = new HotelManager();
+		}
+		return hm;
 	}
 	
 	public void loadData() {
@@ -66,12 +75,29 @@ public class HotelManager {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
 		}
     }
-	private ResultSet query(String queryString) throws Exception {
+	public ResultSet query(String queryString) throws Exception {
     	try {
 			String newQueryString = "PREFIX :<" + HotelNS.prefix + "> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" + queryString;
 			QueryExecution qe = QueryExecutionFactory.create(newQueryString, ontModel);
 			qe.close();
             return qe.execSelect();
+		} catch (Throwable e) {
+			throw new Exception(e);
+		}
+    }
+	
+	/**
+	 * Performs an ask query.
+	 * @param queryString query to be executed
+	 * @return true if there are some results false otherwise
+	 * @throws Exception
+	 */
+	public boolean askQuery(String queryString) throws Exception {
+    	try {
+			String newQueryString = "PREFIX :<" + HotelNS.prefix + "> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" + queryString;
+			QueryExecution qe = QueryExecutionFactory.create(newQueryString, ontModel);
+			qe.close();
+            return qe.execAsk();
 		} catch (Throwable e) {
 			throw new Exception(e);
 		}
