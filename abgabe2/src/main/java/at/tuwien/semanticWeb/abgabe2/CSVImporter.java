@@ -2,19 +2,14 @@ package at.tuwien.semanticWeb.abgabe2;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 
 import au.com.bytecode.opencsv.CSVReader;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
 public class CSVImporter {
@@ -81,7 +76,7 @@ public class CSVImporter {
 				String name = line[0].trim();
 				
 				if (existsHotelKette(name)) {
-					System.out.println("Hotelkette " + name + " schon vorhanden.");
+					System.out.println("Hotelkette " + name + " bereits vorhanden.");
 					continue;
 				}
 				
@@ -109,7 +104,7 @@ public class CSVImporter {
 				String email = line[2].trim();
 				
 				if (existsGast(vorname, nachname, email)) {
-					System.out.println("Gast " + vorname + " " + nachname + " " + email + " schon vorhanden.");
+					System.out.println("Gast " + vorname + " " + nachname + " " + email + " bereits vorhanden.");
 					continue;
 				}
 				
@@ -140,7 +135,7 @@ public class CSVImporter {
 				String kette = line[2].trim();
 				
 				if (existsHotel(name, stadt)) {
-					System.out.println("Hotel " + name + " in " + stadt + " schon vorhanden.");
+					System.out.println("Hotel " + name + " in " + stadt + " bereits vorhanden.");
 					continue;
 				}
 				
@@ -193,11 +188,21 @@ public class CSVImporter {
 				String datum = line[1].trim();
 				String ort = line[2].trim();
 				
+				if (existsEvent(name, datum, ort)) {
+					System.out.println("Veranstaltung " + name + " am " + datum + " in " + ort + " bereits vorhanden.");
+					continue;
+				}
+				
+				Individual ortInstanz;
+				if(existsOrt(ort)) {
+					ortInstanz = (Individual)getOrtByName(ort).as(Individual.class);
+				} else {
+					ortInstanz = ortClass.createIndividual();
+					ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), ort);
+				}
+				
 				// pro Zeile eine neue Instanz
 				Individual ind = clazz.createIndividual();
-				// TODO check if ort exists
-				Individual ortInstanz = ortClass.createIndividual();
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), ort);
 				
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
@@ -216,6 +221,15 @@ public class CSVImporter {
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			while ((line = reader.readNext()) != null) {
+				String person = line[0].trim();
+				String event = line[1].trim();
+				String datum = line[2].trim();
+				
+				if (existsEventTeilnahme(person, event, datum)) {
+					System.out.println("Teilnahme von " + person + " an " + event + " am " + datum + " bereits vorhanden.");
+					continue;
+				}
+				
 				Individual gast = (Individual)getGastByName(line[0].trim()).as(Individual.class);
 				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEventByName(line[1].trim()));
 				
@@ -339,6 +353,11 @@ public class CSVImporter {
 		
 	}
 	
+	private RDFNode getOrtByName(String name) {
+		//TODO
+		return null;
+	}
+	
 	/**
 	 * Checks if HotelKette exists already in the ontology.
 	 * @param name name of the HotelKette
@@ -363,6 +382,21 @@ public class CSVImporter {
 	
 	private boolean existsHotel(String name, String city) {
 		// TODO
+		return false;
+	}
+	
+	private boolean existsEvent(String name, String datum, String ort) {
+		//TODO
+		return false;
+	}
+	
+	private boolean existsOrt(String name) {
+		//TODO
+		return false;
+	}
+	
+	private boolean existsEventTeilnahme(String person, String event, String datum) {
+		//TODO
 		return false;
 	}
 
