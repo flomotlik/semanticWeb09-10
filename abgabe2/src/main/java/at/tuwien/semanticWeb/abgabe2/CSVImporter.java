@@ -21,10 +21,10 @@ public class CSVImporter {
 	
 	private OntModel ontModel;
 	
-	private Map<String, RDFNode> hotelKetten = new HashMap<String, RDFNode>();
-	private Map<String, RDFNode> hotels = new HashMap<String, RDFNode>();
-	private Map<String, RDFNode> gaeste = new HashMap<String, RDFNode>();
-	private Map<String, RDFNode> events = new HashMap<String, RDFNode>();
+	//private Map<String, RDFNode> hotelKetten = new HashMap<String, RDFNode>();
+	//private Map<String, RDFNode> hotels = new HashMap<String, RDFNode>();
+	//private Map<String, RDFNode> gaeste = new HashMap<String, RDFNode>();
+	//private Map<String, RDFNode> events = new HashMap<String, RDFNode>();
 	
 	public CSVImporter() {
 		
@@ -49,10 +49,10 @@ public class CSVImporter {
 	public void importData(OntModel model) {
 		ontModel = model;
 		
-		hotelKetten.clear();
-		hotels.clear();
-		gaeste.clear();
-		events.clear();
+		//hotelKetten.clear();
+		//hotels.clear();
+		//gaeste.clear();
+		//events.clear();
 		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
@@ -88,7 +88,7 @@ public class CSVImporter {
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name);
 				
-				hotelKetten.put(name, ind);
+				//hotelKetten.put(name, ind);
 			}
 		}
 		reader.close();
@@ -118,7 +118,7 @@ public class CSVImporter {
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNachname), nachname)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propEmail), email);
 				
-				gaeste.put(vorname+" "+nachname, ind);
+				//gaeste.put(vorname+" "+nachname, ind);
 			}
 		}
 		reader.close();
@@ -149,7 +149,7 @@ public class CSVImporter {
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propStadt), stadt)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstTeilVon), getHotelKetteByName(kette));
 				
-				hotels.put(name, ind);
+				//hotels.put(name, ind);
 			}
 		}
 		reader.close();
@@ -203,7 +203,7 @@ public class CSVImporter {
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ortInstanz);
 				
-				events.put(line[0], ind);
+				//events.put(line[0], ind);
 				
 			}
 		}
@@ -216,7 +216,7 @@ public class CSVImporter {
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			while ((line = reader.readNext()) != null) {
-				Individual gast = (Individual)getGastByName(line[0].trim());
+				Individual gast = (Individual)getGastByName(line[0].trim()).as(Individual.class);
 				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEventByName(line[1].trim()));
 				
 			}
@@ -256,14 +256,14 @@ public class CSVImporter {
 	 * @return RDFNode
 	 */
 	private RDFNode getGastByName(String name) throws Exception{
-		RDFNode node = gaeste.get(name);
+		/*RDFNode node = gaeste.get(name);
 		if (node != null) {
 			return node;
 		} else {
 			throw new Exception("Gast nicht gefunden: " + name);
 		}
+		*/
 		
-		/*
 		String splitted[] = name.split("\\s+", 2);
 		String query = "SELECT ?x " +
 		"WHERE { ?x :vorname \"" + splitted[0] + "\" ;" +
@@ -277,7 +277,7 @@ public class CSVImporter {
 			node = qs.get("x");
 		}
 		return node;	
-		*/
+		
 	}
 	/**
 	 * Searches for a hotel with specific name in the ontology. 
