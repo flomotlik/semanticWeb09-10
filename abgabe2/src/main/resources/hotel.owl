@@ -15,19 +15,18 @@
   <owl:Class rdf:ID="Hotelkette"/>
   <owl:Class rdf:ID="Gast"/>
   <owl:Class rdf:ID="Hotel"/>
-  <owl:Class rdf:ID="Country"/>
   <owl:Class rdf:ID="Ort"/>
   <owl:Class rdf:ID="Veranstaltung">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     ></rdfs:comment>
   </owl:Class>
-  <owl:ObjectProperty rdf:ID="hat">
+  <owl:ObjectProperty rdf:ID="findetStattIn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="#Ort"/>
     <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="gehoertZu"/>
+      <owl:ObjectProperty rdf:ID="hostet"/>
     </owl:inverseOf>
-    <rdfs:range rdf:resource="#Buchung"/>
-    <rdfs:domain rdf:resource="#Hotel"/>
+    <rdfs:domain rdf:resource="#Veranstaltung"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="wirdBesuchtVon">
     <rdfs:domain rdf:resource="#Veranstaltung"/>
@@ -36,74 +35,79 @@
       <owl:ObjectProperty rdf:ID="nimmtTeilAn"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="isLocatedIn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-    <rdfs:range rdf:resource="#Country"/>
+  <owl:ObjectProperty rdf:about="#hostet">
+    <rdfs:range rdf:resource="#Veranstaltung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="#Ort"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="contains"/>
-    </owl:inverseOf>
+    <owl:inverseOf rdf:resource="#findetStattIn"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="durchgefuehrtVon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="fuehrtDurch"/>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="#Buchung"/>
-    <rdfs:range rdf:resource="#Gast"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#fuehrtDurch">
+  <owl:ObjectProperty rdf:ID="fuehrtDurch">
     <rdfs:range rdf:resource="#Buchung"/>
-    <owl:inverseOf rdf:resource="#durchgefuehrtVon"/>
-    <rdfs:domain rdf:resource="#Gast"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="istTeilVon">
     <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="bestehtAus"/>
+      <owl:FunctionalProperty rdf:ID="durchgefuehrtVon"/>
     </owl:inverseOf>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="#Hotel"/>
-    <rdfs:range rdf:resource="#Hotelkette"/>
+    <rdfs:domain rdf:resource="#Gast"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#nimmtTeilAn">
     <rdfs:domain rdf:resource="#Gast"/>
     <rdfs:range rdf:resource="#Veranstaltung"/>
     <owl:inverseOf rdf:resource="#wirdBesuchtVon"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#bestehtAus">
-    <rdfs:domain rdf:resource="#Hotelkette"/>
-    <owl:inverseOf rdf:resource="#istTeilVon"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-    <rdfs:range rdf:resource="#Hotel"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#gehoertZu">
-    <rdfs:range rdf:resource="#Hotel"/>
-    <owl:inverseOf rdf:resource="#hat"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="#Buchung"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#contains">
-    <rdfs:range rdf:resource="#Ort"/>
-    <rdfs:domain rdf:resource="#Country"/>
-    <owl:inverseOf rdf:resource="#isLocatedIn"/>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:ID="bis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="#Buchung"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="vornamen">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DatatypeProperty rdf:ID="email">
     <rdfs:domain rdf:resource="#Gast"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="datum">
+  <owl:FunctionalProperty rdf:ID="bis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="datum">
     <rdfs:domain rdf:resource="#Veranstaltung"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="name">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="vornamen">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Gast"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="stadt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Hotel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#durchgefuehrtVon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#fuehrtDurch"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <rdfs:range rdf:resource="#Gast"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="nachname">
+    <rdfs:domain rdf:resource="#Gast"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="von">
+    <rdfs:domain rdf:resource="#Buchung"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="gehoertZu">
+    <rdfs:range rdf:resource="#Hotel"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hat"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Buchung"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="land">
+    <rdfs:domain rdf:resource="#Ort"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain>
       <owl:Class>
@@ -112,63 +116,44 @@
           <owl:Class rdf:about="#Hotel"/>
           <owl:Class rdf:about="#Hotelkette"/>
           <owl:Class rdf:about="#Ort"/>
-          <owl:Class rdf:about="#Country"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="stadt">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="#Hotel"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="countryCode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Country"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="latitude">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="#Ort"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="longtitude">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdfs:domain rdf:resource="#Ort"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="nachname">
-    <rdfs:domain rdf:resource="#Gast"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="von">
-    <rdfs:domain rdf:resource="#Buchung"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="timezone">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="#Ort"/>
-  </owl:DatatypeProperty>
-  <owl:FunctionalProperty rdf:ID="hostet">
-    <rdfs:range rdf:resource="#Veranstaltung"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="#Ort"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="istTeilVon">
     <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:ID="findetStattIn"/>
+      <owl:InverseFunctionalProperty rdf:ID="bestehtAus"/>
     </owl:inverseOf>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="email">
-    <rdfs:domain rdf:resource="#Gast"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:FunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="#findetStattIn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="#Ort"/>
-    <owl:inverseOf rdf:resource="#hostet"/>
-    <rdfs:domain rdf:resource="#Veranstaltung"/>
+    <rdfs:domain rdf:resource="#Hotel"/>
+    <rdfs:range rdf:resource="#Hotelkette"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="longtitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Ort"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="latitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Ort"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="timezone">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Ort"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#gehoertZu"/>
+    <rdfs:range rdf:resource="#Buchung"/>
+    <rdfs:domain rdf:resource="#Hotel"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#bestehtAus">
+    <rdfs:domain rdf:resource="#Hotelkette"/>
+    <owl:inverseOf rdf:resource="#istTeilVon"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Hotel"/>
   </owl:InverseFunctionalProperty>
   <Gast rdf:ID="Gast_51">
     <nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -182,153 +167,6 @@
           <Ort rdf:ID="Schladming">
             <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Schladming</name>
-            <isLocatedIn>
-              <Country rdf:ID="country_at">
-                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Oesterreich</name>
-                <contains rdf:resource="#Schladming"/>
-                <contains>
-                  <Ort rdf:ID="Schwarzach">
-                    <isLocatedIn rdf:resource="#country_at"/>
-                    <hostet>
-                      <Veranstaltung rdf:ID="Event_57">
-                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >Eisstockschiessen</name>
-                        <wirdBesuchtVon>
-                          <Gast rdf:ID="Gast_58">
-                            <vornamen rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >Fred</vornamen>
-                            <nimmtTeilAn rdf:resource="#Event_57"/>
-                            <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >fredchen@nagetier.at</email>
-                            <fuehrtDurch>
-                              <Buchung rdf:ID="Buchung_60">
-                                <gehoertZu>
-                                  <Hotel rdf:ID="Hotel_61">
-                                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >Hilton Bregenz</name>
-                                    <hat rdf:resource="#Buchung_60"/>
-                                    <stadt rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >Bregenz</stadt>
-                                    <istTeilVon>
-                                      <Hotelkette rdf:ID="Hotelkette_56">
-                                        <bestehtAus>
-                                          <Hotel rdf:ID="Hotel_55">
-                                            <istTeilVon rdf:resource="#Hotelkette_56"/>
-                                            <stadt rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Schladming</stadt>
-                                            <name rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Hilton Schladming</name>
-                                            <hat>
-                                              <Buchung rdf:ID="Buchung_54">
-                                                <gehoertZu rdf:resource="#Hotel_55"/>
-                                                <bis rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#date"
-                                                >2009-12-07</bis>
-                                                <durchgefuehrtVon rdf:resource="#Gast_51"/>
-                                                <von rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#date"
-                                                >2009-12-26</von>
-                                              </Buchung>
-                                            </hat>
-                                          </Hotel>
-                                        </bestehtAus>
-                                        <bestehtAus rdf:resource="#Hotel_61"/>
-                                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                        >Hilton Group</name>
-                                      </Hotelkette>
-                                    </istTeilVon>
-                                  </Hotel>
-                                </gehoertZu>
-                                <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                >2009-12-22</bis>
-                                <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                >2009-12-30</von>
-                                <durchgefuehrtVon rdf:resource="#Gast_58"/>
-                              </Buchung>
-                            </fuehrtDurch>
-                            <nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >Chen</nachname>
-                          </Gast>
-                        </wirdBesuchtVon>
-                        <findetStattIn rdf:resource="#Schwarzach"/>
-                        <datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                        >2009-12-16</datum>
-                      </Veranstaltung>
-                    </hostet>
-                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >Schwarzach</name>
-                  </Ort>
-                </contains>
-                <contains>
-                  <Ort rdf:ID="Kitzbuehel">
-                    <hostet>
-                      <Veranstaltung rdf:ID="Event_63">
-                        <datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                        >2009-01-05</datum>
-                        <findetStattIn rdf:resource="#Kitzbuehel"/>
-                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >Modeschau</name>
-                        <wirdBesuchtVon>
-                          <Gast rdf:ID="Gast_62">
-                            <nimmtTeilAn rdf:resource="#Event_63"/>
-                            <fuehrtDurch>
-                              <Buchung rdf:ID="Buchung_64">
-                                <gehoertZu>
-                                  <Hotel rdf:ID="Hotel_62">
-                                    <stadt rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >Kitzbuehel</stadt>
-                                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >Rasmushof</name>
-                                    <hat rdf:resource="#Buchung_64"/>
-                                    <hat>
-                                      <Buchung rdf:ID="Buchung_67">
-                                        <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                        >2009-01-03</von>
-                                        <gehoertZu rdf:resource="#Hotel_62"/>
-                                        <durchgefuehrtVon rdf:resource="#Gast_62"/>
-                                        <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                        >2009-12-30</bis>
-                                      </Buchung>
-                                    </hat>
-                                    <istTeilVon>
-                                      <Hotelkette rdf:ID="Hotelkette_66">
-                                        <bestehtAus rdf:resource="#Hotel_62"/>
-                                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                        >Tiroler Hoefe</name>
-                                      </Hotelkette>
-                                    </istTeilVon>
-                                  </Hotel>
-                                </gehoertZu>
-                                <durchgefuehrtVon rdf:resource="#Gast_62"/>
-                                <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                >2010-01-02</bis>
-                                <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-                                >2009-01-14</von>
-                              </Buchung>
-                            </fuehrtDurch>
-                            <fuehrtDurch rdf:resource="#Buchung_67"/>
-                            <vornamen rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >Silly</vornamen>
-                            <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >silocon@valley.org</email>
-                            <nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >Kohn</nachname>
-                          </Gast>
-                        </wirdBesuchtVon>
-                      </Veranstaltung>
-                    </hostet>
-                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >Kitzbuehel</name>
-                    <isLocatedIn rdf:resource="#country_at"/>
-                  </Ort>
-                </contains>
-                <countryCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >AT</countryCode>
-              </Country>
-            </isLocatedIn>
             <hostet rdf:resource="#Event_53"/>
           </Ort>
         </findetStattIn>
@@ -340,8 +178,137 @@
     >Franz</vornamen>
     <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >franz.brantwein@email.com</email>
-    <fuehrtDurch rdf:resource="#Buchung_54"/>
+    <fuehrtDurch>
+      <Buchung rdf:ID="Buchung_54">
+        <gehoertZu>
+          <Hotel rdf:ID="Hotel_55">
+            <istTeilVon>
+              <Hotelkette rdf:ID="Hotelkette_56">
+                <bestehtAus>
+                  <Hotel rdf:ID="Hotel_61">
+                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Hilton Bregenz</name>
+                    <hat>
+                      <Buchung rdf:ID="Buchung_60">
+                        <gehoertZu rdf:resource="#Hotel_61"/>
+                        <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+                        >2009-12-22</bis>
+                        <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+                        >2009-12-30</von>
+                        <durchgefuehrtVon>
+                          <Gast rdf:ID="Gast_58">
+                            <vornamen rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Fred</vornamen>
+                            <nimmtTeilAn>
+                              <Veranstaltung rdf:ID="Event_57">
+                                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Eisstockschiessen</name>
+                                <wirdBesuchtVon rdf:resource="#Gast_58"/>
+                                <findetStattIn>
+                                  <Ort rdf:ID="Schwarzach">
+                                    <hostet rdf:resource="#Event_57"/>
+                                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >Schwarzach</name>
+                                  </Ort>
+                                </findetStattIn>
+                                <datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+                                >2009-12-16</datum>
+                              </Veranstaltung>
+                            </nimmtTeilAn>
+                            <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >fredchen@nagetier.at</email>
+                            <fuehrtDurch rdf:resource="#Buchung_60"/>
+                            <nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Chen</nachname>
+                          </Gast>
+                        </durchgefuehrtVon>
+                      </Buchung>
+                    </hat>
+                    <stadt rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Bregenz</stadt>
+                    <istTeilVon rdf:resource="#Hotelkette_56"/>
+                  </Hotel>
+                </bestehtAus>
+                <bestehtAus rdf:resource="#Hotel_55"/>
+                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Hilton Group</name>
+              </Hotelkette>
+            </istTeilVon>
+            <stadt rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Schladming</stadt>
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Hilton Schladming</name>
+            <hat rdf:resource="#Buchung_54"/>
+          </Hotel>
+        </gehoertZu>
+        <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2009-12-07</bis>
+        <durchgefuehrtVon rdf:resource="#Gast_51"/>
+        <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2009-12-26</von>
+      </Buchung>
+    </fuehrtDurch>
   </Gast>
+  <Buchung rdf:ID="Buchung_67">
+    <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2009-01-03</von>
+    <gehoertZu>
+      <Hotel rdf:ID="Hotel_62">
+        <stadt rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Kitzbuehel</stadt>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Rasmushof</name>
+        <hat rdf:resource="#Buchung_67"/>
+        <hat>
+          <Buchung rdf:ID="Buchung_64">
+            <gehoertZu rdf:resource="#Hotel_62"/>
+            <durchgefuehrtVon>
+              <Gast rdf:ID="Gast_62">
+                <nimmtTeilAn>
+                  <Veranstaltung rdf:ID="Event_63">
+                    <datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+                    >2009-01-05</datum>
+                    <findetStattIn>
+                      <Ort rdf:ID="Kitzbuehel">
+                        <hostet rdf:resource="#Event_63"/>
+                        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Kitzbuehel</name>
+                      </Ort>
+                    </findetStattIn>
+                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Modeschau</name>
+                    <wirdBesuchtVon rdf:resource="#Gast_62"/>
+                  </Veranstaltung>
+                </nimmtTeilAn>
+                <fuehrtDurch rdf:resource="#Buchung_67"/>
+                <fuehrtDurch rdf:resource="#Buchung_64"/>
+                <vornamen rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Silly</vornamen>
+                <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >silocon@valley.org</email>
+                <nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Kohn</nachname>
+              </Gast>
+            </durchgefuehrtVon>
+            <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+            >2010-01-02</bis>
+            <von rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+            >2009-01-14</von>
+          </Buchung>
+        </hat>
+        <istTeilVon>
+          <Hotelkette rdf:ID="Hotelkette_66">
+            <bestehtAus rdf:resource="#Hotel_62"/>
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Tiroler Hoefe</name>
+          </Hotelkette>
+        </istTeilVon>
+      </Hotel>
+    </gehoertZu>
+    <durchgefuehrtVon rdf:resource="#Gast_62"/>
+    <bis rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2009-12-30</bis>
+  </Buchung>
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->
