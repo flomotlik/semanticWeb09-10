@@ -316,18 +316,17 @@ public class CSVImporter {
 	 * @return RDFNode
 	 */
 	private RDFNode getEventByName(String name) throws Exception {
-		RDFNode node = events.get(name);
+		/*RDFNode node = events.get(name);
 		if (node != null) {
 			return node;
 		} else {
 			throw new Exception("Event nicht gefunden: " + name);
 		}
+		*/
 		
-		/*
 		String query = "SELECT ?x " +
 		"WHERE { ?x :name \"" + name + "\" ;" +
-				" :datum ?datum ;" +
-				" :ort ?ort}";
+				" :datum ?datum}";
 
 		ResultSet result = HotelManager.getHotelManager().query(query);
 		RDFNode node = null;
@@ -337,7 +336,7 @@ public class CSVImporter {
 		}
 		
 		return node;
-		*/
+		
 	}
 	
 	/**
