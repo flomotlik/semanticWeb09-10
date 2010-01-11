@@ -7,7 +7,7 @@ public class HotelNS {
 	public static final String classHotelkette = "Hotelkette";
 	public static final String classGast = "Gast";
 	public static final String classBuchung = "Buchung";
-	public static final String classEvent = "Event";
+	public static final String classVeranstaltung = "Veranstaltung";
 	public static final String classOrt = "Ort";
 
 	public static final String propName = "name";

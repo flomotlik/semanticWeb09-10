@@ -124,7 +124,7 @@ public class CSVImporter {
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propStadt), stadt)
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstTeilVon), getHotelketteByName(kette));
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstTeilVon), getHotelKetteByName(kette));
 				
 				hotels.put(name, ind);
 			}
@@ -163,7 +163,7 @@ public class CSVImporter {
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
-			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classEvent);
+			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 			while ((line = reader.readNext()) != null) {
 				// pro Zeile eine neue Instanz
@@ -177,6 +177,7 @@ public class CSVImporter {
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ort);
 				
 				events.put(line[0], ind);
+				
 			}
 		}
 		reader.close();
@@ -203,7 +204,7 @@ public class CSVImporter {
 	 * @param name
 	 * @return
 	 */
-	private RDFNode getHotelketteByName(String name) throws Exception{
+	private RDFNode getHotelKetteByName(String name) throws Exception{
 		RDFNode node = hotelKetten.get(name);
 		if (node != null) {
 			return node;
@@ -252,9 +253,16 @@ public class CSVImporter {
 		if (node != null) {
 			return node;
 		} else {
-			throw new Exception("Hotel nicht gefunden: " + name);
+			throw new Exception("Event nicht gefunden: " + name);
 		}
 		
 	}
+	
+	private boolean existsHotelKette(String name) {
+		String query = "ASK {}";
+		return false;
+	}
+	
+	//private boolean exists
 
 }
