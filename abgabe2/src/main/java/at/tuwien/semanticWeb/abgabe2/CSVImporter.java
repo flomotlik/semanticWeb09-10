@@ -12,7 +12,9 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
 public class CSVImporter {
@@ -187,15 +189,19 @@ public class CSVImporter {
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 			while ((line = reader.readNext()) != null) {
+				String name = line[0].trim();
+				String datum = line[1].trim();
+				String ort = line[2].trim();
+				
 				// pro Zeile eine neue Instanz
 				Individual ind = clazz.createIndividual();
 				// TODO check if ort exists
-				Individual ort = ortClass.createIndividual();
-				ort.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[2].trim());
+				Individual ortInstanz = ortClass.createIndividual();
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), ort);
 				
-				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), line[0].trim())
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), line[1].trim())
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ort);
+				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ortInstanz);
 				
 				events.put(line[0], ind);
 				
@@ -220,24 +226,34 @@ public class CSVImporter {
 
 
 	/**
-	 * derzeit lookup per Hashmap
-	 * - evtentuell on demand mit SPARQL laden?
-	 * @param name
-	 * @return
+	 * Searches for a HotelKette with specific name in the ontology. 
+	 * @param name name of the HotelKette
+	 * @return RDFNode
 	 */
 	private RDFNode getHotelKetteByName(String name) throws Exception{
-		RDFNode node = hotelKetten.get(name);
+		/*RDFNode node = hotelKetten.get(name);
 		if (node != null) {
 			return node;
 		} else {
 			throw new Exception("Hotelkette nicht gefunden: " + name);
 		}
+		*/
+		String query = "SELECT ?x " +
+						"WHERE { ?x :name \"" + name + "\"}";
+		
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		
+		return node;
 	}
 	/**
-	 * derzeit lookup per Hashmap
-	 * - evtentuell on demand mit SPARQL laden?
-	 * @param name
-	 * @return
+	 * Searches for a Gast with specific name in the ontology. 
+	 * @param name name of the Gast
+	 * @return RDFNode
 	 */
 	private RDFNode getGastByName(String name) throws Exception{
 		RDFNode node = gaeste.get(name);
@@ -246,28 +262,58 @@ public class CSVImporter {
 		} else {
 			throw new Exception("Gast nicht gefunden: " + name);
 		}
+		
+		/*
+		String splitted[] = name.split("\\s+", 2);
+		String query = "SELECT ?x " +
+		"WHERE { ?x :vorname \"" + splitted[0] + "\" ;" +
+				" :nachname \"" + splitted[1] + "\" ;" +
+				" :email ?email}";
+
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		return node;	
+		*/
 	}
 	/**
-	 * derzeit lookup per Hashmap
-	 * - evtentuell on demand mit SPARQL laden?
-	 * @param name
-	 * @return
+	 * Searches for a hotel with specific name in the ontology. 
+	 * @param name name of the hotel
+	 * @return RDFNode
 	 */
 	private RDFNode getHotelByName(String name) throws Exception {
+		/*
 		RDFNode node = hotels.get(name);
 		if (node != null) {
 			return node;
 		} else {
 			throw new Exception("Hotel nicht gefunden: " + name);
 		}
+		*/
+		
+		String query = "SELECT ?x " +
+		"WHERE { ?x :name \"" + name + "\" ;" +
+				" :stadt ?stadt ;" +
+				" :istTeilVon ?hotelKette}";
+		
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		
+		return node;
 		
 	}
 	
 	/**
-	 * derzeit lookup per Hashmap
-	 * - evtentuell on demand mit SPARQL laden?
-	 * @param name
-	 * @return
+	 * Searches for an event with specific name in the ontology. 
+	 * @param name name of the event
+	 * @return RDFNode
 	 */
 	private RDFNode getEventByName(String name) throws Exception {
 		RDFNode node = events.get(name);
@@ -277,6 +323,21 @@ public class CSVImporter {
 			throw new Exception("Event nicht gefunden: " + name);
 		}
 		
+		/*
+		String query = "SELECT ?x " +
+		"WHERE { ?x :name \"" + name + "\" ;" +
+				" :datum ?datum ;" +
+				" :ort ?ort}";
+
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		
+		return node;
+		*/
 	}
 	
 	/**
@@ -285,7 +346,7 @@ public class CSVImporter {
 	 * @return true if exists false otherwise
 	 */
 	private boolean existsHotelKette(String name) {
-		String query = "ASK {?kette :name " + name + "}";
+		String query = "ASK {?kette :name \"" + name + "\"}";
 		
 		try {
 			return HotelManager.getHotelManager().askQuery(query);

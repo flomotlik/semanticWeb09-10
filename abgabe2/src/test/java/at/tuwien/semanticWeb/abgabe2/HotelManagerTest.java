@@ -37,6 +37,7 @@ public class HotelManagerTest {
 	@Test
 	public void testInverseProperty() {
 		System.out.println("Inverse property before import:");
+		
 		String qry = "SELECT ?x " + 
 			         "WHERE { ?kette :"  + HotelNS.propBestehtAus + " ?hotel  ." +
 			         " ?hotel :name ?x . " +
