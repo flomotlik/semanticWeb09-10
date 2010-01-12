@@ -184,7 +184,7 @@ public class CSVImporter {
 	
 	private void loadEvents(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
@@ -210,7 +210,8 @@ public class CSVImporter {
 				
 				// pro Zeile eine neue Instanz
 				Individual ind = clazz.createIndividual();
-				// TODO check if ort exists
+				
+				// TODO check if ort exists -> ist doch oben (Zeile 204)
 				PlaceData data = geonames.getData(ort);
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude), data.getLatitude());
@@ -231,7 +232,7 @@ public class CSVImporter {
 	
 	private void loadEventTeilnahme(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile �berlesen, diese enth�lt nur eine Beschreibung der Spalten
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			while ((line = reader.readNext()) != null) {
@@ -490,10 +491,12 @@ public class CSVImporter {
 	 * @return true if exists, false otherwise
 	 */
 	private boolean existsEventTeilnahme(String person, String event, String date) {
+		String splitted[] = person.split("\\s+", 2);
 		String query = "ASK {?event :name \"" + event + "\" ;" +
 		" :datum \"" + date + "\" ;" +
 		" :wirdBesuchtVon ?gast ." +
-		" ?gast :name \"" + person + "\"}";
+		" ?gast :vorname \"" + splitted[0] + "\" ;" +
+		" :nachname \"" + splitted[1] + "\"}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
@@ -513,11 +516,13 @@ public class CSVImporter {
 	 * @return
 	 */
 	private boolean existsBuchung(String start, String end, String customer, String hotel) {
+		String splitted[] = customer.split("\\s+", 2);
 		String query = "ASK {?buchung :von \"" + start + "\" ;" +
 		" :bis \"" + end + "\" ;" +
 		" :durchgefuehrtVon ?gast ;" +
 		" :gehoertZu ?hotel ." +
-		" ?gast :name \"" + customer + "\" ." +
+		" ?gast :vorname \"" + splitted[0] + "\" ;" +
+		" :nachname \"" + splitted[1] + "\" ." +
 		" ?hotel :name \"" + hotel + "\"}";
 
 		try {
