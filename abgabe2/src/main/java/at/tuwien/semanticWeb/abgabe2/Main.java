@@ -12,6 +12,8 @@ public class Main {
 		+ "5 Welche sind die 3 besten Kunden für <HotelName>?\n"
 		+ "6 Welche persönliche Interessen hat <GastName>?\n"
 		+ "7 Welche interessante Veranstaltungen gibt es fuer <GastName> am <Datum>?\n"
+		+ "==========HELPERS==========\n"
+		+ "8 Welche Veranstaltungen gibt es?\n"
 		+ "Q Beenden\n"
 		+ "Ihre Auswahl:"; 
 
@@ -40,7 +42,9 @@ public class Main {
             	manager.sixth();
             } else if (input.equals("7")) {
             	manager.seventh();
-            }
+            } else if (input.equals("8")) {
+            	manager.eight();
+            }  
             else if (input.equalsIgnoreCase("q")) {
             	break;
             } else {

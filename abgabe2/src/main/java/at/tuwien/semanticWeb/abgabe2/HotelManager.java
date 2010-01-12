@@ -13,6 +13,7 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
@@ -35,18 +36,31 @@ public class HotelManager {
 	public HotelManager() {
 		// hotel.owl laden
 		Model model = FileManager.get().loadModel("hotel.owl");
-		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgeloest werden
+		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgel�st werden
 		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
 		ontModel.add(model);
 		model = FileManager.get().loadModel("events.owl");
-		//model.write(System.out);
+//		model.write(System.out);
 		ontModel.add(model);
-		//ontModel.write(System.out);
-		// Aequivalenzen definieren: 
+//		ontModel.write(System.out);
+		// Aequivalenzen definieren:
+		// Event ~= Veranstaltung
 		OntClass event = ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Event");
 		OntClass veranstaltung = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 		event.addProperty(OWL.equivalentClass, veranstaltung);
-		// TODO: equivalentProperty		
+
+		// Place ~= Ort
+		OntClass ort = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
+		OntClass place = ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Place");
+		place.addProperty(OWL.equivalentClass, ort);
+
+		// takesPlaceAt ~= findetStattIn
+		Property takesPlaceAt = ontModel.getProperty(HotelNS.EVENTS_PREFIX + "takesPlaceAt");
+		Property findetStattIn = ontModel.getProperty(HotelNS.prefix + "findetStattIn");
+		takesPlaceAt.addProperty(OWL.equivalentProperty, findetStattIn);
+		
+		
+		
 	}
 	
 	public static HotelManager getHotelManager() {
@@ -205,6 +219,15 @@ public class HotelManager {
 	public void seventh() {
 		String param = askParameter("<GastName>");
 		String param2 = askParameter("<Datum>");
+		waitForUser();
+	}
+	
+	public void eight() {
+		String query = "SELECT ?x " +
+		"WHERE { ?event :name ?x }";//; " +
+		//":datum ?y ; " +
+		//":findetStattIn ?ort}";
+		printSelectQuery(query);
 		waitForUser();
 	}
 }
