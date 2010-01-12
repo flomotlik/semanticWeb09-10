@@ -442,7 +442,17 @@ public class CSVImporter {
 	 * @return true if exists, false otherwise
 	 */
 	private boolean existsEvent(String name, String date, String place) {
-		//TODO
+		String query = "ASK {?event :name \"" + name + "\" ;" +
+		" :datum \"" + date + "\" ;" +
+		" :findetStattIn ?ort ." +
+		" ?ort :name \"" + place + "\"}";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
@@ -471,7 +481,17 @@ public class CSVImporter {
 	 * @return true if exists, false otherwise
 	 */
 	private boolean existsEventTeilnahme(String person, String event, String date) {
-		//TODO
+		String query = "ASK {?event :name \"" + event + "\" ;" +
+		" :datum \"" + date + "\" ;" +
+		" :wirdBesuchtVon ?gast ." +
+		" ?gast :name \"" + person + "\"}";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
@@ -484,7 +504,19 @@ public class CSVImporter {
 	 * @return
 	 */
 	private boolean existsBuchung(String start, String end, String customer, String hotel) {
-		//TODO
+		String query = "ASK {?buchung :von \"" + start + "\" ;" +
+		" :bis \"" + end + "\" ;" +
+		" :durchgefuehrtVon ?gast ;" +
+		" :gehoertZu ?hotel ." +
+		" ?gast :name \"" + customer + "\" ." +
+		" ?hotel :name \"" + hotel + "\"}";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
 		return false;
 	}
 
