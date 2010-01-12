@@ -1,4 +1,4 @@
-; Tue Jan 12 01:34:12 CET 2010
+; Wed Jan 13 00:43:54 CET 2010
 ; 
 ;+ (version "3.4.1")
 ;+ (build "Build 537")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[hotel_ProjectKB_Class358]
-		[hotel_ProjectKB_Class359]
-		[hotel_ProjectKB_Class360]
-		[hotel_ProjectKB_Class361]
-		[hotel_ProjectKB_Class362]))
+		[hotel_ProjectKB_Class1438]
+		[hotel_ProjectKB_Class1439]
+		[hotel_ProjectKB_Class1440]
+		[hotel_ProjectKB_Class1441]
+		[hotel_ProjectKB_Class1442]))
 
 ([CLSES_TAB] of  Widget
 
@@ -35,6 +35,9 @@
 	(label "Forms")
 	(property_list [Instance_85])
 	(widget_class_name "edu.stanford.smi.protege.widget.FormsTab"))
+
+([hotel_ProjectKB_Class0] of  Map
+)
 
 ([hotel_ProjectKB_Class1] of  Widget
 
@@ -62,6 +65,31 @@
 
 ([hotel_ProjectKB_Class14] of  Property_List
 )
+
+([hotel_ProjectKB_Class1438] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([hotel_ProjectKB_Class1439] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([hotel_ProjectKB_Class1440] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([hotel_ProjectKB_Class1441] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([hotel_ProjectKB_Class1442] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
 
 ([hotel_ProjectKB_Class15] of  Widget
 
@@ -102,25 +130,11 @@
 ([hotel_ProjectKB_Class22] of  Property_List
 )
 
-([hotel_ProjectKB_Class229] of  Widget
-
-	(height 120)
-	(is_hidden FALSE)
-	(name "http://www.big.tuwien.ac.at/esw/hotel#laenderCode")
-	(property_list [hotel_ProjectKB_Class230])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiLiteralWidget")
-	(width 200)
-	(x 200)
-	(y 300))
-
 ([hotel_ProjectKB_Class23] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [hotel_ProjectKB_Class24])
 	(widget_class_name "TGViztab.TGVizTab"))
-
-([hotel_ProjectKB_Class230] of  Property_List
-)
 
 ([hotel_ProjectKB_Class24] of  Property_List
 )
@@ -182,33 +196,8 @@
 	(property_list [hotel_ProjectKB_Class36])
 	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
 
-([hotel_ProjectKB_Class358] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([hotel_ProjectKB_Class359] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
 ([hotel_ProjectKB_Class36] of  Property_List
 )
-
-([hotel_ProjectKB_Class360] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([hotel_ProjectKB_Class361] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([hotel_ProjectKB_Class362] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
 
 ([hotel_ProjectKB_Class37] of  Widget
 
@@ -303,11 +292,25 @@
 ([hotel_ProjectKB_Class8] of  Property_List
 )
 
+([hotel_ProjectKB_Class899] of  Widget
+
+	(height 120)
+	(is_hidden FALSE)
+	(name "http://www.big.tuwien.ac.at/esw/hotel#istIn")
+	(property_list [hotel_ProjectKB_Class900])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
+	(width 200)
+	(x 0)
+	(y 420))
+
 ([hotel_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [hotel_ProjectKB_Class10])
 	(widget_class_name "ca.uvic.csr.shrimp.jambalaya.JambalayaTab"))
+
+([hotel_ProjectKB_Class900] of  Property_List
+)
 
 ([Instance_1005] of  Widget
 
@@ -911,9 +914,6 @@
 	(y 0))
 
 ([KB_221055_Instance_71] of  Property_List
-)
-
-([KB_280945_Class0] of  Map
 )
 
 ([KB_301165_Instance_1013] of  Widget
@@ -5671,8 +5671,8 @@
 		"http://www.w3.org/2002/07/owl#InverseFunctionalProperty"
 		":ANNOTATED-INSTANCE"
 		"http://www.w3.org/2003/11/swrl#BuiltinAtom"
-		":OWL-ONTOLOGY-POINTER-CLASS"
 		"http://www.w3.org/2002/07/owl#Ontology"
+		":OWL-ONTOLOGY-POINTER-CLASS"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#object"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
 		":VALUE-TYPE"
@@ -5729,8 +5729,8 @@
 		"http://www.w3.org/2001/XMLSchema#normalizedString"
 		"http://protege.stanford.edu/plugins/owl/protege#FROM"
 		"http://www.w3.org/2001/XMLSchema#nonPositiveInteger"
-		"http://www.w3.org/2002/07/owl#someValuesFrom"
 		"http://protege.stanford.edu/plugins/owl/protege#classificationStatus"
+		"http://www.w3.org/2002/07/owl#someValuesFrom"
 		"http://protege.stanford.edu/plugins/owl/protege#inferredSuperclassOf"
 		"http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
@@ -6275,6 +6275,19 @@
 
 	(name "vertical_stretcher")
 	(string_value "http://www.w3.org/2002/07/owl#imports"))
+
+([XY_Instance_217] of  Widget
+
+	(height 0)
+	(is_hidden FALSE)
+	(name ":OWL-ONTOLOGY-PREFIXES")
+	(property_list [XY_Instance_218])
+	(width 0)
+	(x 0)
+	(y 0))
+
+([XY_Instance_218] of  Property_List
+)
 
 ([XY_Instance_235] of  Widget
 
