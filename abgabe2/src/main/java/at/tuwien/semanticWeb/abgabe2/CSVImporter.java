@@ -136,6 +136,15 @@ public class CSVImporter {
 				String stadt = line[1].trim();
 				String kette = line[2].trim();
 				
+				Individual ortInstanz;
+				if(existsOrt(stadt)) {
+					ortInstanz = (Individual)getOrtByName(stadt).as(Individual.class);
+				} else {
+					OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
+					ortInstanz = ortClass.createIndividual();
+					ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), stadt);
+				}
+				
 				if (existsHotel(name, stadt)) {
 					System.out.println("Hotel " + name + " in " + stadt + " bereits vorhanden.");
 					continue;
