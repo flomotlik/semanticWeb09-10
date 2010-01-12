@@ -9,7 +9,6 @@ import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -33,6 +32,7 @@ public class HotelManager {
 	}
 
 	public OntClass ort;
+	public OntClass land;
 	public OntClass veranstaltung;
 	public Property name;
 	public Property datum;
@@ -40,6 +40,9 @@ public class HotelManager {
 	public Property breitengrad;
 	public Property laengengrad;
 	public Property zeitzone;
+	public Property istIn;
+	public Property hatGebiete;
+	public Property laenderCode;
 	
 	public HotelManager() {
 		// hotel.owl laden
@@ -70,14 +73,18 @@ public class HotelManager {
 		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "longitude").addProperty(OWL.equivalentProperty, laengengrad);
 		// - zeitzone
 		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "timezone").addProperty(OWL.equivalentProperty, zeitzone);
-		// TODO: land, laendercode
-		
+		// - land, laendercode, istIn, htaGebiete
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "Country").addProperty(OWL.equivalentClass, land);
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "countryCode").addProperty(OWL.equivalentProperty, laenderCode);
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "contains").addProperty(OWL.equivalentProperty, hatGebiete);
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "isLocatedIn").addProperty(OWL.equivalentProperty, istIn);
 		
 	}
 	
 	private void reloadOwls(){
 		veranstaltung = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 		ort = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
+		land = ontModel.getOntClass(HotelNS.prefix + HotelNS.classLand);
 		
 		name = ontModel.getProperty(HotelNS.prefix + HotelNS.propName);
 		datum = ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum);
@@ -85,6 +92,9 @@ public class HotelManager {
 		breitengrad = ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude);
 		laengengrad = ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude);
 		zeitzone = ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone);
+		istIn = ontModel.getProperty(HotelNS.prefix + HotelNS.propIstIn);
+		hatGebiete = ontModel.getProperty(HotelNS.prefix + HotelNS.propHatGebiete);
+		laenderCode = ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode);
 		
 		
 		
