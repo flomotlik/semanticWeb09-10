@@ -246,7 +246,7 @@ public class CSVImporter {
 				}
 				
 				Individual gast = (Individual)getGastByName(line[0].trim()).as(Individual.class);
-				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEventByName(line[1].trim()));
+				gast.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNimmtTeilAn), getEvent(event, datum));
 				
 			}
 		}
@@ -340,11 +340,12 @@ public class CSVImporter {
 	}
 	
 	/**
-	 * Searches for an event with specific name in the ontology. 
+	 * Searches for an event with specific name and date in the ontology. 
 	 * @param name name of the event
+	 * @param date date of the event
 	 * @return RDFNode
 	 */
-	private RDFNode getEventByName(String name) throws Exception {
+	private RDFNode getEvent(String name, String date) throws Exception {
 		/*RDFNode node = events.get(name);
 		if (node != null) {
 			return node;
@@ -355,7 +356,7 @@ public class CSVImporter {
 		
 		String query = "SELECT ?x " +
 		"WHERE { ?x :name \"" + name + "\" ;" +
-				" :datum ?datum}";
+				" :datum \"" + date + "\"}";
 
 		ResultSet result = HotelManager.getHotelManager().query(query);
 		RDFNode node = null;
