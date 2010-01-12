@@ -22,28 +22,24 @@ public class Main {
 	public static void main(String[] args) throws Exception {
         boolean exit = false;
         HotelManager manager = HotelManager.getHotelManager();
-        //manager.loadData();
+        manager.loadData();
         String input;
         do {
             input = printMenu();
             if (input.equals("1")) {
-            	System.out.println("1");
+            	manager.first();
             }else if (input.equals("2")) {
-                String place = new Scanner(System.in).nextLine();
-                double[] placeParams = manager.getPlaceOfEvent(place);
-                for(Forecast forecast : new WeatherService().getForecast(placeParams[1], placeParams[0])){
-                    System.out.println(forecast.toString());
-                }
+                manager.second();
             } else if (input.equals("3")) {
-            	System.out.println("3");
+            	manager.third();
             } else if (input.equals("4")) {
-            	System.out.println("4");
+            	manager.fourth();
             } else if (input.equals("5")) {
-            	System.out.println("5");
+            	manager.fifth();
             } else if (input.equals("6")) {
-            	System.out.println("6");
+            	manager.sixth();
             } else if (input.equals("7")) {
-            	System.out.println("7");
+            	manager.seventh();
             }
             else if (input.equalsIgnoreCase("q")) {
             	break;

@@ -1,5 +1,7 @@
 package at.tuwien.semanticWeb.abgabe2;
 
+import java.util.Scanner;
+
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -124,5 +126,72 @@ public class HotelManager {
 			throw new Exception(e);
 		}
     }
+	
+	/**
+	 * Reads value for specified parameter from standard input.
+	 * @param paramName name of the parameter
+	 * @return String
+	 */
+	private String askParameter(String paramName) {
+        System.out.print("Input for: " + paramName);
+        return new Scanner(System.in).nextLine();
+    }
 
+	/**
+	 * Waits until user hits enter.
+	 */
+	private void waitForUser() {
+		System.out.print("Druecken sie <Eingabe> um zum Menue zurueckzukehren");
+		new Scanner(System.in).nextLine();
+	}
+	
+	//========
+	// QUERIES
+	//========
+	public void first() {
+		String param = askParameter("<HotelName>");
+		waitForUser();
+	}
+	
+	public void second() {
+		String param = askParameter("<VeranstaltungsName>");
+		double[] placeParams;
+		try {
+			placeParams = getPlaceOfEvent(param);
+			for(Forecast forecast : new WeatherService().getForecast(placeParams[1], placeParams[0])){
+	            System.out.println(forecast.toString());
+	        }
+		} catch (Exception e) {
+			System.out.println("Es ist ein Problem bei der Wettervorhersage entstanden.");
+			e.printStackTrace();
+		}
+        
+		waitForUser();
+	}
+	
+	public void third() {
+		String param = askParameter("<VeranstaltungsName>");
+		waitForUser();
+	}
+	
+	public void fourth() {
+		String param = askParameter("<GastName>");
+		waitForUser();
+	}
+	
+	public void fifth() {
+		String param = askParameter("<HotelName>");
+		waitForUser();
+	}
+	
+	public void sixth() {
+		String param = askParameter("<GastName>");
+		waitForUser();
+	}
+	
+	public void seventh() {
+		String param = askParameter("<GastName>");
+		String param2 = askParameter("<Datum>");
+		waitForUser();
+	}
 }
