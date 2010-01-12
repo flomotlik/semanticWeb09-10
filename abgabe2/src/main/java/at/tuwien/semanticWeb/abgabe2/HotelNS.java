@@ -11,6 +11,7 @@ public class HotelNS {
 	public static final String classBuchung = "Buchung";
 	public static final String classVeranstaltung = "Veranstaltung";
 	public static final String classOrt = "Ort";
+	public static final String classLand = "Land";
 
 	public static final String propName = "name";
 	public static final String propVorname = "vorname";

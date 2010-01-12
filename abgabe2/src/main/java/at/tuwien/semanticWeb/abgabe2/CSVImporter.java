@@ -129,6 +129,7 @@ public class CSVImporter {
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classHotel);
+			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 			while ((line = reader.readNext()) != null) {
 				// pro Zeile eine neue Instanz
 				// Name, Stadt, Kette
@@ -140,7 +141,6 @@ public class CSVImporter {
 				if(existsOrt(stadt)) {
 					ortInstanz = (Individual)getOrtByName(stadt).as(Individual.class);
 				} else {
-					OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 					ortInstanz = ortClass.createIndividual();
 					ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), stadt);
 				}
@@ -199,6 +199,10 @@ public class CSVImporter {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
+			OntClass landClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classLand);
+			Individual ortInstanz;
+			Individual landInstanz;
+			Individual ind;
 			while ((line = reader.readNext()) != null) {
 				String name = line[0].trim();
 				String datum = line[1].trim();
@@ -207,9 +211,8 @@ public class CSVImporter {
 				if (existsEvent(name, datum, ort)) {
 					System.out.println("Veranstaltung " + name + " am " + datum + " in " + ort + " bereits vorhanden.");
 					continue;
-				}
+				}				
 				
-				Individual ortInstanz;
 				if(existsOrt(ort)) {
 					ortInstanz = (Individual)getOrtByName(ort).as(Individual.class);
 				} else {
@@ -218,15 +221,14 @@ public class CSVImporter {
 				}
 				
 				// pro Zeile eine neue Instanz
-				Individual ind = clazz.createIndividual();
+				ind = clazz.createIndividual();
 				
-				// TODO check if ort exists -> ist doch oben (Zeile 204)
 				PlaceData data = geonames.getData(ort);
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
+				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude), data.getLatitude());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude), data.getLongitude());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone), data.getTimezone());
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
+				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
 				
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
@@ -443,7 +445,8 @@ public class CSVImporter {
 	 */
 	private boolean existsHotel(String name, String city) {
 		String query = "ASK {?hotel :name \"" + name + "\" ;" +
-		" :stadt \"" + city + "\" }";
+		" :niedergelassenIn ?ort ." +
+		" ?ort :name \"" + city + "\"}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
