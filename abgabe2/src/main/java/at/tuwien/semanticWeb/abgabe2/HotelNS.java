@@ -1,6 +1,8 @@
 package at.tuwien.semanticWeb.abgabe2;
 
 public class HotelNS {
+	public static final String EVENTS_PREFIX = "http://www.big.tuwien.ac.at/esw/u2/alien-events#";
+	
 	public static final String prefix = "http://www.big.tuwien.ac.at/esw/hotel#";
 
 	public static final String classHotel = "Hotel";

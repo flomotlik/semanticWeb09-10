@@ -18,7 +18,16 @@ public class HotelManagerTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
+	@Test
+	public void testEquivalentClassEvent() {
+		System.out.println("List all Veranstaltungen:");
+		
+		String qry = "SELECT ?x " + 
+			         "WHERE { ?x rdf:type :Veranstaltung  }";
+		manager.printSelectQuery(qry);
+	}
+	
 	@Test
 	public void testLoadData() throws Exception {
 		System.out.println("Before import:");
