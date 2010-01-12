@@ -168,7 +168,7 @@ public class CSVImporter {
 				String hotel = line[3].trim();
 				
 				if (existsBuchung(von, bis, gast, hotel)) {
-					System.out.println("Buchung von " + von + " bis " + bis + " f�r " + gast + " im " + hotel + " bereits vorhanden.");
+					System.out.println("Buchung von " + von + " bis " + bis + " fuer " + gast + " im " + hotel + " bereits vorhanden.");
 					continue;
 				}
 				

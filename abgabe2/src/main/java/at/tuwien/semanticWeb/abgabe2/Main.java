@@ -5,7 +5,13 @@ import java.util.Scanner;
 public class Main {
 	
 	private static final String menu = "HotelExpert\n" + "-----------\n" 
-		+ "Noch so viel zu tun \n"
+		+ "1 Welche Veranstaltungen finden in der Neahe (im Umkreis von 100km) von <HotelName> statt? \n"
+		+ "2 Wie wird das Wetter bei <VeranstaltungsName> sein?\n"
+		+ "3 Welche Hintergrundinformationen gibt es für <VeranstaltungsName>?\n"
+		+ "4 Welche direkte und indirekte Freunde hat <GastName>?\n"
+		+ "5 Welche sind die 3 besten Kunden für <HotelName>?\n"
+		+ "6 Welche persönliche Interessen hat <GastName>?\n"
+		+ "7 Welche interessante Veranstaltungen gibt es fuer <GastName> am <Datum>?\n"
 		+ "Q Beenden\n"
 		+ "Ihre Auswahl:"; 
 
