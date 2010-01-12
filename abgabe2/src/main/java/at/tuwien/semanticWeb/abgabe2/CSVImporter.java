@@ -68,7 +68,7 @@ public class CSVImporter {
 	
 	private void loadHotelketten(InputStream in) throws Exception{
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile �berlesen, diese enth�lt nur eine Beschreibung der Spalten
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 1)) {
 			// Owl Klasse erzeugen
@@ -93,7 +93,7 @@ public class CSVImporter {
 	
 	private void loadGast(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile �berlesen, diese enth�lt nur eine Beschreibung der Spalten
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
@@ -124,7 +124,7 @@ public class CSVImporter {
 	
 	private void loadHotel(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile �berlesen, diese enth�lt nur eine Beschreibung der Spalten
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
@@ -154,7 +154,7 @@ public class CSVImporter {
 	
 	private void loadBuchung(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 4)) {
 			// Owl Klasse erzeugen

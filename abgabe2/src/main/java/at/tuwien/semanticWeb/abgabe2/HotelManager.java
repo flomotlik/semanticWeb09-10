@@ -35,13 +35,13 @@ public class HotelManager {
 	public HotelManager() {
 		// hotel.owl laden
 		Model model = FileManager.get().loadModel("hotel.owl");
-		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgel�st werden
+		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgeloest werden
 		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
 		ontModel.add(model);
 		model = FileManager.get().loadModel("events.owl");
-		model.write(System.out);
+		//model.write(System.out);
 		ontModel.add(model);
-		ontModel.write(System.out);
+		//ontModel.write(System.out);
 		// Aequivalenzen definieren: 
 		OntClass event = ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Event");
 		OntClass veranstaltung = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
