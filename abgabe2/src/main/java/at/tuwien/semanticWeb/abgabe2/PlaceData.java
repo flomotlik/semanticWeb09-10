@@ -1,18 +1,17 @@
 package at.tuwien.semanticWeb.abgabe2;
 
-
 public class PlaceData {
     private String country;
-    private double longitude;
-    private double latitude;
+    private String longitude;
+    private String latitude;
     private String countryCode;
     private String timezone;
 
     public PlaceData(String country, double longitude, double latitude, String countryCode, String timezone) {
         super();
         this.country = country;
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.longitude = Double.toString(longitude);
+        this.latitude = Double.toString(latitude);
         this.countryCode = countryCode;
         this.timezone = timezone;
     }
@@ -21,11 +20,11 @@ public class PlaceData {
         return country;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 

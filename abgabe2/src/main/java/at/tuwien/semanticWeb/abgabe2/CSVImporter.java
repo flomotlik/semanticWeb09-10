@@ -16,6 +16,8 @@ public class CSVImporter {
 	
 	private OntModel ontModel;
 	
+	private Geonames geonames = new Geonames();
+	
 	//private Map<String, RDFNode> hotelKetten = new HashMap<String, RDFNode>();
 	//private Map<String, RDFNode> hotels = new HashMap<String, RDFNode>();
 	//private Map<String, RDFNode> gaeste = new HashMap<String, RDFNode>();
@@ -38,8 +40,8 @@ public class CSVImporter {
 	 * - das kann Probleme geben, wenn wir property stadt zu einer Klasse machen, bzw
 	 *   Ort von events.owl verwenden.
 	 *   
-	 * -> denn dann müssten wir hier alle bestehenden Orte(..) cachen. 
-	 * (eine andere Möglichkeit wäre, sie einzeln und on demand per SPARQL query zu laden)  
+	 * -> denn dann mÃ¼ssten wir hier alle bestehenden Orte(..) cachen. 
+	 * (eine andere MÃ¶glichkeit wÃ¤re, sie einzeln und on demand per SPARQL query zu laden)  
 	 */
 	public void importData(OntModel model) {
 		ontModel = model;
@@ -66,7 +68,7 @@ public class CSVImporter {
 	
 	private void loadHotelketten(InputStream in) throws Exception{
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile ï¿½berlesen, diese enthï¿½lt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 1)) {
 			// Owl Klasse erzeugen
@@ -91,7 +93,7 @@ public class CSVImporter {
 	
 	private void loadGast(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile ï¿½berlesen, diese enthï¿½lt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
@@ -122,7 +124,7 @@ public class CSVImporter {
 	
 	private void loadHotel(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile ï¿½berlesen, diese enthï¿½lt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
@@ -152,7 +154,7 @@ public class CSVImporter {
 	
 	private void loadBuchung(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile Ã¼berlesen, diese enthÃ¤lt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 4)) {
 			// Owl Klasse erzeugen
@@ -166,7 +168,7 @@ public class CSVImporter {
 				String hotel = line[3].trim();
 				
 				if (existsBuchung(von, bis, gast, hotel)) {
-					System.out.println("Buchung von " + von + " bis " + bis + " für " + gast + " im " + hotel + " bereits vorhanden.");
+					System.out.println("Buchung von " + von + " bis " + bis + " fï¿½r " + gast + " im " + hotel + " bereits vorhanden.");
 					continue;
 				}
 				
@@ -182,7 +184,7 @@ public class CSVImporter {
 	
 	private void loadEvents(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile Ã¼berlesen, diese enthÃ¤lt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
@@ -208,6 +210,13 @@ public class CSVImporter {
 				
 				// pro Zeile eine neue Instanz
 				Individual ind = clazz.createIndividual();
+				// TODO check if ort exists
+				PlaceData data = geonames.getData(ort);
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude), data.getLatitude());
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude), data.getLongitude());
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone), data.getTimezone());
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
 				
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
@@ -222,7 +231,7 @@ public class CSVImporter {
 	
 	private void loadEventTeilnahme(InputStream in) throws Exception {
 		CSVReader reader  = new CSVReader(new InputStreamReader(in));
-		// erste Zeile überlesen, diese enthält nur eine Beschreibung der Spalten
+		// erste Zeile ï¿½berlesen, diese enthï¿½lt nur eine Beschreibung der Spalten
 		String[] line = reader.readNext();
 		if ((line != null) && (line.length == 3)) {
 			while ((line = reader.readNext()) != null) {
