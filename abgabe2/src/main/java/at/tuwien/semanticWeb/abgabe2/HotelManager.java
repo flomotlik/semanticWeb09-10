@@ -32,6 +32,14 @@ public class HotelManager {
 		this.ontModel = ontModel;
 	}
 
+	public OntClass ort;
+	public OntClass veranstaltung;
+	public Property name;
+	public Property datum;
+	public Property findetStattIn;
+	public Property breitengrad;
+	public Property laengengrad;
+	public Property zeitzone;
 	
 	public HotelManager() {
 		// hotel.owl laden
@@ -40,29 +48,50 @@ public class HotelManager {
 		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
 		ontModel.add(model);
 		model = FileManager.get().loadModel("events.owl");
-//		model.write(System.out);
 		ontModel.add(model);
-//		ontModel.write(System.out);
+		
+		reloadOwls();
 		// Aequivalenzen definieren:
 		// Event ~= Veranstaltung
-		OntClass event = ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Event");
-		OntClass veranstaltung = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
-		event.addProperty(OWL.equivalentClass, veranstaltung);
+		ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Event").addProperty(OWL.equivalentClass, veranstaltung);
+		// - name
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "name").addProperty(OWL.equivalentProperty, name);
+		// - datum
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "datum").addProperty(OWL.equivalentProperty, datum);
 
 		// Place ~= Ort
-		OntClass ort = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
-		OntClass place = ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Place");
-		place.addProperty(OWL.equivalentClass, ort);
-
-		// takesPlaceAt ~= findetStattIn
-		Property takesPlaceAt = ontModel.getProperty(HotelNS.EVENTS_PREFIX + "takesPlaceAt");
-		Property findetStattIn = ontModel.getProperty(HotelNS.prefix + "findetStattIn");
-		takesPlaceAt.addProperty(OWL.equivalentProperty, findetStattIn);
-		
+		ontModel.getOntClass(HotelNS.EVENTS_PREFIX + "Place").addProperty(OWL.equivalentClass, ort);
+		// - takesPlaceAt ~= findetStattIn
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "takesPlaceAt").addProperty(OWL.equivalentProperty, findetStattIn);
+		// - name: s.o.
+		// - breitengrad
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "latitude").addProperty(OWL.equivalentProperty, breitengrad);
+		// - laengengrad
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "longitude").addProperty(OWL.equivalentProperty, laengengrad);
+		// - zeitzone
+		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "timezone").addProperty(OWL.equivalentProperty, zeitzone);
+		// TODO: land, laendercode
 		
 		
 	}
 	
+	private void reloadOwls(){
+		veranstaltung = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
+		ort = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
+		
+		name = ontModel.getProperty(HotelNS.prefix + HotelNS.propName);
+		datum = ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum);
+		findetStattIn = ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn);
+		breitengrad = ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude);
+		laengengrad = ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude);
+		zeitzone = ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone);
+		
+		
+		
+	}
+	private void defineEquivalences() {
+		
+	}
 	public static HotelManager getHotelManager() {
 		if (hm == null) {
 			hm = new HotelManager();
@@ -87,18 +116,18 @@ public class HotelManager {
 			ResultSet results = query(queryString);
 			if (results != null) {
 			    System.out.println("Result:");
-			    ResultSetFormatter.out(System.out, results);
-//			    while (results.hasNext()) {
-//			    	QuerySolution qs = results.next();
-//			    	RDFNode rdfNode = qs.get("x");
-//			    	if (rdfNode.isLiteral()) {
-//			    		Literal l = (Literal)rdfNode.as(Literal.class);
-//			    		System.out.println("\t" + l.getString());
-//			    	}  else {
-//			    		System.out.println("\t" + rdfNode.toString());
-//			    	}
-//			        
-//			    }
+//			    ResultSetFormatter.out(System.out, results);
+			    while (results.hasNext()) {
+			    	QuerySolution qs = results.next();
+			    	RDFNode rdfNode = qs.get("x");
+			    	if (rdfNode.isLiteral()) {
+			    		Literal l = (Literal)rdfNode.as(Literal.class);
+			    		System.out.println("\t" + l.getString());
+			    	}  else {
+			    		System.out.println("\t" + rdfNode.toString());
+			    	}
+			        
+			    }
 			}
 		} catch (Exception e) {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());

@@ -23,8 +23,9 @@ public class HotelManagerTest {
 	public void testEquivalentClassEvent() {
 		System.out.println("List all Veranstaltungen:");
 		
-		String qry = "SELECT ?x " + 
-			         "WHERE { ?x rdf:type :Veranstaltung  }";
+		String qry = "SELECT ?name ?x " + 
+			         "WHERE { ?x rdf:type :Veranstaltung  . " +
+			                  " ?x :name  ?name }";
 		manager.printSelectQuery(qry);
 	}
 	
