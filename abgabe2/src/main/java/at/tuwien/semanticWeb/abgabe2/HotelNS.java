@@ -18,11 +18,11 @@ public class HotelNS {
 	public static final String propVon = "von";
 	public static final String propBis = "bis";
 	public static final String propDatum = "datum";
-	public static final String propLatitude = "latitude";
-	public static final String propLongitude = "longitude";
-	public static final String propTimezone = "timezone";
+	public static final String propLatitude = "breitengrad";
+	public static final String propLongitude = "laengenGrad";
+	public static final String propTimezone = "zeitzone";
 	public static final String propCountry = "land";
-	public static final String propCountryCode = "code";
+	public static final String propCountryCode = "laenderCode";
 
 	public static final String propIstTeilVon = "istTeilVon";
 	public static final String propDurchgefuehrtVon = "durchgefuehrtVon";

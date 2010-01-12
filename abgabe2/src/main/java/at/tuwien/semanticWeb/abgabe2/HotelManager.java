@@ -30,7 +30,7 @@ public class HotelManager {
 	public HotelManager() {
 		// hotel.owl laden
 		Model model = FileManager.get().loadModel("hotel.owl");
-		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgelöst werden
+		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgelï¿½st werden
 		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
 		ontModel.add(model);
 	}
@@ -49,7 +49,7 @@ public class HotelManager {
 	
 
 	/**
-	 * führt query aus und gibt das Ergebnis auf std.out aus
+	 * fï¿½hrt query aus und gibt das Ergebnis auf std.out aus
 	 * - das Ergebnis muss in der Variable ?x bereitgestellt werden!
 	 * 
 	 * @param queryString
@@ -85,6 +85,28 @@ public class HotelManager {
 			throw new Exception(e);
 		}
     }
+	
+	public double[] getPlaceOfEvent(String event) throws Exception{
+	    System.out.println(event);
+	    String query = "SELECT ?laenge ?breite WHERE {?va :name \"" + event + "\". ?va :findetStattIn ?ort. ?ort :laengenGrad ?laenge. ?ort :breitengrad ?breite }";
+	    ResultSet result = query(query);
+	    System.out.println(result);
+	    while(result != null && result.hasNext()){
+	        System.out.println("In While");
+	        QuerySolution qs = result.next();
+	        RDFNode laenge = qs.get("laenge");
+	        RDFNode breite = qs.get("breite");
+	        
+	        if(laenge.isLiteral() && breite.isLiteral()){
+	            System.out.println("Is Literal");
+	            double laengengrad = ((Literal)laenge).getDouble();
+	            double breitengrad = ((Literal)breite).getDouble();
+	            return new double[]{laengengrad, breitengrad};
+	        }
+	    }
+	    System.out.println("Wrong Return");
+	    return new double[0];
+	}
 	
 	/**
 	 * Performs an ask query.

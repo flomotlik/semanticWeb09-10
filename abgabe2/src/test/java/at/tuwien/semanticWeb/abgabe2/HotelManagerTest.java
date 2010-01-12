@@ -20,18 +20,22 @@ public class HotelManagerTest {
 	}
 
 	@Test
-	public void testLoadData() {
+	public void testLoadData() throws Exception {
 		System.out.println("Before import:");
 		String qry = "SELECT ?x " + 
 			         "WHERE { ?kette :name \"Best Hotels\" . " +
 			                 " ?hotel :" +  HotelNS.propIstTeilVon + " ?kette . " +
 			                 " ?hotel :name ?x }"; 
-		manager.printSelectQuery(qry);
+//		manager.printSelectQuery(qry);
 	
 		System.out.println("After import:");
 		manager.loadData();
-		manager.printSelectQuery(qry);
-		
+//		manager.printSelectQuery(qry);
+		manager.printSelectQuery("SELECT ?x WHERE { ?ort :laenderCode ?x.}");
+		manager.printSelectQuery("Select ?x Where { ?ort :breitengrad ?x}");
+		manager.printSelectQuery("Select ?x Where { ?va :name \"Skispringen\". ?va :findetStattIn ?ort.?ort :name ?x}");
+		double[] place = manager.getPlaceOfEvent("Skispringen");
+		System.out.println("Laenge: " + place[0] + " Breite: " + place[1]);
 	}
 
 	@Test

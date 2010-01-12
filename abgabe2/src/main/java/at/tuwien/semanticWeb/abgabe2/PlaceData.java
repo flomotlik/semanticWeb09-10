@@ -35,4 +35,11 @@ public class PlaceData {
     public String getTimezone() {
         return timezone;
     }
+
+    @Override
+    public String toString() {
+        return "PlaceData [country=" + country + ", countryCode=" + countryCode + ", latitude=" + latitude
+            + ", longitude=" + longitude + ", timezone=" + timezone + "]";
+    }
+
 }

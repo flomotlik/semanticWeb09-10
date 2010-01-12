@@ -56,4 +56,9 @@ public class Forecast {
         this.conditions = condition;
     }
 
+    @Override
+    public String toString() {
+        return "Forecast [conditions=" + conditions + ", day=" + day + ", high=" + high + ", low=" + low + ", month="
+            + month + ", year=" + year + "]";
+    }
 }
