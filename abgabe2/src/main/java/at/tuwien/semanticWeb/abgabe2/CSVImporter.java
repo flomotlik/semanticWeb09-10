@@ -165,6 +165,11 @@ public class CSVImporter {
 				String gast = line[2].trim();
 				String hotel = line[3].trim();
 				
+				if (existsBuchung(von, bis, gast, hotel)) {
+					System.out.println("Buchung von " + von + " bis " + bis + " für " + gast + " im " + hotel + " bereits vorhanden.");
+					continue;
+				}
+				
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propVon), von)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propBis), bis)
@@ -353,15 +358,29 @@ public class CSVImporter {
 		
 	}
 	
-	private RDFNode getOrtByName(String name) {
-		//TODO
-		return null;
+	/**
+	 * Searches for an Ort with specific name in the ontology. 
+	 * @param name name of the Ort
+	 * @return RDFNode
+	 */
+	private RDFNode getOrtByName(String name) throws Exception {
+		String query = "SELECT ?x " +
+		"WHERE { ?x :name \"" + name + "\"}";
+
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		
+		return node;
 	}
 	
 	/**
-	 * Checks if HotelKette exists already in the ontology.
+	 * Checks if HotelKette already exists in the ontology.
 	 * @param name name of the HotelKette
-	 * @return true if exists false otherwise
+	 * @return true if exists, false otherwise
 	 */
 	private boolean existsHotelKette(String name) {
 		String query = "ASK {?kette :name \"" + name + "\"}";
@@ -375,27 +394,96 @@ public class CSVImporter {
 		return false;
 	}
 	
+	/**
+	 * Checks if Gast already exists in the ontology.
+	 * @param first first name of the Gast
+	 * @param last last name of the Gast
+	 * @param email email of the Gast
+	 * @return true if exists, false otherwise
+	 */
 	private boolean existsGast(String first, String last, String email) {
-		// TODO
+		String query = "ASK {?gast :vorname \"" + first + "\" ;" +
+							" :nachname \"" + last + "\" ;" +
+							" :email \"" + email + "\"}";
+		
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
+	/**
+	 * Checks if Hotel already exists in the ontology.
+	 * @param name name of the Hotel
+	 * @param city city where the Hotel is
+	 * @return true if exists, false otherwise
+	 */
 	private boolean existsHotel(String name, String city) {
-		// TODO
+		String query = "ASK {?hotel :name \"" + name + "\" ;" +
+		" :stadt \"" + city + "\" }";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
-	private boolean existsEvent(String name, String datum, String ort) {
+	/**
+	 * Checks if Event already exists in the ontology.
+	 * @param name name of the Event
+	 * @param date date of the Event
+	 * @param place of the Event
+	 * @return true if exists, false otherwise
+	 */
+	private boolean existsEvent(String name, String date, String place) {
 		//TODO
 		return false;
 	}
 	
+	/**
+	 * Checks if Ort already exists in the ontology.
+	 * @param name name of the Ort
+	 * @return true if exists, false otherwise
+	 */
 	private boolean existsOrt(String name) {
+		String query = "ASK {?ort :name \"" + name + "\"}";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	/**
+	 * Checks if EventTeilnahme already exists in the ontology.
+	 * @param person person of the EventTeilnahme
+	 * @param event event of the EventTeilnahme
+	 * @param date date of the EventTeilnahme
+	 * @return true if exists, false otherwise
+	 */
+	private boolean existsEventTeilnahme(String person, String event, String date) {
 		//TODO
 		return false;
 	}
 	
-	private boolean existsEventTeilnahme(String person, String event, String datum) {
+	/**
+	 * Checks if Buchung already exists in the ontology.
+	 * @param start start date of the Buchung
+	 * @param end end date of the Buchung
+	 * @param customer name of the custome of the Buchung
+	 * @param hotel name of the hotel of the Buchung
+	 * @return
+	 */
+	private boolean existsBuchung(String start, String end, String customer, String hotel) {
 		//TODO
 		return false;
 	}

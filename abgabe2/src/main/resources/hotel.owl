@@ -53,10 +53,6 @@
     <rdfs:range rdf:resource="#Veranstaltung"/>
     <owl:inverseOf rdf:resource="#wirdBesuchtVon"/>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:ID="laenderCode">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Ort"/>
-  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="email">
     <rdfs:domain rdf:resource="#Gast"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -71,6 +67,11 @@
     <rdfs:domain rdf:resource="#Veranstaltung"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="laenderCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Ort"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="stadt">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>

@@ -1,4 +1,4 @@
-; Mon Jan 11 20:17:55 CET 2010
+; Tue Jan 12 01:34:12 CET 2010
 ; 
 ;+ (version "3.4.1")
 ;+ (build "Build 537")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[hotel_ProjectKB_Class273]
-		[hotel_ProjectKB_Class274]
-		[hotel_ProjectKB_Class275]
-		[hotel_ProjectKB_Class276]
-		[hotel_ProjectKB_Class277]))
+		[hotel_ProjectKB_Class358]
+		[hotel_ProjectKB_Class359]
+		[hotel_ProjectKB_Class360]
+		[hotel_ProjectKB_Class361]
+		[hotel_ProjectKB_Class362]))
 
 ([CLSES_TAB] of  Widget
 
@@ -102,11 +102,25 @@
 ([hotel_ProjectKB_Class22] of  Property_List
 )
 
+([hotel_ProjectKB_Class229] of  Widget
+
+	(height 120)
+	(is_hidden FALSE)
+	(name "http://www.big.tuwien.ac.at/esw/hotel#laenderCode")
+	(property_list [hotel_ProjectKB_Class230])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiLiteralWidget")
+	(width 200)
+	(x 200)
+	(y 300))
+
 ([hotel_ProjectKB_Class23] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [hotel_ProjectKB_Class24])
 	(widget_class_name "TGViztab.TGVizTab"))
+
+([hotel_ProjectKB_Class230] of  Property_List
+)
 
 ([hotel_ProjectKB_Class24] of  Property_List
 )
@@ -125,31 +139,6 @@
 	(is_hidden TRUE)
 	(property_list [hotel_ProjectKB_Class28])
 	(widget_class_name "edu.stanford.smi.protegex.changes.changesKBViewTab.ChangesKBViewTab"))
-
-([hotel_ProjectKB_Class273] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([hotel_ProjectKB_Class274] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([hotel_ProjectKB_Class275] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([hotel_ProjectKB_Class276] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([hotel_ProjectKB_Class277] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
 
 ([hotel_ProjectKB_Class28] of  Property_List
 )
@@ -193,8 +182,33 @@
 	(property_list [hotel_ProjectKB_Class36])
 	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
 
+([hotel_ProjectKB_Class358] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([hotel_ProjectKB_Class359] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
 ([hotel_ProjectKB_Class36] of  Property_List
 )
+
+([hotel_ProjectKB_Class360] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([hotel_ProjectKB_Class361] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([hotel_ProjectKB_Class362] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
 
 ([hotel_ProjectKB_Class37] of  Widget
 
