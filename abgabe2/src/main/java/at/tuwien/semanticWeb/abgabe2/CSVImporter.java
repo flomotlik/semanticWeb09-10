@@ -129,6 +129,7 @@ public class CSVImporter {
 		if ((line != null) && (line.length == 3)) {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classHotel);
+			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 			while ((line = reader.readNext()) != null) {
 				// pro Zeile eine neue Instanz
 				// Name, Stadt, Kette
@@ -140,7 +141,6 @@ public class CSVImporter {
 				if(existsOrt(stadt)) {
 					ortInstanz = (Individual)getOrtByName(stadt).as(Individual.class);
 				} else {
-					OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
 					ortInstanz = ortClass.createIndividual();
 					ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), stadt);
 				}
@@ -199,6 +199,10 @@ public class CSVImporter {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
+			OntClass landClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classLand);
+			Individual ortInstanz;
+			Individual landInstanz;
+			Individual ind;
 			while ((line = reader.readNext()) != null) {
 				String name = line[0].trim();
 				String datum = line[1].trim();
@@ -207,9 +211,8 @@ public class CSVImporter {
 				if (existsEvent(name, datum, ort)) {
 					System.out.println("Veranstaltung " + name + " am " + datum + " in " + ort + " bereits vorhanden.");
 					continue;
-				}
+				}				
 				
-				Individual ortInstanz;
 				if(existsOrt(ort)) {
 					ortInstanz = (Individual)getOrtByName(ort).as(Individual.class);
 				} else {
@@ -218,15 +221,24 @@ public class CSVImporter {
 				}
 				
 				// pro Zeile eine neue Instanz
-				Individual ind = clazz.createIndividual();
+				ind = clazz.createIndividual();
 				
-				// TODO check if ort exists -> ist doch oben (Zeile 204)
 				PlaceData data = geonames.getData(ort);
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
+				
+				if(existsLand(data.getCountry(), data.getCountryCode())) {
+					landInstanz = (Individual)getLand(data.getCountry(), data.getCountryCode()); 
+				} else {
+					landInstanz = landClass.createIndividual();
+					landInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), data.getCountry());
+					landInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propHatGebiete), data.getCountryCode());
+				}
+				
+				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude), data.getLatitude());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude), data.getLongitude());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone), data.getTimezone());
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstIn), landInstanz);
+				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
 				
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
@@ -398,6 +410,28 @@ public class CSVImporter {
 	}
 	
 	/**
+	 * Searches for an Land with specific name and countryCode in the ontology. 
+	 * @param name name of the Land
+	 * @param countryCode country code of the Land
+	 * @return RDFNode
+	 * @throws Exception
+	 */
+	private RDFNode getLand(String name, String countryCode) throws Exception {
+		String query = "SELECT ?x " +
+		"WHERE { ?x :name \"" + name + "\" ;" +
+				" :laenderCode \"" + countryCode + "\"}";
+
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		
+		return node;
+	}
+	
+	/**
 	 * Checks if HotelKette already exists in the ontology.
 	 * @param name name of the HotelKette
 	 * @return true if exists, false otherwise
@@ -443,7 +477,8 @@ public class CSVImporter {
 	 */
 	private boolean existsHotel(String name, String city) {
 		String query = "ASK {?hotel :name \"" + name + "\" ;" +
-		" :stadt \"" + city + "\" }";
+		" :niedergelassenIn ?ort ." +
+		" ?ort :name \"" + city + "\"}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
@@ -523,7 +558,7 @@ public class CSVImporter {
 	 * @param end end date of the Buchung
 	 * @param customer name of the custome of the Buchung
 	 * @param hotel name of the hotel of the Buchung
-	 * @return
+	 * @return true if exists, false otherwise
 	 */
 	private boolean existsBuchung(String start, String end, String customer, String hotel) {
 		String splitted[] = customer.split("\\s+", 2);
@@ -534,6 +569,25 @@ public class CSVImporter {
 		" ?gast :vorname \"" + splitted[0] + "\" ;" +
 		" :nachname \"" + splitted[1] + "\" ." +
 		" ?hotel :name \"" + hotel + "\"}";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	/**
+	 * Checks if Land already exists in the ontology.
+	 * @param name name of the Land
+	 * @param countryCode code of the Land
+	 * @return true if exists, false otherwise
+	 */
+	private boolean existsLand(String name, String countryCode) {
+		String query = "ASK {?land :name \"" + name + "\" ;" +
+		" :landerCode \"" + countryCode + "\"}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
