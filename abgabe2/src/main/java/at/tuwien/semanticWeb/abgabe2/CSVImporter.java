@@ -400,7 +400,7 @@ public class CSVImporter {
 	 * @return RDFNode
 	 * @throws Exception
 	 */
-	private RDFNode getLand(String name, String countryCode) throws Exception {
+	public RDFNode getLand(String name, String countryCode) throws Exception {
 		String query = "SELECT ?x " +
 		"WHERE { ?x :name \"" + name + "\" ;" +
 				" :laenderCode \"" + countryCode + "\"}";
@@ -569,7 +569,7 @@ public class CSVImporter {
 	 * @param countryCode code of the Land
 	 * @return true if exists, false otherwise
 	 */
-	private boolean existsLand(String name, String countryCode) {
+	public boolean existsLand(String name, String countryCode) {
 		String query = "ASK {?land :name \"" + name + "\" ;" +
 		" :laenderCode \"" + countryCode + "\"}";
 

@@ -2,6 +2,7 @@ package at.tuwien.semanticWeb.abgabe2;
 
 import java.util.Scanner;
 
+import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -29,6 +30,7 @@ public class HotelManager {
 	private OntModel ontModel;
 	
 	private Geonames geonames = new Geonames();
+	private CSVImporter importer;
 	
 	public OntModel getOntModel() {
 		return ontModel;
@@ -119,17 +121,28 @@ public class HotelManager {
 		try {
 		    System.out.println("Starting update");
 		    ResIterator results = ontModel.listSubjectsWithProperty(RDF.type, this.ort);
-			while (results.hasNext()) {
+		    while (results.hasNext()) {
+		    	Individual landIndividual = null;
 			    Resource ortInstanz = results.next();
 			    String name = ontModel.getProperty(ortInstanz, this.name).getString();
 			    System.out.println("Ort to update: " + name.toString());
 				PlaceData data = geonames.getData(name.toString());
 				if(data != null){
-//				ortInstanz.addProperty(this.land, data.getCountry());
-				ortInstanz.addProperty(this.breitengrad, data.getLatitude());
-				ortInstanz.addProperty(this.laengengrad, data.getLongitude());
-				ortInstanz.addProperty(this.zeitzone, data.getTimezone());
-				ortInstanz.addProperty(this.laenderCode, data.getCountryCode());
+					// Check if Land exists
+					if(importer.existsLand(data.getCountry(), data.getCountryCode())) {
+						landIndividual = importer.getLand(data.getCountry(), data.getCountryCode()).as(Individual.class);
+					// If not create new Individual with data from geoservices
+					} else {
+						landIndividual = this.land.createIndividual();
+						landIndividual.addProperty(this.name, data.getCountry());
+						landIndividual.addProperty(this.laenderCode, data.getCountryCode());
+					}
+					// Assign Land to Ort
+					ortInstanz.addProperty(this.istIn, landIndividual);
+					ortInstanz.addProperty(this.breitengrad, data.getLatitude());
+					ortInstanz.addProperty(this.laengengrad, data.getLongitude());
+					ortInstanz.addProperty(this.zeitzone, data.getTimezone());
+					//ortInstanz.addProperty(this.laenderCode, data.getCountryCode());
 				}
 			}
 		} catch (Exception e) {
@@ -149,7 +162,7 @@ public class HotelManager {
 	}
 	
 	public void loadData() {
-		CSVImporter importer = new CSVImporter();
+		importer = new CSVImporter();
 		importer.importData(this);
 	}
 	

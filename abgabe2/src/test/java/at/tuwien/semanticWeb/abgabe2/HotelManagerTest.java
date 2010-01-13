@@ -64,5 +64,18 @@ public class HotelManagerTest {
 		manager.printSelectQuery(qry);
 		
 	}
+	@Test
+	public void testLaender() {
+		manager.loadData();
+		manager.updateOrtsInfo();
+		
+		String qry = "SELECT DISTINCT ?ort ?land ?code " + 
+        	"WHERE { ?o :name ?ort ;" +
+        	" :istIn ?l . " +
+        	" ?l :name ?land ;" + 
+        	" :laenderCode ?code}";
+		
+		manager.printSelectQuery(qry);
+	}
 	
 }
