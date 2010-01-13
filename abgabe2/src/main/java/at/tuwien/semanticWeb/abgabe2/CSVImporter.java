@@ -15,6 +15,7 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 public class CSVImporter {
 	
 	private OntModel ontModel;
+	private HotelManager hotelM;
 	
 	private Geonames geonames = new Geonames();
 	
@@ -43,8 +44,9 @@ public class CSVImporter {
 	 * -> denn dann müssten wir hier alle bestehenden Orte(..) cachen. 
 	 * (eine andere Möglichkeit wäre, sie einzeln und on demand per SPARQL query zu laden)  
 	 */
-	public void importData(OntModel model) {
-		ontModel = model;
+	public void importData(HotelManager m) {
+		hotelM = m;
+		ontModel = m.getOntModel();
 		
 		//hotelKetten.clear();
 		//hotels.clear();
@@ -83,7 +85,7 @@ public class CSVImporter {
 				}
 				
 				Individual ind = clazz.createIndividual();
-				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name);
+				ind.addProperty(hotelM.name, name);
 				
 				//hotelKetten.put(name, ind);
 			}
@@ -142,7 +144,7 @@ public class CSVImporter {
 					ortInstanz = (Individual)getOrtByName(stadt).as(Individual.class);
 				} else {
 					ortInstanz = ortClass.createIndividual();
-					ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), stadt);
+					ortInstanz.addProperty(hotelM.name, stadt);
 				}
 				
 				if (existsHotel(name, stadt)) {
@@ -151,7 +153,7 @@ public class CSVImporter {
 				}
 				
 				Individual ind = clazz.createIndividual();
-				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
+				ind.addProperty(hotelM.name, name)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNiedergelassenIn), ortInstanz)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstTeilVon), getHotelKetteByName(kette));
 				
@@ -199,9 +201,7 @@ public class CSVImporter {
 			// Owl Klasse erzeugen
 			OntClass clazz = ontModel.getOntClass(HotelNS.prefix + HotelNS.classVeranstaltung);
 			OntClass ortClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classOrt);
-			OntClass landClass = ontModel.getOntClass(HotelNS.prefix + HotelNS.classLand);
 			Individual ortInstanz;
-			Individual landInstanz;
 			Individual ind;
 			while ((line = reader.readNext()) != null) {
 				String name = line[0].trim();
@@ -217,32 +217,16 @@ public class CSVImporter {
 					ortInstanz = (Individual)getOrtByName(ort).as(Individual.class);
 				} else {
 					ortInstanz = ortClass.createIndividual();
-					ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), ort);
+					ortInstanz.addProperty(hotelM.name, ort);
 				}
+				// hier wird wirklich nur das Event geladen
 				
 				// pro Zeile eine neue Instanz
 				ind = clazz.createIndividual();
 				
-				PlaceData data = geonames.getData(ort);
-				
-				if(existsLand(data.getCountry(), data.getCountryCode())) {
-					landInstanz = (Individual)getLand(data.getCountry(), data.getCountryCode()); 
-				} else {
-					landInstanz = landClass.createIndividual();
-					landInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), data.getCountry());
-					landInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propHatGebiete), data.getCountryCode());
-				}
-				
-				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude), data.getLatitude());
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude), data.getLongitude());
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone), data.getTimezone());
-				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstIn), landInstanz);
-				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
-				
-				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propDatum), datum)
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propFindetStattIn), ortInstanz);
+				ind.addProperty(hotelM.name, name)
+				.addProperty(hotelM.datum, datum)
+				.addProperty(hotelM.findetStattIn, ortInstanz);
 				
 				//events.put(line[0], ind);
 				

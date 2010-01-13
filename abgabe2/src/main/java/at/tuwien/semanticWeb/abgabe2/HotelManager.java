@@ -2,6 +2,7 @@ package at.tuwien.semanticWeb.abgabe2;
 
 import java.util.Scanner;
 
+import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -9,6 +10,7 @@ import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -22,6 +24,8 @@ public class HotelManager {
 	private static HotelManager hm;
 	
 	private OntModel ontModel;
+	
+	private Geonames geonames = new Geonames();
 	
 	public OntModel getOntModel() {
 		return ontModel;
@@ -99,7 +103,40 @@ public class HotelManager {
 		
 		
 	}
-	private void defineEquivalences() {
+	
+	/**
+	 * erweitert Ortsinfo mit Hilfe von geonames
+	 */
+	private void updateOrtsInfo() {
+		// TODO: alle Orte auslesen, mit Ortsinfos ergaenzen
+		try {
+			ResultSet results = query("SELECT ?ort " +
+					                  " WHERE { ?ort rdf:type :Ort }");
+			while (results.hasNext()) {
+/*				
+				PlaceData data = geonames.getData(ort);
+				
+				if(existsLand(data.getCountry(), data.getCountryCode())) {
+					landInstanz = (Individual)getLand(data.getCountry(), data.getCountryCode()); 
+				} else {
+					landInstanz = landClass.createIndividual();
+					landInstanz.addProperty(hotelM.name, data.getCountry());
+					landInstanz.addProperty(hotelM.laenderCode, data.getCountryCode());
+				}
+				
+				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
+				ortInstanz.addProperty(hotelM.breitengrad, data.getLatitude());
+				ortInstanz.addProperty(hotelM.laengengrad, data.getLongitude());
+				ortInstanz.addProperty(hotelM.zeitzone, data.getTimezone());
+				ortInstanz.addProperty(hotelM.istIn, landInstanz);
+				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
+				
+*/				
+			}
+		} catch (Exception e) {
+			System.out.println("An Orten nichts neues.");
+			e.printStackTrace();
+		}
 		
 	}
 	public static HotelManager getHotelManager() {
@@ -111,7 +148,7 @@ public class HotelManager {
 	
 	public void loadData() {
 		CSVImporter importer = new CSVImporter();
-		importer.importData(ontModel);
+		importer.importData(this);
 	}
 	
 
@@ -126,18 +163,18 @@ public class HotelManager {
 			ResultSet results = query(queryString);
 			if (results != null) {
 			    System.out.println("Result:");
-//			    ResultSetFormatter.out(System.out, results);
-			    while (results.hasNext()) {
-			    	QuerySolution qs = results.next();
-			    	RDFNode rdfNode = qs.get("x");
-			    	if (rdfNode.isLiteral()) {
-			    		Literal l = (Literal)rdfNode.as(Literal.class);
-			    		System.out.println("\t" + l.getString());
-			    	}  else {
-			    		System.out.println("\t" + rdfNode.toString());
-			    	}
-			        
-			    }
+			    ResultSetFormatter.out(System.out, results);
+//			    while (results.hasNext()) {
+//			    	QuerySolution qs = results.next();
+//			    	RDFNode rdfNode = qs.get("x");
+//			    	if (rdfNode.isLiteral()) {
+//			    		Literal l = (Literal)rdfNode.as(Literal.class);
+//			    		System.out.println("\t" + l.getString());
+//			    	}  else {
+//			    		System.out.println("\t" + rdfNode.toString());
+//			    	}
+//			        
+//			    }
 			}
 		} catch (Exception e) {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
@@ -262,8 +299,10 @@ public class HotelManager {
 	}
 	
 	public void eight() {
-		String query = "SELECT ?x " +
-		"WHERE { ?event :name ?x }";//; " +
+		String query = "SELECT ?name ?datum " +
+		"WHERE { ?event :name ?name . " +
+		       " ?event :datum ?datum .  " +
+		       " ?event rdf:type  :Veranstaltung}"; 
 		//":datum ?y ; " +
 		//":findetStattIn ?ort}";
 		printSelectQuery(query);

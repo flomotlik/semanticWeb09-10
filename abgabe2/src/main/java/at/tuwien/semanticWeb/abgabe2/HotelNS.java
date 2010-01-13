@@ -36,7 +36,4 @@ public class HotelNS {
 	public static final String propIstIn = "istIn";
 	public static final String propNiedergelassenIn = "niedergelassenIn";
 
-	public static final String propIstIn = "istIn";
-	public static final String propHatGebiete = "hatGebiete";
-
 }
