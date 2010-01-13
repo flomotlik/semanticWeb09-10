@@ -1,5 +1,8 @@
 package at.tuwien.semanticWeb.abgabe2;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -320,7 +323,7 @@ public class HotelManager {
 //		        System.out.println(va);
 		        double distancesToEvent = distances.distances(breite, laenge, breiteVA, laengeVA);
                         if(distancesToEvent <= 100){
-		            System.out.println("In Nähe: " + va + " Entfernung: " + distancesToEvent);
+		            System.out.println("In Naehe: " + va + " Entfernung: " + distancesToEvent);
 		        }
 		    }
 		    
@@ -453,6 +456,11 @@ public class HotelManager {
 	public void seventh() {
 		String param = askParameter("<GastName>");
 		String param2 = askParameter("<Datum>");
+		String datum1 = "";
+		String datum2 = "";
+		String datum3 = "";
+		DateFormat df = new SimpleDateFormat("");
+		Date d = new Date();
 		waitForUser();
 	}
 	

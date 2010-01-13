@@ -78,4 +78,25 @@ public class HotelManagerTest {
 		manager.printSelectQuery(qry);
 	}
 	
+	@Test
+	public void testDates() {
+		manager.loadData();
+		
+		String qry = "SELECT ?event ?datum " + 
+    	"WHERE { ?e :name ?event ;" +
+    	" :datum ?datum . " +
+    	" ?e rdf:type :Veranstaltung}";
+	
+		manager.printSelectQuery(qry);
+		System.out.println("Nach Filter:");
+	
+		qry = "SELECT ?event ?d " + 
+    	"WHERE { ?e :name ?event ." +
+    	" ?e :datum ?d . " +
+    	" FILTER ?d = \"2009-12-16\" . " +
+    	" ?e rdf:type :Veranstaltung }"; 
+    	
+		manager.printSelectQuery(qry);
+	}
+	
 }
