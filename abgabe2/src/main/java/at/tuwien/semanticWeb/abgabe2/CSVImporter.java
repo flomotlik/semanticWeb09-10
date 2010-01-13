@@ -224,10 +224,20 @@ public class CSVImporter {
 				ind = clazz.createIndividual();
 				
 				PlaceData data = geonames.getData(ort);
+				
+				if(existsLand(data.getCountry(), data.getCountryCode())) {
+					landInstanz = (Individual)getLand(data.getCountry(), data.getCountryCode()); 
+				} else {
+					landInstanz = landClass.createIndividual();
+					landInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), data.getCountry());
+					landInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propHatGebiete), data.getCountryCode());
+				}
+				
 				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLatitude), data.getLatitude());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propLongitude), data.getLongitude());
 				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propTimezone), data.getTimezone());
+				ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstIn), landInstanz);
 				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
 				
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
@@ -400,6 +410,28 @@ public class CSVImporter {
 	}
 	
 	/**
+	 * Searches for an Land with specific name and countryCode in the ontology. 
+	 * @param name name of the Land
+	 * @param countryCode country code of the Land
+	 * @return RDFNode
+	 * @throws Exception
+	 */
+	private RDFNode getLand(String name, String countryCode) throws Exception {
+		String query = "SELECT ?x " +
+		"WHERE { ?x :name \"" + name + "\" ;" +
+				" :laenderCode \"" + countryCode + "\"}";
+
+		ResultSet result = HotelManager.getHotelManager().query(query);
+		RDFNode node = null;
+		if (result != null) {
+			QuerySolution qs = result.next();
+			node = qs.get("x");
+		}
+		
+		return node;
+	}
+	
+	/**
 	 * Checks if HotelKette already exists in the ontology.
 	 * @param name name of the HotelKette
 	 * @return true if exists, false otherwise
@@ -526,7 +558,7 @@ public class CSVImporter {
 	 * @param end end date of the Buchung
 	 * @param customer name of the custome of the Buchung
 	 * @param hotel name of the hotel of the Buchung
-	 * @return
+	 * @return true if exists, false otherwise
 	 */
 	private boolean existsBuchung(String start, String end, String customer, String hotel) {
 		String splitted[] = customer.split("\\s+", 2);
@@ -537,6 +569,25 @@ public class CSVImporter {
 		" ?gast :vorname \"" + splitted[0] + "\" ;" +
 		" :nachname \"" + splitted[1] + "\" ." +
 		" ?hotel :name \"" + hotel + "\"}";
+
+		try {
+			return HotelManager.getHotelManager().askQuery(query);
+		} catch (Exception e) {
+			System.out.println("Problem bei Verarbeitung der query: ");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	/**
+	 * Checks if Land already exists in the ontology.
+	 * @param name name of the Land
+	 * @param countryCode code of the Land
+	 * @return true if exists, false otherwise
+	 */
+	private boolean existsLand(String name, String countryCode) {
+		String query = "ASK {?land :name \"" + name + "\" ;" +
+		" :landerCode \"" + countryCode + "\"}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);

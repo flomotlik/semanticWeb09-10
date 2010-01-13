@@ -33,5 +33,7 @@ public class HotelNS {
 	public static final String propBestehtAus = "bestehtAus";
 	public static final String propFindetStattIn = "findetStattIn";
 	public static final String propNimmtTeilAn = "nimmtTeilAn";
+	public static final String propHatGebiete = "hatGebiete";
+	public static final String propIstIn = "istIn";
 
 }
