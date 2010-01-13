@@ -53,6 +53,8 @@ public class HotelManager {
 	public Property hatGebiete;
 	public Property laenderCode;
 	
+	public static String foafPrefix = "http://pephimon.big.tuwien.ac.at/FOAF_Service/resources/foaf/email/";
+	
 	public HotelManager() {
 		// hotel.owl laden
 		Model model = FileManager.get().loadModel("hotel.owl");
@@ -180,6 +182,30 @@ public class HotelManager {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
 		}
     }
+    
+    public void printSelectFoafQuery(String query) {
+    	try {
+			ResultSet results = queryFoaf(query);
+			if (results != null) {
+			    System.out.println("Result:");
+			    ResultSetFormatter.out(System.out, results);
+//			    while (results.hasNext()) {
+//			    	QuerySolution qs = results.next();
+//			    	RDFNode rdfNode = qs.get("x");
+//			    	if (rdfNode.isLiteral()) {
+//			    		Literal l = (Literal)rdfNode.as(Literal.class);
+//			    		System.out.println("\t" + l.getString());
+//			    	}  else {
+//			    		System.out.println("\t" + rdfNode.toString());
+//			    	}
+//			        
+//			    }
+			}
+		} catch (Exception e) {
+			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
+		}
+    }
+    
 	public ResultSet query(String queryString) throws Exception {
     	try {
 			String newQueryString = "PREFIX :<" + HotelNS.prefix + "> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" + queryString;
@@ -190,6 +216,17 @@ public class HotelManager {
 			throw new Exception(e);
 		}
     }
+	
+	public ResultSet queryFoaf(String query) throws Exception {
+		try {
+			String newQueryString = "PREFIX <http://xmlns.com/foaf/0.1/> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" + query;
+			QueryExecution qe = QueryExecutionFactory.create(newQueryString, ontModel);
+			qe.close();
+            return qe.execSelect();
+		} catch (Throwable e) {
+			throw new Exception(e);
+		}
+	}
 	
 	public double[] getPlaceOfEvent(String event) throws Exception{
 	    System.out.println(event);
@@ -278,7 +315,42 @@ public class HotelManager {
 	}
 	
 	public void fourth() {
-		String param = askParameter("<GastName>");
+		String param = askParameter("<GastVorname>");
+		String param2 = askParameter("<GastNachname>");
+		
+		// Search for Gast and his email
+		String query = "SELECT ?x " +
+				"WHERE { ?gast :vorname  \"" + param + "\" ;" +
+				" :nachname \"" + param2 + "\" ;" + 
+				" :email ?x ." +
+				" ?gast rdf:type :Gast}";
+		printSelectQuery(query);
+		ResultSet results = null;
+		try {
+			results = query(query);
+		} catch (Exception e) {
+			System.out.println("Es ist ein Problem beim Suchen des Gastes entstanden.");
+			e.printStackTrace();
+		}
+		
+		if(results.hasNext()) {
+			// Extract email from ResultSet as string
+			QuerySolution qs = results.next();
+	    	RDFNode rdfNode = qs.get("x");
+	    	Literal l = (Literal)rdfNode.as(Literal.class);
+	    	
+	    	// Load the FOAF model for this Gast (email)
+			Model foafModel = ModelFactory.createDefaultModel();
+			System.out.println(foafPrefix+l.getString());
+			foafModel.read(foafPrefix + l.getString());
+			
+			// TODO: print friends direct + indirect
+			query = "SELECT ?x " +
+					"WHERE { ?person :name ?x }";
+			printSelectFoafQuery(query);
+		} else {
+			System.out.println("Kein Gast mit name " + param + " " + param2 + " gefunden.");
+		}
 		waitForUser();
 	}
 	
@@ -288,7 +360,8 @@ public class HotelManager {
 	}
 	
 	public void sixth() {
-		String param = askParameter("<GastName>");
+		String param = askParameter("<GastVorname>");
+		String param2 = askParameter("<GastNachname>");
 		waitForUser();
 	}
 	
@@ -299,7 +372,7 @@ public class HotelManager {
 	}
 	
 	public void eight() {
-		String query = "SELECT ?x ?y " +
+		String query = "SELECT DISTINCT ?x ?y " +
 		"WHERE { ?event :name ?x ; " +
 		":datum ?y ; " +
 		":findetStattIn ?ort}";
