@@ -10,7 +10,7 @@ public class DBPedia {
     public String getAbstract(String concept) throws IOException, SAXException {
         String sparql = "http://dbpedia.org/sparql?query=SELECT%20DISTINCT%20?abstract"
             + "%20WHERE%20{{%20%3Chttp://dbpedia.org/resource/" + concept + "%3E%20%3Chttp://dbpedia.org/property/"
-            + "abstract%3E%20?abstract%20.FILTER%20langMatches%28%20lang%28?abstract%29,%20%27en%27%29}}";
+            + "abstract%3E%20?abstract%20.FILTER%20langMatches%28%20lang%28?abstract%29,%20%27de%27%29}}";
         String content = Helper.getURLContent(sparql);
         Digester digester = new Digester();
         digester.setValidating(false);

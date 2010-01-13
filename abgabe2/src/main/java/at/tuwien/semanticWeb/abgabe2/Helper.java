@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Helper {
     public static String getURLContent(String url) throws IOException {
-        System.out.println(url);
+//        System.out.println(url);
         URL wunderground = new URL(url);
         URLConnection connection = wunderground.openConnection();
         Scanner scanner = new Scanner(connection.getInputStream());
@@ -15,7 +15,7 @@ public class Helper {
         while (scanner.hasNextLine()) {
             buffer.append(scanner.nextLine());
         }
-        System.out.println(buffer.toString());
+//        System.out.println(buffer.toString());
         return buffer.toString();
     }
 }

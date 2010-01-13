@@ -23,6 +23,7 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
 import com.hp.hpl.jena.vocabulary.RDF;
+import com.sun.jndi.ldap.ManageReferralControl;
 
 public class HotelManager {
 
@@ -288,8 +289,29 @@ public class HotelManager {
 	//========
 	// QUERIES
 	//========
-	public void first() {
+	public void first() throws Exception {
+	    Distances distances = new Distances();
 		String param = askParameter("<HotelName>");
+		ResultSet query = this.query("select ?laenge ?breite Where{?hotel :name \"" + param +"\". ?hotel :niedergelassenIn ?ort. ?ort :breitengrad ?breite. ?ort :laengenGrad ?laenge}");
+		if(query != null){
+		    QuerySolution solutino = query.next();
+		    double laenge = ((Literal)solutino.get("laenge")).getDouble();
+		    double breite = ((Literal)solutino.get("breite")).getDouble();
+		    ResultSet veranstaltungen = this.query("select ?name ?laenge ?breite Where{?va rdf:type :Veranstaltung. ?va :name ?name. ?va :findetStattIn ?ort. ?ort :laengenGrad ?laenge. ?ort :breitengrad ?breite }");
+		    while(veranstaltungen.hasNext()){
+		        QuerySolution veranstaltung = veranstaltungen.next();
+		        double laengeVA = ((Literal)veranstaltung.get("laenge")).getDouble();
+		        double breiteVA = ((Literal)veranstaltung.get("breite")).getDouble();
+		        String va = ((Literal)veranstaltung.get("name")).getString();
+//		        System.out.println(va);
+		        double distancesToEvent = distances.distances(breite, laenge, breiteVA, laengeVA);
+                        if(distancesToEvent <= 100){
+		            System.out.println("In Nähe: " + va + " Entfernung: " + distancesToEvent);
+		        }
+		    }
+		    
+		}
+		
 		waitForUser();
 	}
 	
@@ -309,8 +331,18 @@ public class HotelManager {
 		waitForUser();
 	}
 	
-	public void third() {
+	public void third() throws Exception {
 		String param = askParameter("<VeranstaltungsName>");
+		String queryString = "ASK {?event :name \"" + param + "\" ;}";
+        boolean exists = askQuery(queryString);
+		if(exists){
+		    String abstract1 = new DBPedia().getAbstract(param);
+		    System.out.println("-----------------------------------------------");
+		    System.out.println(abstract1);
+		    System.out.println("-----------------------------------------------");
+		}else{
+		    System.out.println("Doesn't exist");
+		}
 		waitForUser();
 	}
 	

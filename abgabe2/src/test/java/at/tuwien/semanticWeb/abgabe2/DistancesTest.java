@@ -17,9 +17,7 @@ public class DistancesTest {
         PlaceData place2 = new PlaceData("a", 19, 150, "AT", "Zone");
         data.add(place1);
         data.add(place2);
-        List<PlaceData> resultPlaces = distances.distances(Double.valueOf(firstPlace.getLatitude()), Double
-            .valueOf(firstPlace.getLongitude()), data);
-        Assert.assertEquals(1, resultPlaces.size());
-        Assert.assertSame(place1, resultPlaces.get(0));
+        double resultPlaces = distances.distances(Double.valueOf(firstPlace.getLatitude()), Double
+            .valueOf(firstPlace.getLongitude()), 19, 48);
     }
 }
