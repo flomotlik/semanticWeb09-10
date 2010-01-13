@@ -2,7 +2,6 @@ package at.tuwien.semanticWeb.abgabe2;
 
 import java.util.Scanner;
 
-import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -16,8 +15,14 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.ResIterator;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.SimpleSelector;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
+import com.hp.hpl.jena.vocabulary.RDF;
 
 public class HotelManager {
 
@@ -107,35 +112,30 @@ public class HotelManager {
 	/**
 	 * erweitert Ortsinfo mit Hilfe von geonames
 	 */
-	private void updateOrtsInfo() {
+	public void updateOrtsInfo() {
 		// TODO: alle Orte auslesen, mit Ortsinfos ergaenzen
 		try {
-			ResultSet results = query("SELECT ?ort " +
-					                  " WHERE { ?ort rdf:type :Ort }");
+		    System.out.println("Starting update");
+		    ResIterator results = ontModel.listSubjectsWithProperty(RDF.type, this.ort);
 			while (results.hasNext()) {
-/*				
-				PlaceData data = geonames.getData(ort);
-				
-				if(existsLand(data.getCountry(), data.getCountryCode())) {
-					landInstanz = (Individual)getLand(data.getCountry(), data.getCountryCode()); 
-				} else {
-					landInstanz = landClass.createIndividual();
-					landInstanz.addProperty(hotelM.name, data.getCountry());
-					landInstanz.addProperty(hotelM.laenderCode, data.getCountryCode());
+			    Resource ortInstanz = results.next();
+			    String name = ontModel.getProperty(ortInstanz, this.name).getString();
+			    System.out.println("Ort to update: " + name.toString());
+				PlaceData data = geonames.getData(name.toString());
+				if(data != null){
+//				ortInstanz.addProperty(this.land, data.getCountry());
+				ortInstanz.addProperty(this.breitengrad, data.getLatitude());
+				ortInstanz.addProperty(this.laengengrad, data.getLongitude());
+				ortInstanz.addProperty(this.zeitzone, data.getTimezone());
+				ortInstanz.addProperty(this.laenderCode, data.getCountryCode());
 				}
-				
-				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountry), data.getCountry());
-				ortInstanz.addProperty(hotelM.breitengrad, data.getLatitude());
-				ortInstanz.addProperty(hotelM.laengengrad, data.getLongitude());
-				ortInstanz.addProperty(hotelM.zeitzone, data.getTimezone());
-				ortInstanz.addProperty(hotelM.istIn, landInstanz);
-				//ortInstanz.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode), data.getCountryCode());
-				
-*/				
 			}
 		} catch (Exception e) {
 			System.out.println("An Orten nichts neues.");
+			System.out.println(e.getMessage());
 			e.printStackTrace();
+			System.out.flush();
+			System.err.flush();
 		}
 		
 	}
@@ -210,7 +210,7 @@ public class HotelManager {
 	        }
 	    }
 	    System.out.println("Wrong Return");
-	    return new double[0];
+	    return new double[2];
 	}
 	
 	/**

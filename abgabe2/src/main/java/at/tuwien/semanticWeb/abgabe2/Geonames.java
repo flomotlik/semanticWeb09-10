@@ -13,11 +13,15 @@ public class Geonames {
 		searchCriteria.setQ(place);
 		searchCriteria.setStyle(Style.FULL);
 		ToponymSearchResult searchResult = WebService.search(searchCriteria);
+		if(searchResult.getToponyms().size() > 0){
 		Toponym top = searchResult.getToponyms().get(0);
 		PlaceData data = new PlaceData(top.getCountryName(), top.getLongitude(), top
 				.getLatitude(), top.getCountryCode(), top.getTimezone()
 				.getTimezoneId());
 		//System.out.println(data);
 		return data;
+		} else {
+		    return null;
+		}
 	}
 }
