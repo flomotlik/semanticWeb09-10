@@ -152,7 +152,7 @@ public class CSVImporter {
 				
 				Individual ind = clazz.createIndividual();
 				ind.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propName), name)
-				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propStadt), stadt)
+				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propNiedergelassenIn), ortInstanz)
 				.addProperty(ontModel.getProperty(HotelNS.prefix + HotelNS.propIstTeilVon), getHotelKetteByName(kette));
 				
 				//hotels.put(name, ind);
@@ -346,7 +346,7 @@ public class CSVImporter {
 		
 		String query = "SELECT ?x " +
 		"WHERE { ?x :name \"" + name + "\" ;" +
-				" :stadt ?stadt ;" +
+				" :niedergelassenIn ?stadt ;" +
 				" :istTeilVon ?hotelKette}";
 		
 		ResultSet result = HotelManager.getHotelManager().query(query);
