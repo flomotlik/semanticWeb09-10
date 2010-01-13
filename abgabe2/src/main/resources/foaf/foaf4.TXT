@@ -1,0 +1,33 @@
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:admin="http://webns.net/mvcb/">
+<foaf:PersonalProfileDocument rdf:about="">
+  <foaf:maker rdf:resource="#me"/>
+  <foaf:primaryTopic rdf:resource="#me"/>
+  <admin:generatorAgent rdf:resource="http://www.ldodds.com/foaf/foaf-a-matic"/>
+  <admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
+</foaf:PersonalProfileDocument>
+<foaf:Person rdf:ID="me">
+<foaf:name>Michel Beroff</foaf:name>
+<foaf:givenname>Michel</foaf:givenname>
+<foaf:family_name>Beroff</foaf:family_name>
+<foaf:mbox rdf:resource="mailto:beroff@gmail.com"/>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Christian Altenburger</foaf:name>
+<foaf:mbox rdf:resource="mailto:altenburger@gmail.com"/></foaf:Person></foaf:knows>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Pierre Amoyal</foaf:name>
+<foaf:mbox rdf:resource="mailto:amoyal@gmail.com"/></foaf:Person></foaf:knows>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Placido Domingo</foaf:name>
+<foaf:mbox rdf:resource="mailto:domingo@gmail.com"/></foaf:Person></foaf:knows>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Mojca Erdmann</foaf:name>
+<foaf:mbox rdf:resource="mailto:erdmann@gmail.com"/></foaf:Person></foaf:knows></foaf:Person>
+</rdf:RDF>

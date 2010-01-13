@@ -44,8 +44,8 @@ public class HotelManagerTest {
 		manager.printSelectQuery("SELECT ?x WHERE { ?ort :laenderCode ?x.}");
 		manager.printSelectQuery("Select ?x Where { ?ort :breitengrad ?x}");
 		manager.printSelectQuery("Select ?x Where { ?va :name \"Skispringen\". ?va :findetStattIn ?ort.?ort :name ?x}");
-		double[] place = manager.getPlaceOfEvent("Skispringen");
-		System.out.println("Laenge: " + place[0] + " Breite: " + place[1]);
+		//double[] place = manager.getPlaceOfEvent("Skispringen");
+		//System.out.println("Laenge: " + place[0] + " Breite: " + place[1]);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class HotelManagerTest {
 	
 		System.out.println("Inverse property after import:");
 		manager.loadData();
-		manager.loadData();
+		//manager.loadData();
 		manager.printSelectQuery(qry);
 		
 	}

@@ -421,7 +421,7 @@ public class CSVImporter {
 	 * @return true if exists, false otherwise
 	 */
 	private boolean existsHotelKette(String name) {
-		String query = "ASK {?kette :name \"" + name + "\"}";
+		String query = "ASK {?kette :name \"" + name + "\" }";
 		
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
@@ -571,7 +571,7 @@ public class CSVImporter {
 	 */
 	private boolean existsLand(String name, String countryCode) {
 		String query = "ASK {?land :name \"" + name + "\" ;" +
-		" :landerCode \"" + countryCode + "\"}";
+		" :laenderCode \"" + countryCode + "\"}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
