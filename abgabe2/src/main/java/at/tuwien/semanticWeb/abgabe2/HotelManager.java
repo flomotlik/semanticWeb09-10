@@ -230,18 +230,14 @@ public class HotelManager {
 	}
 	
 	public double[] getPlaceOfEvent(String event) throws Exception{
-	    System.out.println(event);
 	    String query = "SELECT ?laenge ?breite WHERE {?va :name \"" + event + "\". ?va :findetStattIn ?ort. ?ort :laengenGrad ?laenge. ?ort :breitengrad ?breite }";
 	    ResultSet result = query(query);
-	    System.out.println(result);
 	    while(result != null && result.hasNext()){
-	        System.out.println("In While");
 	        QuerySolution qs = result.next();
 	        RDFNode laenge = qs.get("laenge");
 	        RDFNode breite = qs.get("breite");
 	        
 	        if(laenge.isLiteral() && breite.isLiteral()){
-	            System.out.println("Is Literal");
 	            double laengengrad = ((Literal)laenge).getDouble();
 	            double breitengrad = ((Literal)breite).getDouble();
 	            return new double[]{laengengrad, breitengrad};
@@ -293,7 +289,7 @@ public class HotelManager {
 	    Distances distances = new Distances();
 		String param = askParameter("<HotelName>");
 		ResultSet query = this.query("select ?laenge ?breite Where{?hotel :name \"" + param +"\". ?hotel :niedergelassenIn ?ort. ?ort :breitengrad ?breite. ?ort :laengenGrad ?laenge}");
-		if(query != null){
+		if(query != null && query.hasNext()){
 		    QuerySolution solutino = query.next();
 		    double laenge = ((Literal)solutino.get("laenge")).getDouble();
 		    double breite = ((Literal)solutino.get("breite")).getDouble();

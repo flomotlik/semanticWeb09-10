@@ -12,7 +12,7 @@ public class WeatherService {
     public List<Forecast> getForecast(double latitude, double longitude) throws IOException, SAXException {
         String content = Helper.getURLContent("http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query="
             + latitude + "," + longitude);
-        System.out.println(content);
+//        System.out.println(content);
         Digester digester = new Digester();
         digester.setValidating(false);
         digester.addObjectCreate("forecast/simpleforecast", ArrayList.class);
