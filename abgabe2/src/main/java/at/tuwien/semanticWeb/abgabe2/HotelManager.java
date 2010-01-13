@@ -1,5 +1,7 @@
 package at.tuwien.semanticWeb.abgabe2;
 
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 import com.hp.hpl.jena.ontology.Individual;
@@ -18,13 +20,9 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.SimpleSelector;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
 import com.hp.hpl.jena.vocabulary.RDF;
-import com.sun.jndi.ldap.ManageReferralControl;
 
 public class HotelManager {
 
@@ -59,6 +57,9 @@ public class HotelManager {
 	public static String foafPrefix = "http://pephimon.big.tuwien.ac.at/FOAF_Service/resources/foaf/email/";
 
     private Model foafModel;
+    
+    Hashtable<String, String> directFriends;
+	Hashtable<String, String> indirectFriends;
 	
 	public HotelManager() {
 		// hotel.owl laden
@@ -385,36 +386,53 @@ public class HotelManager {
 	    	Literal l = (Literal)rdfNode.as(Literal.class);
 	    	
 	    	ResultSet friendsResultSet = getFriendsResultSet(foafPrefix + l.getString());
-			System.out.println("Freunde:");
+			//System.out.println("Freunde:");
+			directFriends = new Hashtable<String, String>();
+			indirectFriends = new Hashtable<String, String>();
 			while(friendsResultSet.hasNext()){
 			 QuerySolution queryS = friendsResultSet.next();
 			 RDFNode link = queryS.get("link");
 			 String name = ((Literal)queryS.get("name")).getString();
-			 System.out.println(name);
+			 directFriends.put(name, name);			 
 			 printNames(getFriendsResultSet(link.toString()));
 			}
 		} else {
 			System.out.println("Kein Gast mit name " + param + " " + param2 + " gefunden.");
 		}
+		printFriendNames();
 		waitForUser();
 	}
 	
+	private void printFriendNames() {
+		System.out.println("Direkte Freunde:");
+		for(Enumeration<String> e = directFriends.keys(); e.hasMoreElements() ;) {
+			String name = e.nextElement();
+			System.out.println("\t" + name);
+			indirectFriends.remove(name);
+		}
+		
+		System.out.println("Indirekte Freunde:");
+		for(Enumeration<String> e = indirectFriends.keys(); e.hasMoreElements() ;) {
+			System.out.println("\t" + e.nextElement());
+		}
+	}
 	private void printNames(ResultSet friendsResultSet){
 	    while(friendsResultSet.hasNext()){
                 QuerySolution queryS = friendsResultSet.next();
                 String name = ((Literal)queryS.get("name")).getString();
-                System.out.println("    " + name);
+                indirectFriends.put(name, name);
+                //System.out.println("\t" + name);
                }
 	}
 	
 	private ResultSet getFriendsResultSet(String url) throws Exception{
 	    foafModel = ModelFactory.createDefaultModel();
-//            System.out.println(url);
-            foafModel.read(url);
+//      System.out.println(url);
+        foafModel.read(url);
             
-            // TODO: print friends direct + indirect
-            String query = "select ?name ?link where { ?person foaf:knows ?x. ?x foaf:name ?name. ?x rdfs:seeAlso ?link}";
-            return queryFoaf(query);
+        // TODO: print friends direct + indirect
+        String query = "SELECT ?name ?link WHERE { ?person foaf:knows ?x. ?x foaf:name ?name. ?x rdfs:seeAlso ?link}";
+        return queryFoaf(query);
 	}
 	
 	public void printFriends(String url){
