@@ -11,6 +11,36 @@ rdf:about="http://www.big.tuwien.ac.at/semantic/event">
 	<modified xmlns="http://purl.org/dc/terms/">Wed Dec 09 12:00:18 CET 2009</modified> 
 </skos:ConceptScheme>
 
+<!-- Politik -->
+<skos:Concept rdf:about="http://www.big.tuwien.ac.at/semantic/event#Politik">
+	<skos:prefLabel>Politik</skos:prefLabel>
+	<skos:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+</skos:Concept>
+
+<skos:Concept rdf:about="http://www.big.tuwien.ac.at/semantic/event#Demonstration">
+	<skos:prefLabel>Demonstration</skos:prefLabel>
+	<skos:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Politik"/>
+</skos:Concept>
+
+<skos:Concept rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wahlparty">
+	<skos:prefLabel>Wahlparty</skos:prefLabel>
+	<skos:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Politik"/>
+</skos:Concept>
+
+<!-- Soziales -->
+<skos:Concept rdf:about="http://www.big.tuwien.ac.at/semantic/event#Soziales">
+	<skos:prefLabel>Soziales</skos:prefLabel>
+	<skos:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+</skos:Concept>
+
+<skos:Concept rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wohltaetigkeitsball">
+	<skos:prefLabel>Wohltaetigkeitsball</skos:prefLabel>
+	<skos:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+	<skos:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Soziales"/>
+</skos:Concept>
+
 
 <!-- Sport -->
 <skos:Concept
