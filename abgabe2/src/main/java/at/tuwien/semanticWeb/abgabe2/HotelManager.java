@@ -17,13 +17,10 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.SimpleSelector;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.sparql.resultset.ResultsFormat;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
 import com.hp.hpl.jena.vocabulary.RDF;
-import com.sun.jndi.ldap.ManageReferralControl;
 
 public class HotelManager {
 
@@ -412,10 +409,28 @@ public class HotelManager {
 		String param = askParameter("<HotelName>");
 		waitForUser();
 	}
+
 	
-	public void sixth() {
-		String param = askParameter("<GastVorname>");
-		String param2 = askParameter("<GastNachname>");
+	/**
+	 * 6 Welche persoenliche Interessen hat <GastVorname> <GastNachname>? 
+	 */
+	public void sixth() throws Exception{
+		String param = "Max";//askParameter("<GastVorname>");
+		String param2 = "Muster"; //askParameter("<GastNachname>");
+		
+		String queryString = 
+			"SELECT DISTINCT ?i" +
+			" WHERE { ?p a :Gast . " +
+			"         ?p :vorname  \"" + param +"\" . " +
+			"         ?p :nachname  \"" + param2 +"\" . " +
+			"         ?p :nimmtTeilAn ?i . " + 
+			"         ?i :name ?iname} ";
+		
+		ResultSet results = query(queryString);
+		ResultSetFormatter.out(System.out, results);
+		while (results.hasNext()){
+		}
+		
 		waitForUser();
 	}
 	

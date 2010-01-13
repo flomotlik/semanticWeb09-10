@@ -21,7 +21,7 @@ public class Main {
 	 * @param args
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args){
         boolean exit = false;
         HotelManager manager = HotelManager.getHotelManager();
         System.out.println("Before Load");
@@ -30,30 +30,36 @@ public class Main {
         manager.updateOrtsInfo();
         System.out.println("After Update");
         String input;
+
         do {
             input = printMenu();
-            if (input.equals("1")) {
-            	manager.first();
-            }else if (input.equals("2")) {
-                manager.second();
-            } else if (input.equals("3")) {
-            	manager.third();
-            } else if (input.equals("4")) {
-            	manager.fourth();
-            } else if (input.equals("5")) {
-            	manager.fifth();
-            } else if (input.equals("6")) {
-            	manager.sixth();
-            } else if (input.equals("7")) {
-            	manager.seventh();
-            } else if (input.equals("8")) {
-            	manager.eight();
-            }  
-            else if (input.equalsIgnoreCase("q")) {
-            	break;
-            } else {
-            	System.out.println("Falsche eingabe.");
-            }
+            try {
+				if (input.equals("1")) {
+					manager.first();
+				}else if (input.equals("2")) {
+				    manager.second();
+				} else if (input.equals("3")) {
+					manager.third();
+				} else if (input.equals("4")) {
+					manager.fourth();
+				} else if (input.equals("5")) {
+					manager.fifth();
+				} else if (input.equals("6")) {
+					manager.sixth();
+				} else if (input.equals("7")) {
+					manager.seventh();
+				} else if (input.equals("8")) {
+					manager.eight();
+				}  
+				else if (input.equalsIgnoreCase("q")) {
+					break;
+				} else {
+					System.out.println("Falsche eingabe.");
+				}
+			} catch (Exception e) {
+				System.out.println("Bei der Abfrage ist ein Problem aufgetreten: " + e.getMessage());
+				e.printStackTrace();
+			}
         } while (!exit);
     }
 
