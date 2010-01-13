@@ -55,6 +55,8 @@ public class HotelManager {
 	public Property laenderCode;
 	
 	public static String foafPrefix = "http://pephimon.big.tuwien.ac.at/FOAF_Service/resources/foaf/email/";
+
+    private Model foafModel;
 	
 	public HotelManager() {
 		// hotel.owl laden
@@ -186,6 +188,7 @@ public class HotelManager {
     
     public void printSelectFoafQuery(String query) {
     	try {
+    	    System.out.println(query);
 			ResultSet results = queryFoaf(query);
 			if (results != null) {
 			    System.out.println("Result:");
@@ -204,6 +207,7 @@ public class HotelManager {
 			}
 		} catch (Exception e) {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
+			e.printStackTrace();
 		}
     }
     
@@ -220,8 +224,8 @@ public class HotelManager {
 	
 	public ResultSet queryFoaf(String query) throws Exception {
 		try {
-			String newQueryString = "PREFIX <http://xmlns.com/foaf/0.1/> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" + query;
-			QueryExecution qe = QueryExecutionFactory.create(newQueryString, ontModel);
+			String newQueryString = "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> \n" + query;
+			QueryExecution qe = QueryExecutionFactory.create(newQueryString, foafModel);
 			qe.close();
             return qe.execSelect();
 		} catch (Throwable e) {
@@ -342,7 +346,7 @@ public class HotelManager {
 		waitForUser();
 	}
 	
-	public void fourth() {
+	public void fourth() throws Exception {
 		String param = askParameter("<GastVorname>");
 		String param2 = askParameter("<GastNachname>");
 		
@@ -367,19 +371,41 @@ public class HotelManager {
 	    	RDFNode rdfNode = qs.get("x");
 	    	Literal l = (Literal)rdfNode.as(Literal.class);
 	    	
-	    	// Load the FOAF model for this Gast (email)
-			Model foafModel = ModelFactory.createDefaultModel();
-			System.out.println(foafPrefix+l.getString());
-			foafModel.read(foafPrefix + l.getString());
-			
-			// TODO: print friends direct + indirect
-			query = "SELECT ?x " +
-					"WHERE { ?person :name ?x }";
-			printSelectFoafQuery(query);
+	    	ResultSet friendsResultSet = getFriendsResultSet(foafPrefix + l.getString());
+			System.out.println("Freunde:");
+			while(friendsResultSet.hasNext()){
+			 QuerySolution queryS = friendsResultSet.next();
+			 RDFNode link = queryS.get("link");
+			 String name = ((Literal)queryS.get("name")).getString();
+			 System.out.println(name);
+			 printNames(getFriendsResultSet(link.toString()));
+			}
 		} else {
 			System.out.println("Kein Gast mit name " + param + " " + param2 + " gefunden.");
 		}
 		waitForUser();
+	}
+	
+	private void printNames(ResultSet friendsResultSet){
+	    while(friendsResultSet.hasNext()){
+                QuerySolution queryS = friendsResultSet.next();
+                String name = ((Literal)queryS.get("name")).getString();
+                System.out.println("    " + name);
+               }
+	}
+	
+	private ResultSet getFriendsResultSet(String url) throws Exception{
+	    foafModel = ModelFactory.createDefaultModel();
+//            System.out.println(url);
+            foafModel.read(url);
+            
+            // TODO: print friends direct + indirect
+            String query = "select ?name ?link where { ?person foaf:knows ?x. ?x foaf:name ?name. ?x rdfs:seeAlso ?link}";
+            return queryFoaf(query);
+	}
+	
+	public void printFriends(String url){
+	    
 	}
 	
 	public void fifth() {
