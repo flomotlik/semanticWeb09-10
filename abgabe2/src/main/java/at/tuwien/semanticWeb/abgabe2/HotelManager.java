@@ -299,12 +299,10 @@ public class HotelManager {
 	}
 	
 	public void eight() {
-		String query = "SELECT ?name ?datum " +
-		"WHERE { ?event :name ?name . " +
-		       " ?event :datum ?datum .  " +
-		       " ?event rdf:type  :Veranstaltung}"; 
-		//":datum ?y ; " +
-		//":findetStattIn ?ort}";
+		String query = "SELECT ?x ?y " +
+		"WHERE { ?event :name ?x ; " +
+		":datum ?y ; " +
+		":findetStattIn ?ort}";
 		printSelectQuery(query);
 		waitForUser();
 	}
