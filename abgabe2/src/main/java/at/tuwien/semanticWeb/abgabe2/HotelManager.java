@@ -116,7 +116,8 @@ public class HotelManager {
 			ResultSet results = query(queryString);
 			if (results != null) {
 			    System.out.println("Result:");
-//			    ResultSetFormatter.out(System.out, results);
+			    ResultSetFormatter.out(System.out, results);
+			    /*
 			    while (results.hasNext()) {
 			    	QuerySolution qs = results.next();
 			    	RDFNode rdfNode = qs.get("x");
@@ -128,6 +129,7 @@ public class HotelManager {
 			    	}
 			        
 			    }
+			    */
 			}
 		} catch (Exception e) {
 			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
@@ -252,10 +254,10 @@ public class HotelManager {
 	}
 	
 	public void eight() {
-		String query = "SELECT ?x " +
-		"WHERE { ?event :name ?x }";//; " +
-		//":datum ?y ; " +
-		//":findetStattIn ?ort}";
+		String query = "SELECT ?x ?y " +
+		"WHERE { ?event :name ?x ; " +
+		":datum ?y ; " +
+		":findetStattIn ?ort}";
 		printSelectQuery(query);
 		waitForUser();
 	}
