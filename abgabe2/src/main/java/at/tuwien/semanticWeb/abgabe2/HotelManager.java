@@ -18,6 +18,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.sparql.resultset.ResultsFormat;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
@@ -53,6 +54,8 @@ public class HotelManager {
 	public Property hatGebiete;
 	public Property laenderCode;
 	
+	public Property dcSubject; 
+	
 	public static String foafPrefix = "http://pephimon.big.tuwien.ac.at/FOAF_Service/resources/foaf/email/";
 
     private Model foafModel;
@@ -65,7 +68,7 @@ public class HotelManager {
 		ontModel.add(model);
 		model = FileManager.get().loadModel("events.owl");
 		ontModel.add(model);
-		
+
 		reloadOwls();
 		// Aequivalenzen definieren:
 		// Event ~= Veranstaltung
@@ -92,6 +95,11 @@ public class HotelManager {
 		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "contains").addProperty(OWL.equivalentProperty, hatGebiete);
 		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "isLocatedIn").addProperty(OWL.equivalentProperty, istIn);
 		
+		ontModel.setNsPrefix("dct", "http://purl.org/dc/terms/");
+		model = FileManager.get().loadModel("interests.owl");
+		ontModel.add(model);
+		dcSubject = ontModel. getProperty("http://purl.org/dc/terms/subject");
+		
 	}
 	
 	private void reloadOwls(){
@@ -108,8 +116,6 @@ public class HotelManager {
 		istIn = ontModel.getProperty(HotelNS.prefix + HotelNS.propIstIn);
 		hatGebiete = ontModel.getProperty(HotelNS.prefix + HotelNS.propHatGebiete);
 		laenderCode = ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode);
-		
-		
 		
 	}
 	
