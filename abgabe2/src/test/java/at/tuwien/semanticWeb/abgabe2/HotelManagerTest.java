@@ -60,6 +60,7 @@ public class HotelManagerTest {
 	
 		System.out.println("Inverse property after import:");
 		manager.loadData();
+		manager.loadData();
 		manager.printSelectQuery(qry);
 		
 	}

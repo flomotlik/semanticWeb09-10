@@ -17,7 +17,6 @@ public class HotelNS {
 	public static final String propVorname = "vorname";
 	public static final String propNachname = "nachname";
 	public static final String propEmail = "email";
-	public static final String propStadt = "stadt";
 	public static final String propVon = "von";
 	public static final String propBis = "bis";
 	public static final String propDatum = "datum";
@@ -35,5 +34,6 @@ public class HotelNS {
 	public static final String propNimmtTeilAn = "nimmtTeilAn";
 	public static final String propHatGebiete = "hatGebiete";
 	public static final String propIstIn = "istIn";
+	public static final String propNiedergelassenIn = "niedergelassenIn";
 
 }
