@@ -316,26 +316,12 @@ public class HotelManager {
 	// QUERIES
 	//========
 	public void first() throws Exception {
-	    Distances distances = new Distances();
 		String param = askParameter("<HotelName>");
-		ResultSet query = this.query("select ?laenge ?breite Where{?hotel :name \"" + param +"\". ?hotel :niedergelassenIn ?ort. ?ort :breitengrad ?breite. ?ort :laengenGrad ?laenge}");
-		if(query != null && query.hasNext()){
-		    QuerySolution solutino = query.next();
-		    double laenge = ((Literal)solutino.get("laenge")).getDouble();
-		    double breite = ((Literal)solutino.get("breite")).getDouble();
-		    ResultSet veranstaltungen = this.query("select ?name ?laenge ?breite Where{?va rdf:type :Veranstaltung. ?va :name ?name. ?va :findetStattIn ?ort. ?ort :laengenGrad ?laenge. ?ort :breitengrad ?breite }");
-		    while(veranstaltungen.hasNext()){
-		        QuerySolution veranstaltung = veranstaltungen.next();
-		        double laengeVA = ((Literal)veranstaltung.get("laenge")).getDouble();
-		        double breiteVA = ((Literal)veranstaltung.get("breite")).getDouble();
-		        String va = ((Literal)veranstaltung.get("name")).getString();
-//		        System.out.println(va);
-		        double distancesToEvent = distances.distances(breite, laenge, breiteVA, laengeVA);
-                        if(distancesToEvent <= 100){
-		            System.out.println("In Naehe: " + va + " Entfernung: " + distancesToEvent);
-		        }
-		    }
-		    
+		
+		Hashtable<String, String> events = getEventsInRadius(param);
+		System.out.println("Veranstaltungen in Naehe:");
+		for(Enumeration<String> e = events.keys();  e.hasMoreElements() ;) {
+			System.out.println("\t" + e.nextElement());
 		}
 		
 		waitForUser();
@@ -545,7 +531,29 @@ public class HotelManager {
 		if (hotel == null) {
 			System.out.println("Gast hat für diesen Tag (oder 2 nachfolgende) keine Buchung.");
 		} else {
-			
+			Hashtable<String, String> vas = null;
+			// Get Veranstaltungen in Radius
+			try {
+				vas = getEventsInRadius(hotel);
+			} catch (Exception e) {
+				System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
+			}
+			// Filter Veranstaltungen with relevant dates
+			Hashtable<String, String> relevantVas = new Hashtable<String, String>();
+			for (Enumeration<String> e = vas.keys(); e.hasMoreElements() ;) {
+				try {
+					String key = e.nextElement();
+					String value = vas.get(key);
+					Date date = getDate(value);
+					if(date.equals(dates.elementAt(0)) || date.equals(dates.elementAt(1)) || date.equals(dates.elementAt(2))) {
+						relevantVas.put(key, value);
+						System.out.println(key + " " + value);
+					}
+				} catch (ParseException e1) {
+					System.out.println("Problem beim parsen des Datums");
+					e1.printStackTrace();
+				}
+			}
 		}
 		waitForUser();
 		
@@ -569,5 +577,32 @@ public class HotelManager {
 		} catch (ParseException e) {
 			return df2.parse(str);			
 		}
+	}
+	
+	private Hashtable<String, String> getEventsInRadius(String hotel) throws Exception {
+		Distances distances = new Distances();
+		ResultSet query = this.query("select ?laenge ?breite Where{?hotel :name \"" + hotel +"\". ?hotel :niedergelassenIn ?ort. ?ort :breitengrad ?breite. ?ort :laengenGrad ?laenge}");
+		Hashtable<String, String> vas = new Hashtable<String, String>();
+		if(query != null && query.hasNext()){
+		    QuerySolution solutino = query.next();
+		    double laenge = ((Literal)solutino.get("laenge")).getDouble();
+		    double breite = ((Literal)solutino.get("breite")).getDouble();
+		    ResultSet veranstaltungen = this.query("select ?name ?laenge ?breite ?datum Where{?va rdf:type :Veranstaltung. ?va :name ?name. ?va :findetStattIn ?ort. ?va :datum ?datum. ?ort :laengenGrad ?laenge. ?ort :breitengrad ?breite }");
+		    
+		    while(veranstaltungen.hasNext()){
+		        QuerySolution veranstaltung = veranstaltungen.next();
+		        double laengeVA = ((Literal)veranstaltung.get("laenge")).getDouble();
+		        double breiteVA = ((Literal)veranstaltung.get("breite")).getDouble();
+		        String va = ((Literal)veranstaltung.get("name")).getString();
+		        String datum = ((Literal)veranstaltung.get("datum").as(Literal.class)).getString();
+//		        System.out.println(va);
+		        double distancesToEvent = distances.distances(breite, laenge, breiteVA, laengeVA);
+                if(distancesToEvent <= 100){
+                	vas.put(va, datum);
+		            //System.out.println("In Naehe: " + va + " Entfernung: " + distancesToEvent);
+		        }
+		    }		    
+		}
+		 return vas;
 	}
 }
