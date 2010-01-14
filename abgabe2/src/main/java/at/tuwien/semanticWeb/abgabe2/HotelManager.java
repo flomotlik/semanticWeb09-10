@@ -534,6 +534,45 @@ public class HotelManager {
 				System.out.println("Rank for user " + vorname + " " + nachname + " is " + count);
 			}
 			
+			String one = "";
+			String two = "";
+			String three = "";
+			int _one = 0;
+			int _two = 0;
+			int _three = 0;
+			
+			for(Enumeration<String> e = ranks.keys(); e.hasMoreElements() ;) {
+				String tempName = e.nextElement();
+				int tempCount = ranks.get(tempName);
+				if (_one < tempCount) {
+					_three = _two;
+					three =two;
+					
+					_two = _one;
+					two = one;
+					
+					_one = tempCount;
+					one = tempName;
+					continue;
+				} else if(_two < tempCount) {
+					_three = _two;
+					three = two;
+					
+					_two = tempCount;
+					two = tempName;
+					continue;
+				} else if(_three < tempCount) {
+					_three = tempCount;
+					three = tempName;
+					continue;
+				}
+					
+			}
+			
+			System.out.println("First: " + one + " " + _one);
+			System.out.println("Second: " + two + " " + _two);
+			System.out.println("Third: " + three + " " + _three);
+			
 		} catch (Exception e) {
 			System.out.println("Es ist ein Fehler bei Verarbeitung entstanden.");
 			e.printStackTrace();
