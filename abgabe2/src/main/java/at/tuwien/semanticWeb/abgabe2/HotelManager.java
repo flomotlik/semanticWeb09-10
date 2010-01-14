@@ -72,6 +72,8 @@ public class HotelManager {
     Hashtable<String, String> directFriends;
 	Hashtable<String, String> indirectFriends;
 	
+	private int count;
+	
 	public HotelManager() {
 		// hotel.owl laden
 		Model model = FileManager.get().loadModel("hotel.owl");
@@ -464,7 +466,7 @@ public class HotelManager {
 	
 	public void fifth() {
 		String param = askParameter("<HotelName>");
-		
+		Hashtable<String, Integer> ranks = new Hashtable<String, Integer>();
 		// Get Gaeste from Buchungen for specific hotel
 		String query = "SELECT ?vorname ?nachname ?email " +
 				" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
@@ -478,7 +480,10 @@ public class HotelManager {
 		try {
 			ResultSet customers = query(query);
 			
+			// Get rank count for each customer
 			while (customers.hasNext()) {
+				Date firstDate = null;
+				count = 0;
 				QuerySolution qs = customers.next();
 				String vorname = ((Literal)qs.get("vorname").as(Literal.class)).getString();
 				String nachname = ((Literal)qs.get("nachname").as(Literal.class)).getString();
@@ -498,13 +503,35 @@ public class HotelManager {
 				ResultSet dates = query(query);
 				
 				
+				// First buchungsdate of the actual customer
+				firstDate = getFirstDate(dates);
 				
+				// For each direct friend get count of Buchungen after the first Buchungsdate of the main customer
+				for (Enumeration<String> e = directFriends.keys(); e.hasMoreElements();) {
+					String n = e.nextElement();
+					String splitted[] = n.split("\\s+", 2);
+					query = "SELECT ?von " +
+					" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
+					" :gehoertZu ?hotel ." +
+					" ?hotel :name \"" + param +"\" ." +
+					" ?gast :vorname \"" + splitted[0] +"\" ;" +
+					" :nachname \"" + splitted[1] +"\"}";
+					printSelectQuery(query);
+					ResultSet buchungen =  query(query);
+					
+					getFirstDate2(buchungen, firstDate); 
+				}		
+				
+				ranks.put(vorname + " " + nachname, count);
+				System.out.println("Rank for user " + vorname + " " + nachname + " is " + count);
 			}
 			
 		} catch (Exception e) {
-			System.out.println("Es ist ein FEhler bei Verarbeitung entstanden.");
+			System.out.println("Es ist ein Fehler bei Verarbeitung entstanden.");
 			e.printStackTrace();
 		}
+		
+		
 				
 		waitForUser();
 	}
@@ -747,7 +774,30 @@ public class HotelManager {
 		return c.getTime();
 	}
 	
-	private Date getFirstDate(ResultSet rs) {
-		return null;
+	private Date getFirstDate(ResultSet rs) throws ParseException {
+		Date date = null;
+		while (rs.hasNext()) {
+			count++;
+			QuerySolution qs = rs.next();
+			String von = ((Literal)qs.get("von").as(Literal.class)).getString();
+			if (date != null) {
+				if(date.before(getDate(von)))
+					date = getDate(von);
+			} else {
+				date = getDate(von);
+			}
+			
+		}
+		return date;
+	}
+	
+	private void getFirstDate2(ResultSet rs, Date d) throws ParseException {
+		Date date = d;
+		while (rs.hasNext()) {
+			QuerySolution qs = rs.next();
+			String von = ((Literal)qs.get("von").as(Literal.class)).getString();
+			if(date.before(getDate(von)))
+					count++;	
+		}
 	}
 }
