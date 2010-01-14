@@ -272,12 +272,13 @@ public class CSVImporter {
 
 				if (concept != null) {
 					String query = "SELECT ?event " +
-					"WHERE { ?event a :Veranstaltung ." +
+					"WHERE { ?event rdf:type :Veranstaltung ." +
 					       " ?event :name \"" + eventname + "\" }";
 	
 					ResultSet results = HotelManager.getHotelManager().query(query);
+
 					RDFNode node = null;
-					while ((results!= null) && results.hasNext()) {
+					if ((results != null) && results.hasNext()) {
 						QuerySolution qs = results.next();
 						node = qs.get("event");
 						Individual event = (Individual)node.as(Individual.class);
