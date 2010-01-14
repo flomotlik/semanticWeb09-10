@@ -111,6 +111,18 @@ public class HotelManagerTest {
     	" ?g :nachname ?gast }";
 	
 		manager.printSelectQuery(qry);
+		System.out.println("==========MAX MUSTER============");
+		
+		qry = "SELECT ?hotel ?von ?bis " + 
+    	"WHERE { ?b :durchgefuehrtVon ?g ; " +
+    	" :von ?von ;" +
+    	" :bis ?bis ;" +
+    	" :gehoertZu ?h . " +
+    	" ?h :name ?hotel ." + 
+    	" ?g :nachname \"Muster\" ; " +
+    	" :vorname \"Max\"}";
+	
+		manager.printSelectQuery(qry);
 	}
 	
 }
