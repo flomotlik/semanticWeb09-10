@@ -59,6 +59,8 @@ public class HotelManager {
 	public Property hatGebiete;
 	public Property laenderCode;
 	
+	public Property dcSubject; 
+	
 	public static String foafPrefix = "http://pephimon.big.tuwien.ac.at/FOAF_Service/resources/foaf/email/";
 
     private Model foafModel;
@@ -74,7 +76,7 @@ public class HotelManager {
 		ontModel.add(model);
 		model = FileManager.get().loadModel("events.owl");
 		ontModel.add(model);
-		
+
 		reloadOwls();
 		// Aequivalenzen definieren:
 		// Event ~= Veranstaltung
@@ -101,6 +103,11 @@ public class HotelManager {
 		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "contains").addProperty(OWL.equivalentProperty, hatGebiete);
 		ontModel.getProperty(HotelNS.EVENTS_PREFIX + "isLocatedIn").addProperty(OWL.equivalentProperty, istIn);
 		
+		ontModel.setNsPrefix("dct", "http://purl.org/dc/terms/");
+		model = FileManager.get().loadModel("interests.owl");
+		ontModel.add(model);
+		dcSubject = ontModel. getProperty("http://purl.org/dc/terms/subject");
+		
 	}
 	
 	private void reloadOwls(){
@@ -117,8 +124,6 @@ public class HotelManager {
 		istIn = ontModel.getProperty(HotelNS.prefix + HotelNS.propIstIn);
 		hatGebiete = ontModel.getProperty(HotelNS.prefix + HotelNS.propHatGebiete);
 		laenderCode = ontModel.getProperty(HotelNS.prefix + HotelNS.propCountryCode);
-		
-		
 		
 	}
 	
@@ -235,7 +240,8 @@ public class HotelManager {
 			String newQueryString = "PREFIX :<" + HotelNS.prefix + "> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" + queryString;
 			QueryExecution qe = QueryExecutionFactory.create(newQueryString, ontModel);
 			qe.close();
-            return qe.execSelect();
+			ResultSet result = qe.execSelect();
+            return result;
 		} catch (Throwable e) {
 			throw new Exception(e);
 		}
@@ -448,10 +454,26 @@ public class HotelManager {
 		String param = askParameter("<HotelName>");
 		waitForUser();
 	}
+
 	
-	public void sixth() {
+	/**
+	 * 6 Welche persoenliche Interessen hat <GastVorname> <GastNachname>? 
+	 */
+	public void sixth() throws Exception{
 		String param = askParameter("<GastVorname>");
 		String param2 = askParameter("<GastNachname>");
+		
+		String queryString = 
+			" PREFIX dct:<http://purl.org/dc/terms/> SELECT DISTINCT ?interest" +
+			" WHERE { ?p a :Gast . " +
+			"         ?p :vorname  \"" + param +"\" . " +
+			"         ?p :nachname  \"" + param2 +"\" . " +
+			"         ?p :nimmtTeilAn ?v . " + 
+			"         ?v  dct:subject ?interest} ";
+		
+		ResultSet results = query(queryString);
+		ResultSetFormatter.out(System.out, results);
+		
 		waitForUser();
 	}
 	
