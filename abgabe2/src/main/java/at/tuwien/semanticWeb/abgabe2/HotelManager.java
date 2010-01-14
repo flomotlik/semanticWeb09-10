@@ -471,7 +471,7 @@ public class HotelManager {
 				" :gehoertZu ?hotel ." +
 				" ?hotel :name \"" + param +"\" ." +
 				" ?gast :vorname ?vorname ;" +
-				" :nachname ?nachname" +
+				" :nachname ?nachname ;" +
 				" :email ?email}";
 		
 		printSelectQuery(query);
@@ -486,6 +486,18 @@ public class HotelManager {
 			
 				// Load direct friends
 				loadDirectFriends(email);
+				
+				// Get all Dates of Buchungen for this Gast
+				query = "SELECT ?von " +
+					" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
+					" :gehoertZu ?hotel ." +
+					" ?hotel :name \"" + param +"\" ." +
+					" ?gast :vorname \"" + vorname +"\" ;" +
+					" :nachname \"" + nachname +"\" ;" +
+					" :email \"" + email +"\"}";
+				ResultSet dates = query(query);
+				
+				
 				
 			}
 			
@@ -733,5 +745,9 @@ public class HotelManager {
 		c.add(Calendar.DATE, 1);
 		//System.out.println(c.getTime().toString());
 		return c.getTime();
+	}
+	
+	private Date getFirstDate(ResultSet rs) {
+		return null;
 	}
 }
