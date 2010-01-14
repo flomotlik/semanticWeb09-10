@@ -13,7 +13,7 @@ public class Main {
 		+ "4 Welche direkte und indirekte Freunde hat <GastVorname> <GastNachname>?\n"
 		+ "5 Welche sind die 3 besten Kunden fuer <HotelName>?\n"
 		+ "6 Welche persoenliche Interessen hat <GastVorname> <GastNachname>?\n"
-		+ "7 Welche interessante Veranstaltungen gibt es fuer <GastName> am <Datum>?\n"
+		+ "7 Welche interessante Veranstaltungen gibt es fuer <GastVorname> <GastNachname> am <Datum>?\n"
 		+ "==========HELPERS==========\n"
 		+ "8 Welche Veranstaltungen gibt es?\n"
 		+ "Q Beenden\n"
