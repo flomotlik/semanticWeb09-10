@@ -93,9 +93,23 @@ public class HotelManagerTest {
 		qry = "SELECT ?event ?d " + 
     	"WHERE { ?e :name ?event ." +
     	" ?e :datum ?d . " +
-    	" FILTER ?d = \"2009-12-16\" . " +
-    	" ?e rdf:type :Veranstaltung }"; 
+    	" FILTER (?d > \"2009-12-16\")}"; 
     	
+		manager.printSelectQuery(qry);
+	}
+	
+	@Test
+	public void testBuchungsDatum() {
+		manager.loadData();
+		
+		String qry = "SELECT ?gast ?hotel ?von ?bis " + 
+    	"WHERE { ?b :durchgefuehrtVon ?g ; " +
+    	" :von ?von ;" +
+    	" :bis ?bis ;" +
+    	" :gehoertZu ?h . " +
+    	" ?h :name ?hotel ." + 
+    	" ?g :nachname ?gast }";
+	
 		manager.printSelectQuery(qry);
 	}
 	

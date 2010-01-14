@@ -1,6 +1,7 @@
 package at.tuwien.semanticWeb.abgabe2;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
@@ -26,6 +27,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.OWL;
 import com.hp.hpl.jena.vocabulary.RDF;
+import com.ibm.icu.util.Calendar;
 
 public class HotelManager {
 
@@ -454,14 +456,51 @@ public class HotelManager {
 	}
 	
 	public void seventh() {
-		String param = askParameter("<GastName>");
-		String param2 = askParameter("<Datum>");
-		String datum1 = "";
-		String datum2 = "";
-		String datum3 = "";
-		DateFormat df = new SimpleDateFormat("");
-		Date d = new Date();
+		// Read input
+		String param = askParameter("<GastVorname>");
+		String param2 = askParameter("<GastNachname>");
+		String param3 = askParameter("<dd.mm.yyyy>");
+		
+		// Create dates
+		DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+		Date date;
+		Date date2;
+		Date date3;
+		try {
+			date = df.parse(param3);
+			Calendar c = Calendar.getInstance();
+			c.setTime(date);
+			c.add(Calendar.DATE, 1);
+			date2 = c.getTime();
+			c.add(Calendar.DATE, 1);
+			date3 = c.getTime();
+		} catch (ParseException e) {
+			System.out.println("Falsches Datumsformat.");
+		}
+		
+		// Get Buchungen for Gast
+		String query = "SELECT ?hotel ?von ?bis " + 
+	    	"WHERE { ?b :durchgefuehrtVon ?g ; " +
+	    	" :von ?von ;" +
+	    	" :bis ?bis ;" +
+	    	" :gehoertZu ?h . " +
+	    	" ?h :name ?hotel ." + 
+	    	" ?g :nachname \"" + param3 + "\" ;" +
+	    	" :vorname \"" + param2 + "\" }";
+		
+		ResultSet rs = null;
+		try {
+			rs = query(query);
+		} catch (Exception e) {
+			System.out.println("Entschuldigung, beim Verarbeiten der Abfrage ist ein Fehler aufgetreten: " + e.getMessage());
+		}
+		
+		// Check if Buchung for requested dates exists
+		while(rs.hasNext()) {
+			
+		}
 		waitForUser();
+		
 	}
 	
 	public void eight() {
