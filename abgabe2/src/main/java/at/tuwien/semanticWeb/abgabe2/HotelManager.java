@@ -457,7 +457,7 @@ public class HotelManager {
 //      System.out.println(url);
         foafModel.read(url);
             
-        // TODO: print friends direct + indirect
+        
         String query = "SELECT ?name ?link WHERE { ?person foaf:knows ?x. ?x foaf:name ?name. ?x rdfs:seeAlso ?link}";
         return queryFoaf(query);
 	}
@@ -483,20 +483,17 @@ public class HotelManager {
 				String vorname = ((Literal)qs.get("vorname").as(Literal.class)).getString();
 				String nachname = ((Literal)qs.get("nachname").as(Literal.class)).getString();
 				String email = ((Literal)qs.get("email").as(Literal.class)).getString();
+			
+				// Load direct friends
+				loadDirectFriends(email);
+				
 			}
 			
 		} catch (Exception e) {
 			System.out.println("Es ist ein FEhler bei Verarbeitung entstanden.");
 			e.printStackTrace();
 		}
-		
-		
-		// Get indirect friends
-		
-		// Date of frst Buchung
-		
-		
-		
+				
 		waitForUser();
 	}
 
