@@ -61,6 +61,7 @@ public class CSVImporter {
 			loadBuchung(loader.getResourceAsStream("csv/buchung.csv"));
 			loadEvents(loader.getResourceAsStream("csv/events.csv"));
 			loadEventTeilnahme(loader.getResourceAsStream("csv/eventteilnahme.csv"));
+			loadEventConcepts(loader.getResourceAsStream("csv/eventclassification.csv"));
 		} catch (Exception e) {
 			System.err.println("Beim Einlesen der csv Daten ist ein Problem aufgetreten: " + e.getMessage());
 			e.printStackTrace();
@@ -258,7 +259,39 @@ public class CSVImporter {
 		reader.close();
 	}
 
+	private void loadEventConcepts(InputStream in) throws Exception {
+		CSVReader reader  = new CSVReader(new InputStreamReader(in));
+		// erste Zeile ueberlesen, diese enthaelt nur eine Beschreibung der Spalten
+		String[] line = reader.readNext();
+		if ((line != null) && (line.length == 2)) {
+			while ((line = reader.readNext()) != null) {
+				String eventname = line[0].trim();
+				String conceptname = line[1].trim();
 
+				Individual concept = ontModel.getIndividual(HotelNS.CONCEPT_PREFIX + conceptname);
+
+				if (concept != null) {
+					String query = "SELECT ?event " +
+					"WHERE { ?event rdf:type :Veranstaltung ." +
+					       " ?event :name \"" + eventname + "\" }";
+	
+					ResultSet results = HotelManager.getHotelManager().query(query);
+
+					RDFNode node = null;
+					if ((results != null) && results.hasNext()) {
+						QuerySolution qs = results.next();
+						node = qs.get("event");
+						Individual event = (Individual)node.as(Individual.class);
+						event.addProperty(hotelM.dcSubject, concept);
+					}
+				}else {
+					System.out.println("Konzept " + conceptname + " nicht vorhanden.");
+				}
+			}
+		}
+		reader.close();
+	}
+	
 	/**
 	 * Searches for a HotelKette with specific name in the ontology. 
 	 * @param name name of the HotelKette
@@ -365,7 +398,7 @@ public class CSVImporter {
 
 		ResultSet result = HotelManager.getHotelManager().query(query);
 		RDFNode node = null;
-		if (result != null) {
+		if ((result != null) && (result.hasNext())) {
 			QuerySolution qs = result.next();
 			node = qs.get("x");
 		}

@@ -2,6 +2,7 @@ package at.tuwien.semanticWeb.abgabe2;
 
 public class HotelNS {
 	public static final String EVENTS_PREFIX = "http://www.big.tuwien.ac.at/esw/u2/alien-events#";
+	public static final String CONCEPT_PREFIX = "http://www.big.tuwien.ac.at/semantic/event#";
 	
 	public static final String prefix = "http://www.big.tuwien.ac.at/esw/hotel#";
 
@@ -35,5 +36,6 @@ public class HotelNS {
 	public static final String propHatGebiete = "hatGebiete";
 	public static final String propIstIn = "istIn";
 	public static final String propNiedergelassenIn = "niedergelassenIn";
+
 
 }
