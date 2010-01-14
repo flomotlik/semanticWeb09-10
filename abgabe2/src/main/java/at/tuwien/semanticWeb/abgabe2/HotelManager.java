@@ -468,7 +468,7 @@ public class HotelManager {
 		String param = askParameter("<HotelName>");
 		Hashtable<String, Integer> ranks = new Hashtable<String, Integer>();
 		// Get Gaeste from Buchungen for specific hotel
-		String query = "SELECT ?vorname ?nachname ?email " +
+		String query = "SELECT DISTINCT ?vorname ?nachname ?email " +
 				" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
 				" :gehoertZu ?hotel ." +
 				" ?hotel :name \"" + param +"\" ." +
@@ -485,22 +485,29 @@ public class HotelManager {
 				Date firstDate = null;
 				count = 0;
 				QuerySolution qs = customers.next();
+				//String vorname = "Max";
 				String vorname = ((Literal)qs.get("vorname").as(Literal.class)).getString();
+				//System.out.println(vorname);
+				//String nachname = "Muster";
+				//String email = "max.mustermann@email.at";
 				String nachname = ((Literal)qs.get("nachname").as(Literal.class)).getString();
+				//System.out.println(nachname);
 				String email = ((Literal)qs.get("email").as(Literal.class)).getString();
-			
+				//System.out.println(email);
 				// Load direct friends
 				loadDirectFriends(email);
 				
 				// Get all Dates of Buchungen for this Gast
 				query = "SELECT ?von " +
 					" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
+					" :von ?von ; " + 
 					" :gehoertZu ?hotel ." +
 					" ?hotel :name \"" + param +"\" ." +
 					" ?gast :vorname \"" + vorname +"\" ;" +
 					" :nachname \"" + nachname +"\" ;" +
 					" :email \"" + email +"\"}";
 				ResultSet dates = query(query);
+				printSelectQuery(query);
 				
 				
 				// First buchungsdate of the actual customer
@@ -512,6 +519,7 @@ public class HotelManager {
 					String splitted[] = n.split("\\s+", 2);
 					query = "SELECT ?von " +
 					" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
+					" :von ?von ;" + 
 					" :gehoertZu ?hotel ." +
 					" ?hotel :name \"" + param +"\" ." +
 					" ?gast :vorname \"" + splitted[0] +"\" ;" +
