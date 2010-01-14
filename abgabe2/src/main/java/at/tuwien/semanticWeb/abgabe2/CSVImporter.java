@@ -1,7 +1,9 @@
 package at.tuwien.semanticWeb.abgabe2;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -54,14 +56,22 @@ public class CSVImporter {
 		//events.clear();
 		
 		try {
-			ClassLoader loader = getClass().getClassLoader();
-			loadHotelketten(loader.getResourceAsStream("csv/hotelkette.csv"));
-			loadGast(loader.getResourceAsStream("csv/gast.csv"));
-			loadHotel(loader.getResourceAsStream("csv/hotel.csv"));
-			loadBuchung(loader.getResourceAsStream("csv/buchung.csv"));
-			loadEvents(loader.getResourceAsStream("csv/events.csv"));
-			loadEventTeilnahme(loader.getResourceAsStream("csv/eventteilnahme.csv"));
-			loadEventConcepts(loader.getResourceAsStream("csv/eventclassification.csv"));
+			String base = null;
+			// hier kann der absolute pfad eingetragen werden
+			//base = "/D:/uni/ESW/semanticWeb09-10/abgabe2/target/classes/csv/";
+			if (base == null) {
+				// kein absoluter Pfad: files aus jar laden
+				ClassLoader loader = getClass().getClassLoader();
+				URL url = loader.getResource("csv/");
+				base = url.getFile();
+			}
+			loadHotelketten(new FileInputStream(base + "hotelkette.csv"));
+			loadGast(new FileInputStream(base + "gast.csv"));
+			loadHotel(new FileInputStream(base + "hotel.csv"));
+			loadBuchung(new FileInputStream(base + "buchung.csv"));
+			loadEvents(new FileInputStream(base + "events.csv"));
+			loadEventTeilnahme(new FileInputStream(base + "eventteilnahme.csv"));
+			loadEventConcepts(new FileInputStream(base + "eventclassification.csv"));
 		} catch (Exception e) {
 			System.err.println("Beim Einlesen der csv Daten ist ein Problem aufgetreten: " + e.getMessage());
 			e.printStackTrace();
