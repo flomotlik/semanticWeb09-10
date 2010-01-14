@@ -464,16 +464,31 @@ public class HotelManager {
 	public void fifth() {
 		String param = askParameter("<HotelName>");
 		
-		// Get Gaeste and Datums from Buchungen for specific hotel
-		String query = "SELECT ?name ?von ?bis " +
+		// Get Gaeste from Buchungen for specific hotel
+		String query = "SELECT ?vorname ?nachname ?email " +
 				" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
-				" :von ?von ;" +
-				" :bis ?bis ;" +
 				" :gehoertZu ?hotel ." +
 				" ?hotel :name \"" + param +"\" ." +
-				" ?gast :name ?name}";
+				" ?gast :vorname ?vorname ;" +
+				" :nachname ?nachname" +
+				" :email ?email}";
 		
 		printSelectQuery(query);
+		try {
+			ResultSet customers = query(query);
+			
+			while (customers.hasNext()) {
+				QuerySolution qs = customers.next();
+				String vorname = ((Literal)qs.get("vorname").as(Literal.class)).getString();
+				String nachname = ((Literal)qs.get("nachname").as(Literal.class)).getString();
+				String email = ((Literal)qs.get("email").as(Literal.class)).getString();
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Es ist ein FEhler bei Verarbeitung entstanden.");
+			e.printStackTrace();
+		}
+		
 		
 		// Get indirect friends
 		
