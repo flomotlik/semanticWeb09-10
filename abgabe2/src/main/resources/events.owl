@@ -14,57 +14,63 @@
   <owl:Class rdf:ID="Event"/>
   <owl:Class rdf:ID="Place"/>
   <owl:Class rdf:ID="Country"/>
-  <owl:ObjectProperty rdf:ID="hosts">
+  <owl:ObjectProperty rdf:ID="takesPlaceAt">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hosts"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="#Place"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hosts">
     <rdfs:range rdf:resource="#Event"/>
     <rdfs:domain rdf:resource="#Place"/>
-    <owl:inverseOf>
-      <owl:FunctionalProperty rdf:ID="takesPlaceAt"/>
-    </owl:inverseOf>
+    <owl:inverseOf rdf:resource="#takesPlaceAt"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="contains">
     <owl:inverseOf>
-      <owl:FunctionalProperty rdf:ID="isLocatedIn"/>
+      <owl:ObjectProperty rdf:ID="isLocatedIn"/>
     </owl:inverseOf>
     <rdfs:range rdf:resource="#Place"/>
     <rdfs:domain rdf:resource="#Country"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isLocatedIn">
+    <rdfs:range rdf:resource="#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:inverseOf rdf:resource="#contains"/>
+    <rdfs:domain rdf:resource="#Place"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="longitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Place"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="category">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="latitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Place"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="datum">
     <rdfs:domain rdf:resource="#Event"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
   </owl:DatatypeProperty>
-  <owl:FunctionalProperty rdf:ID="longitude">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdfs:domain rdf:resource="#Place"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="#takesPlaceAt">
-    <owl:inverseOf rdf:resource="#hosts"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="#Event"/>
-    <rdfs:range rdf:resource="#Place"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="category">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="#Event"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="latitude">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdfs:domain rdf:resource="#Place"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="timezone">
+  <owl:DatatypeProperty rdf:ID="timezone">
     <rdfs:domain rdf:resource="#Place"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="countryCode">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="countryCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="#Country"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="name">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -75,23 +81,8 @@
       </owl:Class>
     </rdfs:domain>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="#isLocatedIn">
-    <rdfs:range rdf:resource="#Country"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="#contains"/>
-    <rdfs:domain rdf:resource="#Place"/>
-  </owl:FunctionalProperty>
+  </owl:DatatypeProperty>
   <Place rdf:ID="place_30">
-    <hosts>
-      <Event rdf:ID="event_32">
-        <takesPlaceAt rdf:resource="#place_30"/>
-        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Zauberfloete</name>
-        <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Oper</category>
-      </Event>
-    </hosts>
     <hosts>
       <Event rdf:ID="event_29">
         <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -99,6 +90,15 @@
         <takesPlaceAt rdf:resource="#place_30"/>
         <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Sychronschwimmen</category>
+      </Event>
+    </hosts>
+    <hosts>
+      <Event rdf:ID="event_32">
+        <takesPlaceAt rdf:resource="#place_30"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Zauberfloete</name>
+        <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Oper</category>
       </Event>
     </hosts>
     <isLocatedIn>
@@ -171,6 +171,8 @@
         <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Malerei</category>
         <takesPlaceAt rdf:resource="#place_16"/>
+        <datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2010-01-01</datum>
       </Event>
     </hosts>
   </Place>
@@ -187,12 +189,12 @@
     <latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >48.13333</latitude>
     <hosts>
-      <Event rdf:ID="event_28">
-        <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Tanz</category>
+      <Event rdf:ID="event_23">
         <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >German Open 2010</name>
+        >Michael Mittermayer - Zapped</name>
         <takesPlaceAt rdf:resource="#place_17"/>
+        <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Kabarett</category>
       </Event>
     </hosts>
     <hosts>
@@ -205,12 +207,12 @@
       </Event>
     </hosts>
     <hosts>
-      <Event rdf:ID="event_23">
-        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Michael Mittermayer - Zapped</name>
-        <takesPlaceAt rdf:resource="#place_17"/>
+      <Event rdf:ID="event_28">
         <category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Kabarett</category>
+        >Tanz</category>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >German Open 2010</name>
+        <takesPlaceAt rdf:resource="#place_17"/>
       </Event>
     </hosts>
     <longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"

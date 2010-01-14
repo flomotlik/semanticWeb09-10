@@ -514,7 +514,7 @@ public class HotelManager {
 			
 			for (Date d : dates) {
 				try {
-					if ((d.after(getDate(von))) && d.before(getDate(bis))) {
+					if ((d.after(getBeforeDate(getDate(von)))) && d.before(getAfterDate(getDate(bis)))) {
 						hotel = ((Literal)qs.get("hotel").as(Literal.class)).getString();
 						//System.out.println(hotel);
 						found = true;
@@ -604,5 +604,21 @@ public class HotelManager {
 		    }		    
 		}
 		 return vas;
+	}
+	
+	private Date getBeforeDate(Date date) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		c.add(Calendar.DATE, -1);
+		System.out.println(c.getTime().toString());
+		return c.getTime();
+	}
+	
+	private Date getAfterDate(Date date) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		c.add(Calendar.DATE, 1);
+		System.out.println(c.getTime().toString());
+		return c.getTime();
 	}
 }
