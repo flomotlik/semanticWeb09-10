@@ -32,14 +32,14 @@ public class Main {
         manager.updateOrtsInfo();
         System.out.println("After Update");
         String input;
-        
+        /*
         try {
 			manager.getOntModel().write(new FileOutputStream("D:/uni/ESW/semanticWeb09-10/abgabe2/src/test/hotelm.owl"));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		*/
         do {
             input = printMenu();
             try {
