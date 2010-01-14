@@ -11,16 +11,109 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xml:base="http://www.big.tuwien.ac.at/esw/hotel">
   <owl:Ontology rdf:about=""/>
-  <owl:Class rdf:ID="Buchung"/>
-  <owl:Class rdf:ID="Hotelkette"/>
-  <owl:Class rdf:ID="Gast"/>
-  <owl:Class rdf:ID="Hotel"/>
-  <owl:Class rdf:ID="Ort"/>
-  <owl:Class rdf:ID="Land"/>
-  <owl:Class rdf:ID="Veranstaltung">
+  <owl:Class rdf:ID="Buchung">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Ort"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Veranstaltung"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Gast"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hotelkette"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Land"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Hotelkette">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Ort"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Veranstaltung"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Land"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Gast"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Buchung"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Gast">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Ort"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Veranstaltung"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hotelkette"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Land"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Buchung"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Hotel">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Ort"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Veranstaltung"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hotelkette"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Land"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Buchung"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Ort">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Veranstaltung"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Land"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hotelkette"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Buchung"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Land">
+    <owl:disjointWith rdf:resource="#Ort"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Veranstaltung"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hotelkette"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Buchung"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Veranstaltung">
+    <owl:disjointWith rdf:resource="#Ort"/>
+    <owl:disjointWith rdf:resource="#Land"/>
+    <owl:disjointWith rdf:resource="#Hotelkette"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Gast"/>
+    <owl:disjointWith rdf:resource="#Buchung"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     ></rdfs:comment>
   </owl:Class>
+  <owl:ObjectProperty rdf:ID="eventType">
+    <rdfs:domain rdf:resource="#Veranstaltung"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="findetStattIn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdfs:range rdf:resource="#Ort"/>

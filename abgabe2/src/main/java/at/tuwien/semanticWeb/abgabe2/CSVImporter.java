@@ -554,11 +554,11 @@ public class CSVImporter {
 	 */
 	private boolean existsEventTeilnahme(String person, String event, String date) {
 		String splitted[] = person.split("\\s+", 2);
-		String query = "ASK {?event :name \"" + event + "\" ;" +
+		String query = "ASK { {?event :name \"" + event + "\" ;" +
 		" :datum \"" + date + "\" ;" +
-		" :wirdBesuchtVon ?gast ." +
-		" ?gast :vorname \"" + splitted[0] + "\" ;" +
-		" :nachname \"" + splitted[1] + "\"}";
+		" :wirdBesuchtVon ?gast .} " +
+		" { ?gast :vorname \"" + splitted[0] + "\" ;" +
+		" :nachname \"" + splitted[1] + "\"}}";
 
 		try {
 			return HotelManager.getHotelManager().askQuery(query);
