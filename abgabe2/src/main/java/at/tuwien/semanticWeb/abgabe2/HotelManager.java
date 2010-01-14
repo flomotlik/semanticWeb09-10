@@ -463,6 +463,24 @@ public class HotelManager {
 	
 	public void fifth() {
 		String param = askParameter("<HotelName>");
+		
+		// Get Gaeste and Datums from Buchungen for specific hotel
+		String query = "SELECT ?name ?von ?bis " +
+				" WHERE {?buchung :durchgefuehrtVon ?gast ;" +
+				" :von ?von ;" +
+				" :bis ?bis ;" +
+				" :gehoertZu ?hotel ." +
+				" ?hotel :name \"" + param +"\" ." +
+				" ?gast :name ?name}";
+		
+		printSelectQuery(query);
+		
+		// Get indirect friends
+		
+		// Date of frst Buchung
+		
+		
+		
 		waitForUser();
 	}
 
@@ -663,7 +681,7 @@ public class HotelManager {
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
 		c.add(Calendar.DATE, -1);
-		System.out.println(c.getTime().toString());
+		//System.out.println(c.getTime().toString());
 		return c.getTime();
 	}
 	
@@ -671,7 +689,7 @@ public class HotelManager {
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
 		c.add(Calendar.DATE, 1);
-		System.out.println(c.getTime().toString());
+		//System.out.println(c.getTime().toString());
 		return c.getTime();
 	}
 }
