@@ -4,8 +4,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
@@ -70,10 +72,9 @@ public class HotelManager {
 		// hotel.owl laden
 		Model model = FileManager.get().loadModel("hotel.owl");
 		// wir brauchen eine erweiterte Inferenz Engine, damit (unter anderem) auch funktional inverse properties aufgel�st werden
-		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
-		ontModel.add(model);
-		model = FileManager.get().loadModel("events.owl");
-		ontModel.add(model);
+		Model eventModel = FileManager.get().loadModel("events.owl");
+		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF); //OWL_MEM_RULE_INF);
+		ontModel.add(model.union(eventModel));
 
 		reloadOwls();
 		// Aequivalenzen definieren:
@@ -103,8 +104,14 @@ public class HotelManager {
 		
 		ontModel.setNsPrefix("dct", "http://purl.org/dc/terms/");
 		model = FileManager.get().loadModel("interests.owl");
-		ontModel.add(model);
-		dcSubject = ontModel. getProperty("http://purl.org/dc/terms/subject");
+		
+		Model tmp = ontModel.union(model);
+		ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM); //OWL_MEM_RULE_INF);
+		ontModel.add(tmp);
+
+//		Property p = ontModel.createProperty(HotelNS.prefix, "eventType");
+		dcSubject = ontModel.getProperty("http://purl.org/dc/terms/subject");
+		dcSubject = ontModel.getProperty(HotelNS.prefix, "eventType");
 		
 	}
 	
@@ -368,17 +375,13 @@ public class HotelManager {
 		}
 		waitForUser();
 	}
-	
-	public void fourth() throws Exception {
-		String param = askParameter("<GastVorname>");
-		String param2 = askParameter("<GastNachname>");
-		
-		// Search for Gast and his email
+	private String getEmail(String v, String n) {
 		String query = "SELECT ?x " +
-				"WHERE { ?gast :vorname  \"" + param + "\" ;" +
-				" :nachname \"" + param2 + "\" ;" + 
-				" :email ?x ." +
-				" ?gast rdf:type :Gast}";
+			"WHERE { ?gast :vorname  \"" + v + "\" ;" +
+			" :nachname \"" + n + "\" ;" + 
+			" :email ?x ." +
+			" ?gast rdf:type :Gast}";
+		
 		printSelectQuery(query);
 		ResultSet results = null;
 		try {
@@ -387,14 +390,39 @@ public class HotelManager {
 			System.out.println("Es ist ein Problem beim Suchen des Gastes entstanden.");
 			e.printStackTrace();
 		}
-		
-		if(results.hasNext()) {
+		if((results != null )&& (results.hasNext())) {
 			// Extract email from ResultSet as string
 			QuerySolution qs = results.next();
 	    	RDFNode rdfNode = qs.get("x");
 	    	Literal l = (Literal)rdfNode.as(Literal.class);
-	    	
-	    	ResultSet friendsResultSet = getFriendsResultSet(foafPrefix + l.getString());
+	    	return l.getString();
+		}
+		return null;
+
+	}
+	
+	private void loadDirectFriends(String email) throws Exception{
+		// Extract email from ResultSet as string
+    	ResultSet friendsResultSet = getFriendsResultSet(foafPrefix + email);
+
+    	directFriends = new Hashtable<String, String>();
+		while(friendsResultSet.hasNext()){
+			QuerySolution queryS = friendsResultSet.next();
+			RDFNode link = queryS.get("link");
+			String name = ((Literal)queryS.get("name")).getString();
+			directFriends.put(name, name);			 
+		}
+	}
+	public void fourth() throws Exception {
+		String param = askParameter("<GastVorname>");
+		String param2 = askParameter("<GastNachname>");
+		
+		// Search for Gast and his email
+		String email = getEmail(param, param2);
+		
+		if(email != null) {
+			// Extract email from ResultSet as string
+	    	ResultSet friendsResultSet = getFriendsResultSet(foafPrefix + email);
 			//System.out.println("Freunde:");
 			directFriends = new Hashtable<String, String>();
 			indirectFriends = new Hashtable<String, String>();
@@ -444,9 +472,6 @@ public class HotelManager {
         return queryFoaf(query);
 	}
 	
-	public void printFriends(String url){
-	    
-	}
 	
 	public void fifth() {
 		String param = askParameter("<HotelName>");
@@ -461,18 +486,43 @@ public class HotelManager {
 		String param = askParameter("<GastVorname>");
 		String param2 = askParameter("<GastNachname>");
 		
-		String queryString = 
-			" PREFIX dct:<http://purl.org/dc/terms/> SELECT DISTINCT ?interest" +
-			" WHERE { ?p a :Gast . " +
-			"         ?p :vorname  \"" + param +"\" . " +
-			"         ?p :nachname  \"" + param2 +"\" . " +
-			"         ?p :nimmtTeilAn ?v . " + 
-			"         ?v  dct:subject ?interest} ";
+		Set<Individual> interests = new HashSet<Individual>();
+		// interessen vom Gast selber:
+		addInterests(param, param2, interests);
 		
-		ResultSet results = query(queryString);
-		ResultSetFormatter.out(System.out, results);
+		String email = getEmail(param, param2);
+		if (email != null) {
+			loadDirectFriends(email);
+		}
+		for (String name : directFriends.keySet() ) {
+			String[] vn = name.split("\\s");
+			// und die seiner freunde:
+			addInterests(vn[0], vn[1], interests);
+		}
+		
+		// ausgeben;
+		for (Individual ind : interests) {
+			System.out.println(ind.toString());
+		}
 		
 		waitForUser();
+	}
+	private void addInterests(String v, String n,  Set<Individual> interests) throws Exception{
+		String queryString = 
+			" PREFIX dct:<http://purl.org/dc/terms/> SELECT DISTINCT ?interest " +
+			" WHERE " +
+			        " { ?g a :Gast . " +
+			        "   ?g :vorname  \"" + v +"\" . " +
+			        "   ?g :nachname  \"" + n +"\" . " +
+			        "   ?g :nimmtTeilAn ?v . " + 
+			        "   ?v :name ?vname . " +
+         			"   ?v :eventType ?interest} ";
+			          
+		ResultSet results = query(queryString);
+		while ((results != null) && (results.hasNext())) {
+			QuerySolution qs = results.next();
+			interests.add((Individual)qs.get("interest").as(Individual.class));			
+		}
 	}
 	
 	public void seventh() {
