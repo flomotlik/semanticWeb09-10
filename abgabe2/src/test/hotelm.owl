@@ -16,14 +16,14 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#isLocatedIn"/>
-    <rdfs:domain rdf:nodeID="A0"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#isLocatedIn"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:range rdf:nodeID="A1"/>
-    <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:nodeID="A0"/>
+    <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
@@ -37,8 +37,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#double">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#unsignedByte">
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
@@ -64,34 +64,21 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Demonstration"/>
-    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:datum>19.12.2009</j.2:datum>
-    <j.2:name>TU-brennt</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#nimmtTeilAn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#wirdBesuchtVon"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#nimmtTeilAn"/>
-    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:range rdf:nodeID="A1"/>
     <rdfs:range rdf:nodeID="A0"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A3">
-    <j.2:istTeilVon rdf:nodeID="A4"/>
-    <j.2:niedergelassenIn rdf:nodeID="A5"/>
-    <j.2:name>Queen Hotel</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
@@ -143,7 +130,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photografie</j.3:category>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photo-Ausstellung</j.2:name>
     <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -152,6 +138,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tanz</j.3:category>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kabarett</j.3:category>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
@@ -159,7 +146,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">German Open 2010</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
-    <rdf:type rdf:nodeID="A1"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
@@ -198,8 +185,8 @@
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Kabarett">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Kleinkunst"/>
@@ -263,13 +250,13 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30">
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
@@ -278,10 +265,10 @@
     <j.3:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.4625</j.3:latitude>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mailand</j.3:name>
     <j.3:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.186389</j.3:longitude>
-    <j.2:istIn rdf:nodeID="A6"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <j.3:hosts rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
@@ -294,6 +281,7 @@
     <j.2:zeitzone rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GMT+1</j.2:zeitzone>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
+    <j.2:istIn rdf:nodeID="A2"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <j.2:zeitzone>Europe/Rome</j.2:zeitzone>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
@@ -311,9 +299,8 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <j.3:isLocatedIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
-    <rdf:type rdf:nodeID="A1"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
@@ -332,8 +319,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#hat">
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -355,23 +342,23 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hostet"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#findetStattIn"/>
-    <rdfs:range rdf:nodeID="A0"/>
-    <rdfs:domain rdf:nodeID="A0"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#findetStattIn"/>
-    <rdfs:range rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
-    <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
+    <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#takesPlaceAt"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#takesPlaceAt"/>
   </rdf:Description>
@@ -409,8 +396,8 @@
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
@@ -443,17 +430,10 @@
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A7">
-    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Demonstration"/>
-    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:datum>23.01.1993</j.2:datum>
-    <j.2:name>Lichtermeer</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gMonthDay">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
     <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -461,16 +441,8 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A5">
-    <j.2:zeitzone>Europe/London</j.2:zeitzone>
-    <j.2:laengenGrad>-0.125532746315002</j.2:laengenGrad>
-    <j.2:breitengrad>51.5084152563931</j.2:breitengrad>
-    <j.2:istIn rdf:nodeID="A8"/>
-    <j.2:name>London</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
@@ -479,7 +451,7 @@
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synchronschwimmmeisterschaften</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
-    <rdf:type rdf:nodeID="A0"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zauberfloete</j.3:name>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
@@ -488,6 +460,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zauberfloete</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
+    <rdf:type rdf:nodeID="A0"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oper</j.3:category>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sychronschwimmen</j.3:category>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
@@ -504,7 +477,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synchronschwimmmeisterschaften</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
@@ -539,8 +511,8 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
@@ -551,6 +523,7 @@
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italien</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
@@ -561,7 +534,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
@@ -572,7 +544,6 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#eventType">
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -581,6 +552,7 @@
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#eventType"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
@@ -620,9 +592,9 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
-    <j.2:nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bonney</j.2:nachname>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
+    <j.2:nachname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bonney</j.2:nachname>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -651,6 +623,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
@@ -660,9 +633,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.2:laengenGrad rdf:datatype="http://www.w3.org/2001/XMLSchema#float">16.373064</j.2:laengenGrad>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <j.3:hosts rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
@@ -670,7 +641,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
-    <j.2:istIn rdf:nodeID="A9"/>
     <j.2:laengenGrad>16.3720750808716</j.2:laengenGrad>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wien</j.2:name>
@@ -688,6 +658,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wien</j.3:name>
+    <j.2:istIn rdf:nodeID="A3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <j.2:breitengrad>48.2084877601653</j.2:breitengrad>
@@ -702,23 +673,24 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <j.3:isLocatedIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
+    <rdf:type rdf:nodeID="A0"/>
     <j.3:hosts rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <j.3:timezone rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GMT+1</j.3:timezone>
-    <j.2:zeitzone rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GMT+1</j.2:zeitzone>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
+    <j.2:zeitzone rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GMT+1</j.2:zeitzone>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <j.2:niedergelassenIn rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
@@ -733,7 +705,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hilton Bregenz</j.2:name>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hilton Bregenz</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
@@ -756,12 +727,11 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
+    <rdf:type rdf:nodeID="A1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#timezone">
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#timezone"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#zeitzone"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -770,10 +740,12 @@
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#timezone"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#zeitzone"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#nachname">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -811,11 +783,10 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <j.2:breitengrad>47.3166667</j.2:breitengrad>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdf:type rdf:nodeID="A1"/>
+    <j.2:istIn rdf:nodeID="A4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
@@ -833,12 +804,12 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <j.2:laengenGrad>13.15</j.2:laengenGrad>
+    <rdf:type rdf:nodeID="A0"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Schwarzach</j.3:name>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
-    <j.2:istIn rdf:nodeID="A10"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
@@ -848,14 +819,13 @@
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#laengenGrad">
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#longitude"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#longitude"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laengenGrad"/>
@@ -866,14 +836,9 @@
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laengenGrad"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A11">
-    <j.2:gehoertZu rdf:nodeID="A12"/>
-    <j.2:durchgefuehrtVon rdf:nodeID="A13"/>
-    <j.2:bis>04.03.2009</j.2:bis>
-    <j.2:von>02.03.2008</j.2:von>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17">
     <j.2:laengenGrad>11.5754914283752</j.2:laengenGrad>
@@ -884,8 +849,8 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <j.2:zeitzone rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GMT+1</j.2:zeitzone>
@@ -893,6 +858,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
+    <rdf:type rdf:nodeID="A1"/>
     <j.3:isLocatedIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
@@ -904,13 +870,11 @@
     <j.2:breitengrad>48.1374325498109</j.2:breitengrad>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <j.2:laengenGrad rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.566667</j.2:laengenGrad>
-    <j.2:istIn rdf:nodeID="A14"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
@@ -923,9 +887,10 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <j.2:breitengrad rdf:datatype="http://www.w3.org/2001/XMLSchema#float">48.13333</j.2:breitengrad>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
-    <j.3:hosts rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
+    <j.2:istIn rdf:nodeID="A5"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
+    <j.3:hosts rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <j.2:zeitzone>Europe/Berlin</j.2:zeitzone>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
@@ -935,22 +900,12 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A1">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:subClassOf rdf:nodeID="A1"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <owl:unionOf rdf:nodeID="A15"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <owl:equivalentClass rdf:nodeID="A1"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#unsignedInt">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -976,13 +931,13 @@
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#countryCode"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#countryCode"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laenderCode"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laenderCode"/>
     <rdfs:domain rdf:nodeID="A0"/>
@@ -1002,8 +957,10 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.3:name>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
+    <j.2:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.2:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
@@ -1025,15 +982,15 @@
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball Weltmeisterschaften 2010</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
-    <rdf:type rdf:nodeID="A1"/>
+    <j.3:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.3:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.2:name>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball Weltmeisterschaften 2010</j.3:name>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malerei</j.3:category>
@@ -1066,8 +1023,8 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
@@ -1079,8 +1036,8 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
@@ -1104,11 +1061,11 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
+    <rdf:type rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <j.2:hat rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
@@ -1127,7 +1084,6 @@
     <j.2:niedergelassenIn rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
@@ -1139,6 +1095,7 @@
     <j.2:hat rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
@@ -1152,24 +1109,28 @@
     <owl:equivalentClass rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A16">
-    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:datum>03.01.2010</j.2:datum>
-    <j.2:name>Oper</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#intersectionOf">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#intersectionOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyURI">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A0">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <owl:unionOf rdf:nodeID="A6"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <owl:equivalentClass rdf:nodeID="A0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#versionInfo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
@@ -1193,7 +1154,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <j.2:laenderCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DE</j.2:laenderCode>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
@@ -1216,6 +1176,8 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
+    <rdf:type rdf:nodeID="A0"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
@@ -1228,33 +1190,24 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_63"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A17">
-    <j.2:gehoertZu rdf:nodeID="A12"/>
-    <j.2:durchgefuehrtVon rdf:nodeID="A13"/>
-    <j.2:bis>04.01.2007</j.2:bis>
-    <j.2:von>01.01.2007</j.2:von>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#sameAs">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
@@ -1266,7 +1219,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
-    <rdf:type rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
@@ -1278,9 +1230,11 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <j.3:contains rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
@@ -1316,8 +1270,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#positiveInteger">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Kultur">
     <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
@@ -1340,19 +1294,19 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#latitude">
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#latitude"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#breitengrad"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#latitude"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#breitengrad"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
   </rdf:Description>
@@ -1389,13 +1343,7 @@
     <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A18">
-    <rdf:rest rdf:nodeID="A19"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Klettern">
@@ -1449,17 +1397,17 @@
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subClassOf rdf:nodeID="A1"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
-    <rdfs:subClassOf rdf:nodeID="A1"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -1521,6 +1469,8 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
+    <j.2:istIn rdf:nodeID="A7"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
@@ -1533,9 +1483,7 @@
     <j.2:laengenGrad>12.3921489715576</j.2:laengenGrad>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
-    <j.2:istIn rdf:nodeID="A20"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
@@ -1553,7 +1501,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
-    <rdf:type rdf:nodeID="A1"/>
     <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
@@ -1562,15 +1509,9 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kitzbuehel</j.3:name>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A21">
-    <j.2:nimmtTeilAn rdf:nodeID="A22"/>
-    <j.2:email>paul.schubert@example.at</j.2:email>
-    <j.2:nachname>Schubert</j.2:nachname>
-    <j.2:vorname>Paul</j.2:vorname>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Funsport">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
@@ -1586,14 +1527,20 @@
     <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <rdf:rest rdf:nodeID="A9"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#incompatibleWith">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#incompatibleWith"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
@@ -1609,7 +1556,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photo-Ausstellung</j.2:name>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
@@ -1628,6 +1574,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photo-Ausstellung</j.3:name>
+    <rdf:type rdf:nodeID="A1"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photografie</j.3:category>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
@@ -1636,23 +1583,24 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
-    <rdf:type rdf:nodeID="A1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A23">
-    <j.2:gehoertZu rdf:nodeID="A12"/>
-    <j.2:durchgefuehrtVon rdf:nodeID="A13"/>
-    <j.2:bis>01.02.2010</j.2:bis>
-    <j.2:von>01.01.2010</j.2:von>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+  <rdf:Description rdf:nodeID="A10">
+    <j.2:zeitzone>Europe/London</j.2:zeitzone>
+    <j.2:laengenGrad>-0.125532746315002</j.2:laengenGrad>
+    <j.2:breitengrad>51.5084152563931</j.2:breitengrad>
+    <j.2:istIn rdf:nodeID="A11"/>
+    <j.2:name>London</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Theater">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
@@ -1704,8 +1652,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#longitude">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -1713,12 +1661,12 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laengenGrad"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laengenGrad"/>
-    <rdfs:domain rdf:nodeID="A0"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#longitude"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
@@ -1730,16 +1678,16 @@
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#nimmtTeilAn"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#wirdBesuchtVon"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
-    <rdfs:domain rdf:nodeID="A0"/>
+    <rdfs:domain rdf:nodeID="A1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#fuehrtDurch">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -1757,8 +1705,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string">
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
@@ -1787,15 +1735,6 @@
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A13">
-    <j.2:nimmtTeilAn rdf:nodeID="A24"/>
-    <j.2:nimmtTeilAn rdf:nodeID="A16"/>
-    <j.2:nimmtTeilAn rdf:nodeID="A25"/>
-    <j.2:email>max.mustermann@email.at</j.2:email>
-    <j.2:nachname>Muster</j.2:nachname>
-    <j.2:vorname>Max</j.2:vorname>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Schauspiel">
     <j.0:altLabel>Schauspielen</j.0:altLabel>
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Theater"/>
@@ -1803,16 +1742,11 @@
     <j.0:prefLabel>Schauspiel</j.0:prefLabel>
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A19">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#niedergelassenIn">
-    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#niedergelassenIn"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -1823,14 +1757,19 @@
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:range rdf:nodeID="A1"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <rdf:rest rdf:nodeID="A12"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Container"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Ballsport">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
@@ -1838,12 +1777,11 @@
     <j.0:prefLabel>Ballsport</j.0:prefLabel>
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A26">
-    <j.2:gehoertZu rdf:nodeID="A12"/>
-    <j.2:durchgefuehrtVon rdf:nodeID="A13"/>
-    <j.2:bis>01.02.2009</j.2:bis>
-    <j.2:von>01.01.2009</j.2:von>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+  <rdf:Description rdf:nodeID="A13">
+    <j.2:istTeilVon rdf:nodeID="A14"/>
+    <j.2:niedergelassenIn rdf:nodeID="A15"/>
+    <j.2:name>Hotel Eiffel</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Ontology">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -1860,8 +1798,8 @@
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subClassOf rdf:nodeID="A1"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
@@ -1870,7 +1808,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
@@ -1883,11 +1820,11 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hilton Schladming</j.3:name>
-    <rdf:type rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
@@ -1902,6 +1839,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
@@ -1920,64 +1858,40 @@
     <j.0:prefLabel>Extremsport</j.0:prefLabel>
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A27">
-    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wahlparty"/>
-    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:datum>07.06.2009</j.2:datum>
-    <j.2:name>Wahlfest die Gruenen</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A24">
-    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
-    <j.2:findetStattIn rdf:nodeID="A28"/>
-    <j.2:datum>20.06.2008</j.2:datum>
-    <j.2:name>Tennistunier</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
     <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#subPropertyOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#oneOf">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#oneOf"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A29">
-    <rdf:rest rdf:nodeID="A30"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Container"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country">
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdfs:subClassOf rdf:nodeID="A1"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A31">
-    <j.2:name>Austrian Comfort Hotels</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#InverseFunctionalProperty">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -1985,34 +1899,27 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#hatGebiete">
-    <rdfs:range rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hatGebiete"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hatGebiete"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hatGebiete"/>
+    <rdfs:range rdf:nodeID="A1"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#istIn"/>
-    <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#contains"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#contains"/>
-    <rdfs:domain rdf:nodeID="A0"/>
-    <rdfs:range rdf:nodeID="A1"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A25">
-    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wintersport"/>
-    <j.2:findetStattIn rdf:nodeID="A28"/>
-    <j.2:datum>01.01.2010</j.2:datum>
-    <j.2:name>Ski_jumping</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
+    <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -2023,8 +1930,16 @@
     <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <j.2:gehoertZu rdf:nodeID="A17"/>
+    <j.2:durchgefuehrtVon rdf:nodeID="A18"/>
+    <j.2:bis>04.01.2007</j.2:bis>
+    <j.2:von>01.01.2007</j.2:von>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26">
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
+    <j.2:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.2:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
@@ -2034,6 +1949,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
+    <j.3:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.3:datum>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball Weltmeisterschaften 2010</j.3:name>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Film</j.3:category>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
@@ -2041,6 +1957,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
+    <rdf:type rdf:nodeID="A0"/>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
@@ -2051,6 +1968,7 @@
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impressionismus Ausstellung</j.3:name>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.2:name>
@@ -2062,12 +1980,10 @@
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impressionismus Ausstellung</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musik</j.3:category>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
@@ -2075,45 +1991,39 @@
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wall-E</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A22">
-    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wohltaetigkeitsball"/>
-    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:datum>12.02.2010</j.2:datum>
-    <j.2:name>Fluechtlingsball</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#priorVersion">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#priorVersion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#enthaelt">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:range rdf:nodeID="A0"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#niedergelassenIn"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#enthaelt"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A30">
-    <rdf:rest rdf:nodeID="A18"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  <rdf:Description rdf:nodeID="A19">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Oper"/>
+    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:datum>03.01.2010</j.2:datum>
+    <j.2:name>Oper</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
@@ -2142,11 +2052,14 @@
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#byte"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A4">
-    <j.2:name>Best Hotels</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:rest rdf:nodeID="A8"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66">
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
@@ -2156,15 +2069,14 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
-    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <rdf:type rdf:nodeID="A1"/>
+    <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.2:bestehtAus rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
@@ -2225,12 +2137,10 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_16"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.2:bestehtAus rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
@@ -2239,21 +2149,22 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
+    <rdf:type rdf:nodeID="A0"/>
+    <rdf:type rdf:nodeID="A1"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hilton Group</j.3:name>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A32">
-    <j.2:gehoertZu rdf:nodeID="A12"/>
-    <j.2:durchgefuehrtVon rdf:nodeID="A33"/>
-    <j.2:bis>04.03.2009</j.2:bis>
-    <j.2:von>02.03.2008</j.2:von>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+  <rdf:Description rdf:nodeID="A20">
+    <j.2:istTeilVon rdf:nodeID="A14"/>
+    <j.2:niedergelassenIn rdf:nodeID="A10"/>
+    <j.2:name>Queen Hotel</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Bregenz">
+    <j.2:istIn rdf:nodeID="A21"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bregenz</j.2:name>
     <j.2:laengenGrad>9.74710464477539</j.2:laengenGrad>
@@ -2269,21 +2180,21 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_29"/>
     <j.2:enthaelt rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
-    <j.2:istIn rdf:nodeID="A34"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <j.2:breitengrad>47.5031127355309</j.2:breitengrad>
     <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
+    <rdf:type rdf:nodeID="A1"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bregenz</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
@@ -2301,13 +2212,16 @@
     <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.3:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
+    <j.3:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.3:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
+    <j.2:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.2:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Film</j.3:category>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malerei</j.3:category>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -2320,6 +2234,7 @@
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wall-E</j.2:name>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball</j.3:category>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball Weltmeisterschaften 2010</j.2:name>
@@ -2343,9 +2258,17 @@
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musik</j.3:category>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
-    <rdf:type rdf:nodeID="A1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subClassOf rdf:nodeID="A1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <owl:unionOf rdf:nodeID="A22"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <owl:equivalentClass rdf:nodeID="A1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Politik">
     <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
@@ -2355,8 +2278,8 @@
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#datum">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#datum"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#datum"/>
@@ -2426,8 +2349,8 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#backwardCompatibleWith"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -2445,45 +2368,37 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A35">
-    <rdf:rest rdf:nodeID="A36"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  <rdf:Description rdf:nodeID="A23">
+    <j.2:gehoertZu rdf:nodeID="A17"/>
+    <j.2:durchgefuehrtVon rdf:nodeID="A18"/>
+    <j.2:bis>01.02.2010</j.2:bis>
+    <j.2:von>01.01.2010</j.2:von>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#isLocatedIn">
-    <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
     <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#istIn"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#isLocatedIn"/>
-    <rdfs:range rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#istIn"/>
-    <rdfs:range rdf:nodeID="A1"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#isLocatedIn"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#contains"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Tanz">
-    <j.0:altLabel>Tanzen</j.0:altLabel>
-    <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
-    <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
-    <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
-    <j.0:prefLabel>Tanz</j.0:prefLabel>
-    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20">
-    <rdf:type rdf:nodeID="A1"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball Weltmeisterschaften 2010</j.3:name>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
@@ -2497,6 +2412,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impressionismus Ausstellung</j.3:name>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Film</j.3:category>
+    <j.3:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.3:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wasserball</j.3:category>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.3:name>
@@ -2521,8 +2437,8 @@
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rammstein</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
+    <j.2:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</j.2:datum>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_27"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malerei</j.3:category>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wall-E</j.2:name>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -2530,14 +2446,24 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impressionismus Ausstellung</j.2:name>
+    <rdf:type rdf:nodeID="A1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Tanz">
+    <j.0:altLabel>Tanzen</j.0:altLabel>
+    <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+    <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
+    <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
+    <j.0:prefLabel>Tanz</j.0:prefLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#hexBinary">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Restriction">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -2547,6 +2473,13 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Demonstration"/>
+    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:datum>23.01.1993</j.2:datum>
+    <j.2:name>Lichtermeer</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -2564,25 +2497,25 @@
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#hosts">
-    <rdfs:range rdf:nodeID="A0"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:range rdf:nodeID="A1"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#hosts"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#takesPlaceAt"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:domain rdf:nodeID="A0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#time">
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
@@ -2619,12 +2552,11 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_26"/>
     <j.2:hostet rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
+    <rdf:type rdf:nodeID="A0"/>
     <j.2:breitengrad>47.3928876535517</j.2:breitengrad>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_20"/>
-    <rdf:type rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <j.2:istIn rdf:nodeID="A37"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
@@ -2633,12 +2565,14 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
+    <j.2:istIn rdf:nodeID="A25"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <j.3:hosts rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_53"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
@@ -2649,7 +2583,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
@@ -2659,21 +2592,13 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYearMonth">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#comment">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A28">
-    <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
-    <j.2:laengenGrad>11.3945388793945</j.2:laengenGrad>
-    <j.2:breitengrad>47.2626600380713</j.2:breitengrad>
-    <j.2:istIn rdf:nodeID="A38"/>
-    <j.2:name>Innsbruck</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#vorname">
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
@@ -2689,14 +2614,14 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#equivalentProperty">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#equivalentProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -2728,8 +2653,8 @@
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#laenderCode">
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#countryCode"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laenderCode"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#countryCode"/>
@@ -2738,10 +2663,21 @@
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#laenderCode"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A26">
+    <j.2:gehoertZu rdf:nodeID="A17"/>
+    <j.2:durchgefuehrtVon rdf:nodeID="A27"/>
+    <j.2:bis>04.03.2009</j.2:bis>
+    <j.2:von>02.03.2008</j.2:von>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <j.2:name>Best Hotels</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Medienkunst">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst"/>
@@ -2754,11 +2690,13 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A36">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  <rdf:Description rdf:nodeID="A15">
+    <j.2:zeitzone>Europe/Paris</j.2:zeitzone>
+    <j.2:laengenGrad>2.3488</j.2:laengenGrad>
+    <j.2:breitengrad>48.85341</j.2:breitengrad>
+    <j.2:istIn rdf:nodeID="A28"/>
+    <j.2:name>Paris</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#gehoertZu">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -2769,27 +2707,34 @@
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#gehoertZu"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#name">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#name"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#name"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#name"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#name"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:nodeID="A1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A29">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Demonstration"/>
+    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:datum>19.12.2009</j.2:datum>
+    <j.2:name>TU-brennt</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
@@ -2797,8 +2742,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#TransitiveProperty">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#int">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -2817,11 +2762,15 @@
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A39">
-    <j.2:istTeilVon rdf:nodeID="A31"/>
-    <j.2:niedergelassenIn rdf:nodeID="A40"/>
-    <j.2:name>Salzburg Park Hotel</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
+  <rdf:Description rdf:nodeID="A30">
+    <j.2:name>Austrian Comfort Hotels</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:rest rdf:nodeID="A31"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#durchgefuehrtVon">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -2837,17 +2786,23 @@
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#fuehrtDurch"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A41">
-    <j.2:nimmtTeilAn rdf:nodeID="A2"/>
-    <j.2:email>mick.fuchenswald@mick.com</j.2:email>
-    <j.2:nachname>Fuchsenwald</j.2:nachname>
-    <j.2:vorname>Mick</j.2:vorname>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Soziales">
     <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
     <j.0:prefLabel>Soziales</j.0:prefLabel>
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A32">
+    <j.2:gehoertZu rdf:nodeID="A17"/>
+    <j.2:durchgefuehrtVon rdf:nodeID="A18"/>
+    <j.2:bis>04.03.2009</j.2:bis>
+    <j.2:von>02.03.2008</j.2:von>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A33">
+    <j.2:istTeilVon rdf:nodeID="A14"/>
+    <j.2:niedergelassenIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:name>Hotel Mozart</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Bildhauerei">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Bildende_Kunst"/>
@@ -2861,14 +2816,15 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A33">
-    <j.2:email>sabine69@email.at</j.2:email>
-    <j.2:nachname>SchÃ¤fer</j.2:nachname>
-    <j.2:vorname>Sabine</j.2:vorname>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
+  <rdf:Description rdf:nodeID="A34">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wohltaetigkeitsball"/>
+    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:datum>12.02.2010</j.2:datum>
+    <j.2:name>Fluechtlingsball</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Ort">
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
@@ -2913,10 +2869,19 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A42">
-    <j.2:istTeilVon rdf:nodeID="A4"/>
-    <j.2:niedergelassenIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:name>Hotel Mozart</j.2:name>
+  <rdf:Description rdf:nodeID="A18">
+    <j.2:nimmtTeilAn rdf:nodeID="A35"/>
+    <j.2:nimmtTeilAn rdf:nodeID="A19"/>
+    <j.2:nimmtTeilAn rdf:nodeID="A36"/>
+    <j.2:email>max.mustermann@email.at</j.2:email>
+    <j.2:nachname>Muster</j.2:nachname>
+    <j.2:vorname>Max</j.2:vorname>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A37">
+    <j.2:istTeilVon rdf:nodeID="A30"/>
+    <j.2:niedergelassenIn rdf:nodeID="A38"/>
+    <j.2:name>Kaiserhof</j.2:name>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23">
@@ -2933,8 +2898,6 @@
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photo-Ausstellung</j.3:name>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tanz</j.3:category>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">German Open 2010</j.3:name>
-    <rdf:type rdf:nodeID="A1"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_28"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
@@ -2943,6 +2906,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kabarett</j.3:category>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_24"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Photo-Ausstellung</j.2:name>
@@ -2954,6 +2918,7 @@
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michael Mittermayer - Zapped</j.2:name>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
@@ -2967,17 +2932,22 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A31">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Event_57">
     <owl:sameAs rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eisstockschiessen</j.3:name>
-    <rdf:type rdf:nodeID="A0"/>
     <j.3:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009-12-16</j.3:datum>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
+    <rdf:type rdf:nodeID="A1"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eisstockschiessen</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
@@ -2998,6 +2968,7 @@
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_64"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_it"/>
@@ -3014,50 +2985,47 @@
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#datum"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#datum"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-    <rdfs:domain rdf:nodeID="A0"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#datum"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A0">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <owl:unionOf rdf:nodeID="A43"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <owl:equivalentClass rdf:nodeID="A0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#bestehtAus">
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#bestehtAus"/>
-    <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#istTeilVon"/>
     <rdfs:domain rdf:nodeID="A0"/>
+    <rdfs:range rdf:nodeID="A0"/>
+    <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#istTeilVon"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
-    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A39">
+    <j.2:gehoertZu rdf:nodeID="A17"/>
+    <j.2:durchgefuehrtVon rdf:nodeID="A18"/>
+    <j.2:bis>01.02.2009</j.2:bis>
+    <j.2:von>01.01.2009</j.2:von>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wahlparty">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Politik"/>
@@ -3072,8 +3040,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#base64Binary">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -3105,10 +3073,10 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_55"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
+    <rdf:type rdf:nodeID="A0"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
-    <rdf:type rdf:nodeID="A1"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -3141,17 +3109,16 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#hostet">
-    <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#findetStattIn"/>
-    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:range rdf:nodeID="A1"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hostet"/>
@@ -3160,12 +3127,14 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:nodeID="A1"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A12">
-    <j.2:istTeilVon rdf:nodeID="A31"/>
-    <j.2:niedergelassenIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
-    <j.2:name>Vienna City Hotel</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
+  <rdf:Description rdf:nodeID="A40">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wahlparty"/>
+    <j.2:findetStattIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:datum>07.06.2009</j.2:datum>
+    <j.2:name>Wahlfest die Gruenen</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#name">
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -3175,11 +3144,11 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#name"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#name"/>
     <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#name"/>
   </rdf:Description>
@@ -3187,6 +3156,7 @@
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -3196,7 +3166,6 @@
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Gast_62">
@@ -3244,12 +3213,13 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Land">
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
-    <rdfs:subClassOf rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A1"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
@@ -3257,23 +3227,8 @@
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:disjointWith rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A44">
-    <j.2:istTeilVon rdf:nodeID="A31"/>
-    <j.2:niedergelassenIn rdf:nodeID="A28"/>
-    <j.2:name>Kaiserhof</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A45">
-    <j.2:zeitzone>Europe/Paris</j.2:zeitzone>
-    <j.2:laengenGrad>2.3488</j.2:laengenGrad>
-    <j.2:breitengrad>48.85341</j.2:breitengrad>
-    <j.2:istIn rdf:nodeID="A46"/>
-    <j.2:name>Paris</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
@@ -3298,6 +3253,13 @@
     <j.0:prefLabel>Wasserball</j.0:prefLabel>
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A41">
+    <j.2:nimmtTeilAn rdf:nodeID="A34"/>
+    <j.2:email>paul.schubert@example.at</j.2:email>
+    <j.2:nachname>Schubert</j.2:nachname>
+    <j.2:vorname>Paul</j.2:vorname>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#von">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#von"/>
@@ -3309,6 +3271,14 @@
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A38">
+    <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
+    <j.2:laengenGrad>11.3945388793945</j.2:laengenGrad>
+    <j.2:breitengrad>47.2626600380713</j.2:breitengrad>
+    <j.2:istIn rdf:nodeID="A42"/>
+    <j.2:name>Innsbruck</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
@@ -3339,20 +3309,20 @@
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#contains">
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Land"/>
-    <rdfs:range rdf:nodeID="A0"/>
+    <rdfs:range rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hatGebiete"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#contains"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#contains"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:range rdf:nodeID="A1"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#hatGebiete"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#isLocatedIn"/>
@@ -3363,7 +3333,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#istTeilVon">
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#bestehtAus"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -3376,6 +3345,7 @@
     <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:nodeID="A0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#nonPositiveInteger">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -3390,6 +3360,12 @@
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A43">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Handball">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Ballsport"/>
     <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
@@ -3401,11 +3377,11 @@
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#onProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Fotografie">
     <j.0:altLabel>Photografie</j.0:altLabel>
@@ -3430,6 +3406,13 @@
   <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Container">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A44">
+    <j.2:nimmtTeilAn rdf:nodeID="A29"/>
+    <j.2:email>mick.fuchenswald@mick.com</j.2:email>
+    <j.2:nachname>Fuchsenwald</j.2:nachname>
+    <j.2:vorname>Mick</j.2:vorname>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Event_57"/>
@@ -3479,13 +3462,19 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#object"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A45">
+    <j.2:istTeilVon rdf:nodeID="A30"/>
+    <j.2:niedergelassenIn rdf:nodeID="A46"/>
+    <j.2:name>Salzburg Park Hotel</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Container"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Kleinkunst">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Theater"/>
@@ -3495,27 +3484,27 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#takesPlaceAt">
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+    <rdfs:range rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:range rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
-    <rdfs:range rdf:nodeID="A0"/>
     <owl:inverseOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#hosts"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#findetStattIn"/>
-    <rdfs:range rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#takesPlaceAt"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:nodeID="A1"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#findetStattIn"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#takesPlaceAt"/>
+    <rdfs:range rdf:nodeID="A1"/>
+    <rdfs:domain rdf:nodeID="A1"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Filmkunst">
     <j.0:altLabel>Film</j.0:altLabel>
@@ -3538,8 +3527,8 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#zeitzone">
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
@@ -3550,8 +3539,8 @@
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#zeitzone"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="A1"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#timezone"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
@@ -3572,14 +3561,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#unionOf">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#unionOf"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A47">
-    <j.2:istTeilVon rdf:nodeID="A4"/>
-    <j.2:niedergelassenIn rdf:nodeID="A45"/>
-    <j.2:name>Hotel Eiffel</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Wintersport">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
@@ -3591,11 +3574,15 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gMonth">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#AnnotationProperty">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
@@ -3605,25 +3592,34 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#AnnotationProperty">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#differentFrom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <j.2:email>sabine69@email.at</j.2:email>
+    <j.2:nachname>SchÃ¤fer</j.2:nachname>
+    <j.2:vorname>Sabine</j.2:vorname>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Tennis">
     <j.0:broader rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Ballsport"/>
     <j.0:inScheme rdf:resource="http://www.big.tuwien.ac.at/semantic/event"/>
     <j.0:prefLabel>Tennis</j.0:prefLabel>
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A36">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Wintersport"/>
+    <j.2:findetStattIn rdf:nodeID="A38"/>
+    <j.2:datum>01.01.2010</j.2:datum>
+    <j.2:name>Ski_jumping</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Gast_58">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_23"/>
@@ -3667,51 +3663,45 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
   </rdf:Description>
+  <rdf:Description rdf:nodeID="A46">
+    <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
+    <j.2:laengenGrad>13.0439901351929</j.2:laengenGrad>
+    <j.2:breitengrad>47.7994056435064</j.2:breitengrad>
+    <j.2:istIn rdf:nodeID="A47"/>
+    <j.2:name>Salzburg</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gYear">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A43">
-    <rdf:rest rdf:nodeID="A29"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#breitengrad">
+    <rdfs:domain rdf:nodeID="A1"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
-    <rdfs:domain rdf:nodeID="A0"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#breitengrad"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#latitude"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:subPropertyOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#breitengrad"/>
+    <rdfs:domain rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:domain rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:equivalentProperty rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#latitude"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A40">
-    <j.2:zeitzone>Europe/Vienna</j.2:zeitzone>
-    <j.2:laengenGrad>13.0439901351929</j.2:laengenGrad>
-    <j.2:breitengrad>47.7994056435064</j.2:breitengrad>
-    <j.2:istIn rdf:nodeID="A48"/>
-    <j.2:name>Salzburg</j.2:name>
-    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Ort"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#event_32">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Kitzbuehel"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_66"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Bregenz"/>
+    <rdf:type rdf:nodeID="A0"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oper</j.3:category>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_58"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_17"/>
     <j.3:category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sychronschwimmen</j.3:category>
@@ -3729,7 +3719,6 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_at"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
-    <rdf:type rdf:nodeID="A0"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zauberfloete</j.2:name>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_4"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
@@ -3746,6 +3735,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synchronschwimmmeisterschaften</j.2:name>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#country_de"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Bouldern">
@@ -3756,12 +3746,18 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#inverseOf">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#inverseOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#negativeInteger">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <rdf:rest rdf:nodeID="A48"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/semantic/event#Darstellende_Kunst">
@@ -3818,16 +3814,16 @@
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A15">
-    <rdf:rest rdf:nodeID="A35"/>
-    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Place"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  <rdf:Description rdf:nodeID="A17">
+    <j.2:istTeilVon rdf:nodeID="A30"/>
+    <j.2:niedergelassenIn rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
+    <j.2:name>Vienna City Hotel</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#gDay">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Class">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -3837,6 +3833,13 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A35">
+    <j.2:eventType rdf:resource="http://www.big.tuwien.ac.at/semantic/event#Sport"/>
+    <j.2:findetStattIn rdf:nodeID="A38"/>
+    <j.2:datum>20.06.2008</j.2:datum>
+    <j.2:name>Tennistunier</j.2:name>
+    <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/hotel#Event_53">
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
@@ -3860,15 +3863,14 @@
     <j.3:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Curlingturnier</j.3:name>
     <j.2:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Curlingturnier</j.2:name>
     <j.3:datum rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009-12-07</j.3:datum>
-    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_60"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotelkette_56"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_2"/>
-    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_62"/>
     <j.3:takesPlaceAt rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schladming"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_67"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_61"/>
+    <rdf:type rdf:nodeID="A1"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_30"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#place_16"/>
     <rdf:type rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
@@ -3876,6 +3878,7 @@
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_51"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Buchung_54"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_3"/>
+    <rdf:type rdf:nodeID="A0"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Hotel_62"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Schwarzach"/>
     <owl:differentFrom rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Gast_1"/>
@@ -3887,20 +3890,20 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#imports"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/hotel#Veranstaltung"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdfs:subClassOf rdf:nodeID="A1"/>
     <rdfs:subClassOf rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <owl:equivalentClass rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Event"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-    <rdfs:subClassOf rdf:nodeID="A1"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#boolean">
@@ -3926,5 +3929,11 @@
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <owl:disjointWith rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A48">
+    <rdf:rest rdf:nodeID="A43"/>
+    <rdf:first rdf:resource="http://www.big.tuwien.ac.at/esw/u2/alien-events#Country"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdf:Description>
 </rdf:RDF>

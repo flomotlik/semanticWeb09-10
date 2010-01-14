@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -476,9 +477,18 @@ public class HotelManager {
 		
 		Set<Individual> interests = new HashSet<Individual>();
 		// interessen vom Gast selber:
-		addInterests(param, param2, interests);
+		getGastInterests(param, param2, interests);
+		// ausgeben;
+		for (Individual ind : interests) {
+			System.out.println(ind.toString());
+		}
 		
-		String email = getEmail(param, param2);
+		waitForUser();
+	}
+	private void getGastInterests(String v, String n, Set<Individual> interests) throws Exception {
+		addInterests(v, n, interests);
+		
+		String email = getEmail(v, n);
 		if (email != null) {
 			loadDirectFriends(email);
 		}
@@ -487,13 +497,6 @@ public class HotelManager {
 			// und die seiner freunde:
 			addInterests(vn[0], vn[1], interests);
 		}
-		
-		// ausgeben;
-		for (Individual ind : interests) {
-			System.out.println(ind.toString());
-		}
-		
-		waitForUser();
 	}
 	private void addInterests(String v, String n,  Set<Individual> interests) throws Exception{
 		String queryString = 
@@ -513,7 +516,7 @@ public class HotelManager {
 		}
 	}
 	
-	public void seventh() {
+	public void seventh() throws Exception {
 		// Read input
 		String param = askParameter("<GastVorname>");
 		String param2 = askParameter("<GastNachname>");
@@ -607,6 +610,33 @@ public class HotelManager {
 					e1.printStackTrace();
 				}
 			}
+			
+			// filtern der interessen
+			HashSet<Individual> interests = new HashSet<Individual>(); 
+			getGastInterests(param, param2, interests);
+			
+			HashMap<String, String> eventCategories = new HashMap<String, String>();
+			String qry = "SELECT DISTINCT ?vname ?int " +
+			             "WHERE {  ?event :eventType ?int ." +
+			             "         ?event :name ?vname }";
+			ResultSet result = query(qry);
+			
+			while ((result != null) && (result.hasNext())) {
+				QuerySolution qs = result.next();
+				String name = ((Literal)qs.get("vname").as(Literal.class)).getString();
+				String intName = ((Individual)qs.get("int").as(Individual.class)).toString();
+				
+				eventCategories.put(name, intName);
+			}
+			
+			System.out.println("Eventkalender für: " + param + " " + param2);
+			for (String event : eventCategories.keySet()) {
+				if (relevantVas.containsKey(event)) {
+					System.out.println(event  + " am " + relevantVas.get(event));
+				}
+			}
+				
+			
 		}
 		waitForUser();
 		
